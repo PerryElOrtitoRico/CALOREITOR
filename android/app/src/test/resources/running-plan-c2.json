@@ -1,0 +1,1105 @@
+{
+  "formato": "running-plan",
+  "version": 1,
+  "cicloId": 2,
+  "titulo": "10K · carrera 2027-01-26",
+  "zonas": [
+    {
+      "numero": 1,
+      "nombre": "Aeróbica baja",
+      "fcMin": 113,
+      "fcMax": 120
+    },
+    {
+      "numero": 2,
+      "nombre": "Aeróbica moderada",
+      "fcMin": 122,
+      "fcMax": 134
+    },
+    {
+      "numero": 3,
+      "nombre": "Umbral",
+      "fcMin": 144,
+      "fcMax": 150
+    },
+    {
+      "numero": 4,
+      "nombre": "VO₂máx",
+      "fcMin": 153,
+      "fcMax": 158
+    },
+    {
+      "numero": 5,
+      "nombre": "Velocidad",
+      "fcMin": 159
+    }
+  ],
+  "sesiones": [
+    {
+      "id": "c2-s1-2026-11-03",
+      "fecha": "2026-11-03",
+      "tipo": "FINAL_RAPIDO",
+      "semana": 1,
+      "fase": "BASE",
+      "minutos": 30.0,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 20.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 3,
+          "minutos": 5.0,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s1-2026-11-06",
+      "fecha": "2026-11-06",
+      "tipo": "FARTLEK",
+      "semana": 1,
+      "fase": "BASE",
+      "minutos": 27.0,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 4,
+          "minutos": 2.0,
+          "repeticiones": 3,
+          "zonaPausa": 1,
+          "minutosPausa": 2.0
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s1-2026-11-08",
+      "fecha": "2026-11-08",
+      "tipo": "LARGA",
+      "semana": 1,
+      "fase": "BASE",
+      "minutos": 79.1,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 11.2,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 62.3,
+          "repeticiones": 1
+        },
+        {
+          "zona": 1,
+          "minutos": 5.6,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s2-2026-11-10",
+      "fecha": "2026-11-10",
+      "tipo": "FINAL_RAPIDO",
+      "semana": 2,
+      "fase": "BASE",
+      "minutos": 30.0,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 20.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 3,
+          "minutos": 5.0,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s2-2026-11-13",
+      "fecha": "2026-11-13",
+      "tipo": "FARTLEK",
+      "semana": 2,
+      "fase": "BASE",
+      "minutos": 27.0,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 4,
+          "minutos": 2.0,
+          "repeticiones": 3,
+          "zonaPausa": 1,
+          "minutosPausa": 2.0
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s2-2026-11-15",
+      "fecha": "2026-11-15",
+      "tipo": "LARGA",
+      "semana": 2,
+      "fase": "BASE",
+      "minutos": 79.1,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 11.2,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 62.3,
+          "repeticiones": 1
+        },
+        {
+          "zona": 1,
+          "minutos": 5.6,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s3-2026-11-17",
+      "fecha": "2026-11-17",
+      "tipo": "FINAL_RAPIDO",
+      "semana": 3,
+      "fase": "BASE",
+      "minutos": 30.0,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 20.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 3,
+          "minutos": 5.0,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s3-2026-11-20",
+      "fecha": "2026-11-20",
+      "tipo": "FARTLEK",
+      "semana": 3,
+      "fase": "BASE",
+      "minutos": 27.0,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 4,
+          "minutos": 2.0,
+          "repeticiones": 3,
+          "zonaPausa": 1,
+          "minutosPausa": 2.0
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s3-2026-11-22",
+      "fecha": "2026-11-22",
+      "tipo": "FUNDACION",
+      "semana": 3,
+      "fase": "BASE",
+      "minutos": 60.0,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 50.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s4-2026-11-24",
+      "fecha": "2026-11-24",
+      "tipo": "FINAL_RAPIDO",
+      "semana": 4,
+      "fase": "BASE",
+      "minutos": 30.0,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 20.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 3,
+          "minutos": 5.0,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s4-2026-11-27",
+      "fecha": "2026-11-27",
+      "tipo": "FARTLEK",
+      "semana": 4,
+      "fase": "BASE",
+      "minutos": 27.0,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 4,
+          "minutos": 2.0,
+          "repeticiones": 3,
+          "zonaPausa": 1,
+          "minutosPausa": 2.0
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s4-2026-11-29",
+      "fecha": "2026-11-29",
+      "tipo": "LARGA",
+      "semana": 4,
+      "fase": "BASE",
+      "minutos": 79.1,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 11.2,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 62.3,
+          "repeticiones": 1
+        },
+        {
+          "zona": 1,
+          "minutos": 5.6,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s5-2026-12-01",
+      "fecha": "2026-12-01",
+      "tipo": "FINAL_RAPIDO",
+      "semana": 5,
+      "fase": "BASE",
+      "minutos": 30.0,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 20.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 3,
+          "minutos": 5.0,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s5-2026-12-04",
+      "fecha": "2026-12-04",
+      "tipo": "FARTLEK",
+      "semana": 5,
+      "fase": "BASE",
+      "minutos": 27.0,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 4,
+          "minutos": 2.0,
+          "repeticiones": 3,
+          "zonaPausa": 1,
+          "minutosPausa": 2.0
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s5-2026-12-06",
+      "fecha": "2026-12-06",
+      "tipo": "LARGA",
+      "semana": 5,
+      "fase": "BASE",
+      "minutos": 79.1,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 11.2,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 62.3,
+          "repeticiones": 1
+        },
+        {
+          "zona": 1,
+          "minutos": 5.6,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s6-2026-12-08",
+      "fecha": "2026-12-08",
+      "tipo": "FINAL_RAPIDO",
+      "semana": 6,
+      "fase": "BASE",
+      "minutos": 30.0,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 20.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 3,
+          "minutos": 5.0,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s6-2026-12-11",
+      "fecha": "2026-12-11",
+      "tipo": "FARTLEK",
+      "semana": 6,
+      "fase": "BASE",
+      "minutos": 27.0,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 4,
+          "minutos": 2.0,
+          "repeticiones": 3,
+          "zonaPausa": 1,
+          "minutosPausa": 2.0
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s6-2026-12-13",
+      "fecha": "2026-12-13",
+      "tipo": "LARGA",
+      "semana": 6,
+      "fase": "BASE",
+      "minutos": 67.19999999999999,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 11.2,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 50.4,
+          "repeticiones": 1
+        },
+        {
+          "zona": 1,
+          "minutos": 5.6,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s7-2026-12-15",
+      "fecha": "2026-12-15",
+      "tipo": "FINAL_RAPIDO",
+      "semana": 7,
+      "fase": "BASE",
+      "minutos": 40.0,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 25.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 3,
+          "minutos": 10.0,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s7-2026-12-18",
+      "fecha": "2026-12-18",
+      "tipo": "FARTLEK",
+      "semana": 7,
+      "fase": "BASE",
+      "minutos": 27.0,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 4,
+          "minutos": 2.0,
+          "repeticiones": 3,
+          "zonaPausa": 1,
+          "minutosPausa": 2.0
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s7-2026-12-20",
+      "fecha": "2026-12-20",
+      "tipo": "LARGA",
+      "semana": 7,
+      "fase": "BASE",
+      "minutos": 90.3,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 11.2,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 73.5,
+          "repeticiones": 1
+        },
+        {
+          "zona": 1,
+          "minutos": 5.6,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s8-2026-12-22",
+      "fecha": "2026-12-22",
+      "tipo": "SERIES_LARGAS",
+      "semana": 8,
+      "fase": "PICO",
+      "minutos": 30.0,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 4,
+          "minutos": 3.0,
+          "repeticiones": 3,
+          "zonaPausa": 1,
+          "minutosPausa": 2.0
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s8-2026-12-25",
+      "fecha": "2026-12-25",
+      "tipo": "SERIES_CORTAS",
+      "semana": 8,
+      "fase": "PICO",
+      "minutos": 33.0,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 5,
+          "minutos": 1.0,
+          "repeticiones": 6,
+          "zonaPausa": 1,
+          "minutosPausa": 2.0
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s8-2026-12-27",
+      "fecha": "2026-12-27",
+      "tipo": "LARGA",
+      "semana": 8,
+      "fase": "PICO",
+      "minutos": 90.3,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 11.2,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 73.5,
+          "repeticiones": 1
+        },
+        {
+          "zona": 1,
+          "minutos": 5.6,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s9-2026-12-29",
+      "fecha": "2026-12-29",
+      "tipo": "SERIES_LARGAS",
+      "semana": 9,
+      "fase": "PICO",
+      "minutos": 30.0,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 4,
+          "minutos": 3.0,
+          "repeticiones": 3,
+          "zonaPausa": 1,
+          "minutosPausa": 2.0
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s9-2027-01-01",
+      "fecha": "2027-01-01",
+      "tipo": "SERIES_CORTAS",
+      "semana": 9,
+      "fase": "PICO",
+      "minutos": 33.0,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 5,
+          "minutos": 1.0,
+          "repeticiones": 6,
+          "zonaPausa": 1,
+          "minutosPausa": 2.0
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s9-2027-01-03",
+      "fecha": "2027-01-03",
+      "tipo": "LARGA",
+      "semana": 9,
+      "fase": "PICO",
+      "minutos": 67.19999999999999,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 11.2,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 50.4,
+          "repeticiones": 1
+        },
+        {
+          "zona": 1,
+          "minutos": 5.6,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s10-2027-01-05",
+      "fecha": "2027-01-05",
+      "tipo": "SERIES_LARGAS",
+      "semana": 10,
+      "fase": "PICO",
+      "minutos": 30.0,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 4,
+          "minutos": 3.0,
+          "repeticiones": 3,
+          "zonaPausa": 1,
+          "minutosPausa": 2.0
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s10-2027-01-08",
+      "fecha": "2027-01-08",
+      "tipo": "SERIES_CORTAS",
+      "semana": 10,
+      "fase": "PICO",
+      "minutos": 33.0,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 5,
+          "minutos": 1.0,
+          "repeticiones": 6,
+          "zonaPausa": 1,
+          "minutosPausa": 2.0
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s10-2027-01-10",
+      "fecha": "2027-01-10",
+      "tipo": "LARGA",
+      "semana": 10,
+      "fase": "PICO",
+      "minutos": 90.3,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 11.2,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 73.5,
+          "repeticiones": 1
+        },
+        {
+          "zona": 1,
+          "minutos": 5.6,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s11-2027-01-12",
+      "fecha": "2027-01-12",
+      "tipo": "SERIES_LARGAS",
+      "semana": 11,
+      "fase": "PICO",
+      "minutos": 30.0,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 4,
+          "minutos": 3.0,
+          "repeticiones": 3,
+          "zonaPausa": 1,
+          "minutosPausa": 2.0
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s11-2027-01-15",
+      "fecha": "2027-01-15",
+      "tipo": "SERIES_CORTAS",
+      "semana": 11,
+      "fase": "PICO",
+      "minutos": 33.0,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 5,
+          "minutos": 1.0,
+          "repeticiones": 6,
+          "zonaPausa": 1,
+          "minutosPausa": 2.0
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s11-2027-01-17",
+      "fecha": "2027-01-17",
+      "tipo": "LARGA",
+      "semana": 11,
+      "fase": "PICO",
+      "minutos": 90.3,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 11.2,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 73.5,
+          "repeticiones": 1
+        },
+        {
+          "zona": 1,
+          "minutos": 5.6,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s12-2027-01-19",
+      "fecha": "2027-01-19",
+      "tipo": "SERIES_LARGAS",
+      "semana": 12,
+      "fase": "TAPER",
+      "minutos": 35.0,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 4,
+          "minutos": 3.0,
+          "repeticiones": 4,
+          "zonaPausa": 1,
+          "minutosPausa": 2.0
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s12-2027-01-22",
+      "fecha": "2027-01-22",
+      "tipo": "SERIES_MIXTAS",
+      "semana": 12,
+      "fase": "TAPER",
+      "minutos": 36.0,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 5,
+          "minutos": 1.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 1,
+          "minutos": 2.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 4,
+          "minutos": 3.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 1,
+          "minutos": 2.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 3,
+          "minutos": 5.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 1,
+          "minutos": 2.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 4,
+          "minutos": 3.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 1,
+          "minutos": 2.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 5,
+          "minutos": 1.0,
+          "repeticiones": 1
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s12-2027-01-24",
+      "fecha": "2027-01-24",
+      "tipo": "LARGA",
+      "semana": 12,
+      "fase": "TAPER",
+      "minutos": 67.19999999999999,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 11.2,
+          "repeticiones": 1
+        },
+        {
+          "zona": 2,
+          "minutos": 50.4,
+          "repeticiones": 1
+        },
+        {
+          "zona": 1,
+          "minutos": 5.6,
+          "repeticiones": 1
+        }
+      ]
+    },
+    {
+      "id": "c2-s13-2027-01-26",
+      "fecha": "2027-01-26",
+      "tipo": "CARRERA",
+      "semana": 13,
+      "fase": "TAPER",
+      "minutos": 0.0,
+      "bloques": []
+    }
+  ]
+}

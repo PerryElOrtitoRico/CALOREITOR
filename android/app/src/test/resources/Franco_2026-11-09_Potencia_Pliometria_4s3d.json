@@ -1,0 +1,2048 @@
+{
+  "formato": "rutineitor-plan",
+  "version": 1,
+  "perfil": "Franco",
+  "mesocicloId": 4,
+  "inicio": "2026-11-09",
+  "microciclos": 4,
+  "dias": 3,
+  "sesiones": [
+    {
+      "microciclo": 1,
+      "dia": 1,
+      "ejercicios": [
+        {
+          "bloque": "1-1",
+          "nombre": "Arranque de potencia colgado",
+          "tipo": "POTENCIA",
+          "modo": "COMPLEJA",
+          "rm": 80.0,
+          "filas": [
+            {
+              "etiqueta": "55",
+              "pctMin": 55,
+              "pctMax": 55,
+              "series": [
+                {
+                  "reps": 6,
+                  "kg": 44.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "65",
+              "pctMin": 65,
+              "pctMax": 65,
+              "series": [
+                {
+                  "reps": 6,
+                  "kg": 52.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "70",
+              "pctMin": 70,
+              "pctMax": 70,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 56.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "75",
+              "pctMin": 75,
+              "pctMax": 75,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 60.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "80-85",
+              "pctMin": 80,
+              "pctMax": 85,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 64.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "90-95",
+              "pctMin": 90,
+              "pctMax": 95,
+              "series": [
+                {
+                  "reps": 2,
+                  "kg": 72.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bloque": "1-2",
+          "nombre": "Peso muerto rumano",
+          "tipo": "FUERZA",
+          "modo": "BASICA",
+          "rm": 130.0,
+          "filas": [
+            {
+              "etiqueta": "4x6-70%",
+              "pctMin": 70,
+              "pctMax": 70,
+              "series": [
+                {
+                  "reps": 6,
+                  "kg": 91.0
+                },
+                {
+                  "reps": 6,
+                  "kg": 91.0
+                },
+                {
+                  "reps": 6,
+                  "kg": 91.0
+                },
+                {
+                  "reps": 6,
+                  "kg": 91.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bloque": "1-3",
+          "nombre": "Dominadas prono",
+          "tipo": "FUERZA",
+          "modo": "BASICA",
+          "rm": 30.0,
+          "filas": [
+            {
+              "etiqueta": "4x6-70%",
+              "pctMin": 70,
+              "pctMax": 70,
+              "series": [
+                {
+                  "reps": 6,
+                  "kg": 21.0
+                },
+                {
+                  "reps": 6,
+                  "kg": 21.0
+                },
+                {
+                  "reps": 6,
+                  "kg": 21.0
+                },
+                {
+                  "reps": 6,
+                  "kg": 21.0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "microciclo": 1,
+      "dia": 2,
+      "ejercicios": [
+        {
+          "bloque": "2-1",
+          "nombre": "Cargada de potencia colgado",
+          "tipo": "POTENCIA",
+          "modo": "COMPLEJA",
+          "rm": 115.0,
+          "filas": [
+            {
+              "etiqueta": "55",
+              "pctMin": 55,
+              "pctMax": 55,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 63.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "60",
+              "pctMin": 60,
+              "pctMax": 60,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 69.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "65",
+              "pctMin": 65,
+              "pctMax": 65,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 75.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "70",
+              "pctMin": 70,
+              "pctMax": 70,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 81.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "75",
+              "pctMin": 75,
+              "pctMax": 75,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 86.0
+                },
+                {
+                  "reps": 3,
+                  "kg": 86.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "80-85",
+              "pctMin": 80,
+              "pctMax": 85,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 92.0
+                },
+                {
+                  "reps": 3,
+                  "kg": 98.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bloque": "2-2",
+          "nombre": "Sentadilla",
+          "tipo": "FUERZA",
+          "modo": "COMPLEJA",
+          "rm": 140.0,
+          "filas": [
+            {
+              "etiqueta": "55",
+              "pctMin": 55,
+              "pctMax": 55,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 77.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "65",
+              "pctMin": 65,
+              "pctMax": 65,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 91.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "70",
+              "pctMin": 70,
+              "pctMax": 70,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 98.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "75",
+              "pctMin": 75,
+              "pctMax": 75,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 105.0
+                },
+                {
+                  "reps": 3,
+                  "kg": 105.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "80-85",
+              "pctMin": 80,
+              "pctMax": 85,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 112.0
+                },
+                {
+                  "reps": 3,
+                  "kg": 119.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "90-95",
+              "pctMin": 90,
+              "pctMax": 95,
+              "series": [
+                {
+                  "reps": 2,
+                  "kg": 126.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bloque": "2-3",
+          "nombre": "Press frontal con impulso",
+          "tipo": "FUERZA",
+          "modo": "COMPLEJA",
+          "rm": 90.0,
+          "filas": [
+            {
+              "etiqueta": "55",
+              "pctMin": 55,
+              "pctMax": 55,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 50.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "65",
+              "pctMin": 65,
+              "pctMax": 65,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 59.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "70",
+              "pctMin": 70,
+              "pctMax": 70,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 63.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "75",
+              "pctMin": 75,
+              "pctMax": 75,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 68.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "80-85",
+              "pctMin": 80,
+              "pctMax": 85,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 72.0
+                },
+                {
+                  "reps": 3,
+                  "kg": 72.0
+                },
+                {
+                  "reps": 3,
+                  "kg": 77.0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "microciclo": 1,
+      "dia": 3,
+      "ejercicios": [
+        {
+          "bloque": "3-1",
+          "nombre": "Arranque de potencia colgado",
+          "tipo": "POTENCIA",
+          "modo": "COMPLEJA",
+          "rm": 80.0,
+          "filas": [
+            {
+              "etiqueta": "65",
+              "pctMin": 65,
+              "pctMax": 65,
+              "series": [
+                {
+                  "reps": 6,
+                  "kg": 52.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "90-95",
+              "pctMin": 90,
+              "pctMax": 95,
+              "series": [
+                {
+                  "reps": 2,
+                  "kg": 72.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bloque": "3-2",
+          "nombre": "Cargada de potencia colgado",
+          "tipo": "POTENCIA",
+          "modo": "COMPLEJA",
+          "rm": 115.0,
+          "filas": [
+            {
+              "etiqueta": "65",
+              "pctMin": 65,
+              "pctMax": 65,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 75.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bloque": "3-3",
+          "nombre": "Sentadilla",
+          "tipo": "FUERZA",
+          "modo": "COMPLEJA",
+          "rm": 140.0,
+          "filas": [
+            {
+              "etiqueta": "55",
+              "pctMin": 55,
+              "pctMax": 55,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 77.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "65",
+              "pctMin": 65,
+              "pctMax": 65,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 91.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "70",
+              "pctMin": 70,
+              "pctMax": 70,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 98.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "75",
+              "pctMin": 75,
+              "pctMax": 75,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 105.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "80-85",
+              "pctMin": 80,
+              "pctMax": 85,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 112.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "90-95",
+              "pctMin": 90,
+              "pctMax": 95,
+              "series": [
+                {
+                  "reps": 2,
+                  "kg": 126.0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "microciclo": 2,
+      "dia": 1,
+      "ejercicios": [
+        {
+          "bloque": "1-1",
+          "nombre": "Arranque de potencia colgado",
+          "tipo": "POTENCIA",
+          "modo": "COMPLEJA",
+          "rm": 80.0,
+          "filas": [
+            {
+              "etiqueta": "60",
+              "pctMin": 60,
+              "pctMax": 60,
+              "series": [
+                {
+                  "reps": 6,
+                  "kg": 48.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "70",
+              "pctMin": 70,
+              "pctMax": 70,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 56.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "75",
+              "pctMin": 75,
+              "pctMax": 75,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 60.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "80-85",
+              "pctMin": 80,
+              "pctMax": 85,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 64.0
+                },
+                {
+                  "reps": 3,
+                  "kg": 68.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bloque": "1-2",
+          "nombre": "Peso muerto rumano",
+          "tipo": "FUERZA",
+          "modo": "BASICA",
+          "rm": 130.0,
+          "filas": [
+            {
+              "etiqueta": "4x4-85%",
+              "pctMin": 85,
+              "pctMax": 85,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 111.0
+                },
+                {
+                  "reps": 4,
+                  "kg": 111.0
+                },
+                {
+                  "reps": 4,
+                  "kg": 111.0
+                },
+                {
+                  "reps": 4,
+                  "kg": 111.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bloque": "1-3",
+          "nombre": "Dominadas prono",
+          "tipo": "FUERZA",
+          "modo": "BASICA",
+          "rm": 30.0,
+          "filas": [
+            {
+              "etiqueta": "4x4-85%",
+              "pctMin": 85,
+              "pctMax": 85,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 26.0
+                },
+                {
+                  "reps": 4,
+                  "kg": 26.0
+                },
+                {
+                  "reps": 4,
+                  "kg": 26.0
+                },
+                {
+                  "reps": 4,
+                  "kg": 26.0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "microciclo": 2,
+      "dia": 2,
+      "ejercicios": [
+        {
+          "bloque": "2-1",
+          "nombre": "Cargada de potencia colgado",
+          "tipo": "POTENCIA",
+          "modo": "COMPLEJA",
+          "rm": 115.0,
+          "filas": [
+            {
+              "etiqueta": "55",
+              "pctMin": 55,
+              "pctMax": 55,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 63.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "65",
+              "pctMin": 65,
+              "pctMax": 65,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 75.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "70",
+              "pctMin": 70,
+              "pctMax": 70,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 81.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "75",
+              "pctMin": 75,
+              "pctMax": 75,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 86.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "80-85",
+              "pctMin": 80,
+              "pctMax": 85,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 92.0
+                },
+                {
+                  "reps": 3,
+                  "kg": 92.0
+                },
+                {
+                  "reps": 3,
+                  "kg": 98.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bloque": "2-2",
+          "nombre": "Sentadilla",
+          "tipo": "FUERZA",
+          "modo": "COMPLEJA",
+          "rm": 140.0,
+          "filas": [
+            {
+              "etiqueta": "55",
+              "pctMin": 55,
+              "pctMax": 55,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 77.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "65",
+              "pctMin": 65,
+              "pctMax": 65,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 91.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "75",
+              "pctMin": 75,
+              "pctMax": 75,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 105.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "80-85",
+              "pctMin": 80,
+              "pctMax": 85,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 112.0
+                },
+                {
+                  "reps": 3,
+                  "kg": 112.0
+                },
+                {
+                  "reps": 3,
+                  "kg": 119.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "90-95",
+              "pctMin": 90,
+              "pctMax": 95,
+              "series": [
+                {
+                  "reps": 2,
+                  "kg": 126.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bloque": "2-3",
+          "nombre": "Press frontal con impulso",
+          "tipo": "FUERZA",
+          "modo": "COMPLEJA",
+          "rm": 90.0,
+          "filas": [
+            {
+              "etiqueta": "60",
+              "pctMin": 60,
+              "pctMax": 60,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 54.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "70",
+              "pctMin": 70,
+              "pctMax": 70,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 63.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "80-85",
+              "pctMin": 80,
+              "pctMax": 85,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 72.0
+                },
+                {
+                  "reps": 3,
+                  "kg": 72.0
+                },
+                {
+                  "reps": 3,
+                  "kg": 77.0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "microciclo": 2,
+      "dia": 3,
+      "ejercicios": [
+        {
+          "bloque": "3-1",
+          "nombre": "Arranque de potencia colgado",
+          "tipo": "POTENCIA",
+          "modo": "COMPLEJA",
+          "rm": 80.0,
+          "filas": [
+            {
+              "etiqueta": "65",
+              "pctMin": 65,
+              "pctMax": 65,
+              "series": [
+                {
+                  "reps": 6,
+                  "kg": 52.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bloque": "3-2",
+          "nombre": "Cargada de potencia colgado",
+          "tipo": "POTENCIA",
+          "modo": "COMPLEJA",
+          "rm": 115.0,
+          "filas": []
+        },
+        {
+          "bloque": "3-3",
+          "nombre": "Sentadilla",
+          "tipo": "FUERZA",
+          "modo": "COMPLEJA",
+          "rm": 140.0,
+          "filas": [
+            {
+              "etiqueta": "60",
+              "pctMin": 60,
+              "pctMax": 60,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 84.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "70",
+              "pctMin": 70,
+              "pctMax": 70,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 98.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "80-85",
+              "pctMin": 80,
+              "pctMax": 85,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 112.0
+                },
+                {
+                  "reps": 3,
+                  "kg": 112.0
+                },
+                {
+                  "reps": 3,
+                  "kg": 119.0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "microciclo": 3,
+      "dia": 1,
+      "ejercicios": [
+        {
+          "bloque": "1-1",
+          "nombre": "Arranque de potencia colgado",
+          "tipo": "POTENCIA",
+          "modo": "COMPLEJA",
+          "rm": 80.0,
+          "filas": [
+            {
+              "etiqueta": "55",
+              "pctMin": 55,
+              "pctMax": 55,
+              "series": [
+                {
+                  "reps": 6,
+                  "kg": 44.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "65",
+              "pctMin": 65,
+              "pctMax": 65,
+              "series": [
+                {
+                  "reps": 6,
+                  "kg": 52.0
+                },
+                {
+                  "reps": 6,
+                  "kg": 52.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "70",
+              "pctMin": 70,
+              "pctMax": 70,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 56.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "75",
+              "pctMin": 75,
+              "pctMax": 75,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 60.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "80-85",
+              "pctMin": 80,
+              "pctMax": 85,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 64.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bloque": "1-2",
+          "nombre": "Peso muerto rumano",
+          "tipo": "FUERZA",
+          "modo": "BASICA",
+          "rm": 130.0,
+          "filas": [
+            {
+              "etiqueta": "4x5-80%",
+              "pctMin": 80,
+              "pctMax": 80,
+              "series": [
+                {
+                  "reps": 5,
+                  "kg": 104.0
+                },
+                {
+                  "reps": 5,
+                  "kg": 104.0
+                },
+                {
+                  "reps": 5,
+                  "kg": 104.0
+                },
+                {
+                  "reps": 5,
+                  "kg": 104.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bloque": "1-3",
+          "nombre": "Dominadas prono",
+          "tipo": "FUERZA",
+          "modo": "BASICA",
+          "rm": 30.0,
+          "filas": [
+            {
+              "etiqueta": "4x5-80%",
+              "pctMin": 80,
+              "pctMax": 80,
+              "series": [
+                {
+                  "reps": 5,
+                  "kg": 24.0
+                },
+                {
+                  "reps": 5,
+                  "kg": 24.0
+                },
+                {
+                  "reps": 5,
+                  "kg": 24.0
+                },
+                {
+                  "reps": 5,
+                  "kg": 24.0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "microciclo": 3,
+      "dia": 2,
+      "ejercicios": [
+        {
+          "bloque": "2-1",
+          "nombre": "Cargada de potencia colgado",
+          "tipo": "POTENCIA",
+          "modo": "COMPLEJA",
+          "rm": 115.0,
+          "filas": [
+            {
+              "etiqueta": "55",
+              "pctMin": 55,
+              "pctMax": 55,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 63.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "60",
+              "pctMin": 60,
+              "pctMax": 60,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 69.0
+                },
+                {
+                  "reps": 4,
+                  "kg": 69.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "65",
+              "pctMin": 65,
+              "pctMax": 65,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 75.0
+                },
+                {
+                  "reps": 4,
+                  "kg": 75.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "70",
+              "pctMin": 70,
+              "pctMax": 70,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 81.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "75",
+              "pctMin": 75,
+              "pctMax": 75,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 86.0
+                },
+                {
+                  "reps": 3,
+                  "kg": 86.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "80-85",
+              "pctMin": 80,
+              "pctMax": 85,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 92.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bloque": "2-2",
+          "nombre": "Sentadilla",
+          "tipo": "FUERZA",
+          "modo": "COMPLEJA",
+          "rm": 140.0,
+          "filas": [
+            {
+              "etiqueta": "55",
+              "pctMin": 55,
+              "pctMax": 55,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 77.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "60",
+              "pctMin": 60,
+              "pctMax": 60,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 84.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "65",
+              "pctMin": 65,
+              "pctMax": 65,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 91.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "70",
+              "pctMin": 70,
+              "pctMax": 70,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 98.0
+                },
+                {
+                  "reps": 4,
+                  "kg": 98.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "75",
+              "pctMin": 75,
+              "pctMax": 75,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 105.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "80-85",
+              "pctMin": 80,
+              "pctMax": 85,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 112.0
+                },
+                {
+                  "reps": 3,
+                  "kg": 119.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bloque": "2-3",
+          "nombre": "Press frontal con impulso",
+          "tipo": "FUERZA",
+          "modo": "COMPLEJA",
+          "rm": 90.0,
+          "filas": [
+            {
+              "etiqueta": "55",
+              "pctMin": 55,
+              "pctMax": 55,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 50.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "60",
+              "pctMin": 60,
+              "pctMax": 60,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 54.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "65",
+              "pctMin": 65,
+              "pctMax": 65,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 59.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "70",
+              "pctMin": 70,
+              "pctMax": 70,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 63.0
+                },
+                {
+                  "reps": 4,
+                  "kg": 63.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "75",
+              "pctMin": 75,
+              "pctMax": 75,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 68.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "80-85",
+              "pctMin": 80,
+              "pctMax": 85,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 72.0
+                },
+                {
+                  "reps": 3,
+                  "kg": 77.0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "microciclo": 3,
+      "dia": 3,
+      "ejercicios": [
+        {
+          "bloque": "3-1",
+          "nombre": "Arranque de potencia colgado",
+          "tipo": "POTENCIA",
+          "modo": "COMPLEJA",
+          "rm": 80.0,
+          "filas": [
+            {
+              "etiqueta": "60",
+              "pctMin": 60,
+              "pctMax": 60,
+              "series": [
+                {
+                  "reps": 6,
+                  "kg": 48.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "75",
+              "pctMin": 75,
+              "pctMax": 75,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 60.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bloque": "3-2",
+          "nombre": "Cargada de potencia colgado",
+          "tipo": "POTENCIA",
+          "modo": "COMPLEJA",
+          "rm": 115.0,
+          "filas": [
+            {
+              "etiqueta": "65",
+              "pctMin": 65,
+              "pctMax": 65,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 75.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bloque": "3-3",
+          "nombre": "Sentadilla",
+          "tipo": "FUERZA",
+          "modo": "COMPLEJA",
+          "rm": 140.0,
+          "filas": [
+            {
+              "etiqueta": "55",
+              "pctMin": 55,
+              "pctMax": 55,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 77.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "60",
+              "pctMin": 60,
+              "pctMax": 60,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 84.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "65",
+              "pctMin": 65,
+              "pctMax": 65,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 91.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "70",
+              "pctMin": 70,
+              "pctMax": 70,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 98.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "75",
+              "pctMin": 75,
+              "pctMax": 75,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 105.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "80-85",
+              "pctMin": 80,
+              "pctMax": 85,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 112.0
+                },
+                {
+                  "reps": 3,
+                  "kg": 119.0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "microciclo": 4,
+      "dia": 1,
+      "ejercicios": [
+        {
+          "bloque": "1-1",
+          "nombre": "Arranque de potencia colgado",
+          "tipo": "POTENCIA",
+          "modo": "COMPLEJA",
+          "rm": 80.0,
+          "filas": [
+            {
+              "etiqueta": "65",
+              "pctMin": 65,
+              "pctMax": 65,
+              "series": [
+                {
+                  "reps": 6,
+                  "kg": 52.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "75",
+              "pctMin": 75,
+              "pctMax": 75,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 60.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "80-85",
+              "pctMin": 80,
+              "pctMax": 85,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 64.0
+                },
+                {
+                  "reps": 3,
+                  "kg": 68.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "90-95",
+              "pctMin": 90,
+              "pctMax": 95,
+              "series": [
+                {
+                  "reps": 2,
+                  "kg": 72.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bloque": "1-2",
+          "nombre": "Peso muerto rumano",
+          "tipo": "FUERZA",
+          "modo": "BASICA",
+          "rm": 130.0,
+          "filas": [
+            {
+              "etiqueta": "4x2-95%",
+              "pctMin": 95,
+              "pctMax": 95,
+              "series": [
+                {
+                  "reps": 2,
+                  "kg": 124.0
+                },
+                {
+                  "reps": 2,
+                  "kg": 124.0
+                },
+                {
+                  "reps": 2,
+                  "kg": 124.0
+                },
+                {
+                  "reps": 2,
+                  "kg": 124.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bloque": "1-3",
+          "nombre": "Dominadas prono",
+          "tipo": "FUERZA",
+          "modo": "BASICA",
+          "rm": 30.0,
+          "filas": [
+            {
+              "etiqueta": "4x2-95%",
+              "pctMin": 95,
+              "pctMax": 95,
+              "series": [
+                {
+                  "reps": 2,
+                  "kg": 29.0
+                },
+                {
+                  "reps": 2,
+                  "kg": 29.0
+                },
+                {
+                  "reps": 2,
+                  "kg": 29.0
+                },
+                {
+                  "reps": 2,
+                  "kg": 29.0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "microciclo": 4,
+      "dia": 2,
+      "ejercicios": [
+        {
+          "bloque": "2-1",
+          "nombre": "Cargada de potencia colgado",
+          "tipo": "POTENCIA",
+          "modo": "COMPLEJA",
+          "rm": 115.0,
+          "filas": [
+            {
+              "etiqueta": "60",
+              "pctMin": 60,
+              "pctMax": 60,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 69.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "70",
+              "pctMin": 70,
+              "pctMax": 70,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 81.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "75",
+              "pctMin": 75,
+              "pctMax": 75,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 86.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "80-85",
+              "pctMin": 80,
+              "pctMax": 85,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 92.0
+                },
+                {
+                  "reps": 3,
+                  "kg": 98.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "90-95",
+              "pctMin": 90,
+              "pctMax": 95,
+              "series": [
+                {
+                  "reps": 2,
+                  "kg": 104.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bloque": "2-2",
+          "nombre": "Sentadilla",
+          "tipo": "FUERZA",
+          "modo": "COMPLEJA",
+          "rm": 140.0,
+          "filas": [
+            {
+              "etiqueta": "55",
+              "pctMin": 55,
+              "pctMax": 55,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 77.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "70",
+              "pctMin": 70,
+              "pctMax": 70,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 98.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "80-85",
+              "pctMin": 80,
+              "pctMax": 85,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 112.0
+                },
+                {
+                  "reps": 3,
+                  "kg": 112.0
+                },
+                {
+                  "reps": 3,
+                  "kg": 119.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "90-95",
+              "pctMin": 90,
+              "pctMax": 95,
+              "series": [
+                {
+                  "reps": 1,
+                  "kg": 133.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bloque": "2-3",
+          "nombre": "Press frontal con impulso",
+          "tipo": "FUERZA",
+          "modo": "COMPLEJA",
+          "rm": 90.0,
+          "filas": [
+            {
+              "etiqueta": "60",
+              "pctMin": 60,
+              "pctMax": 60,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 54.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "75",
+              "pctMin": 75,
+              "pctMax": 75,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 68.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "80-85",
+              "pctMin": 80,
+              "pctMax": 85,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 72.0
+                },
+                {
+                  "reps": 3,
+                  "kg": 77.0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "microciclo": 4,
+      "dia": 3,
+      "ejercicios": [
+        {
+          "bloque": "3-1",
+          "nombre": "Arranque de potencia colgado",
+          "tipo": "POTENCIA",
+          "modo": "COMPLEJA",
+          "rm": 80.0,
+          "filas": [
+            {
+              "etiqueta": "65",
+              "pctMin": 65,
+              "pctMax": 65,
+              "series": [
+                {
+                  "reps": 6,
+                  "kg": 52.0
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "bloque": "3-2",
+          "nombre": "Cargada de potencia colgado",
+          "tipo": "POTENCIA",
+          "modo": "COMPLEJA",
+          "rm": 115.0,
+          "filas": []
+        },
+        {
+          "bloque": "3-3",
+          "nombre": "Sentadilla",
+          "tipo": "FUERZA",
+          "modo": "COMPLEJA",
+          "rm": 140.0,
+          "filas": [
+            {
+              "etiqueta": "60",
+              "pctMin": 60,
+              "pctMax": 60,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 84.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "70",
+              "pctMin": 70,
+              "pctMax": 70,
+              "series": [
+                {
+                  "reps": 4,
+                  "kg": 98.0
+                }
+              ]
+            },
+            {
+              "etiqueta": "80-85",
+              "pctMin": 80,
+              "pctMax": 85,
+              "series": [
+                {
+                  "reps": 3,
+                  "kg": 112.0
+                },
+                {
+                  "reps": 3,
+                  "kg": 119.0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "pliometria": [
+    {
+      "nivel": 1,
+      "inicio": "2026-11-09",
+      "semanas": [
+        [
+          {
+            "dia": 1,
+            "contactos": 250,
+            "series": 4,
+            "saltosPorSerie": 10,
+            "ejercicios": [
+              "Con 2 pies, dos saltos delante y uno atras",
+              "2 pies salto de costado",
+              "1 pie, en el lugar, salto adelante y atras",
+              "1 pie, en sentido del reloj, arrancando del centro para adelante, saltar y volver siempre al centro",
+              "1 pie, salto en el lugar a los costados",
+              "Salto con soga"
+            ]
+          },
+          {
+            "dia": 2,
+            "contactos": 300,
+            "series": 5,
+            "saltosPorSerie": 10,
+            "ejercicios": [
+              "1 pie en cada cajon y salto rapido en el lugar",
+              "Pie de adelante en cajon y salto con el de atras",
+              "Pie de atras en cajón, con el de delante salto a los costados sobre obstaculo bajo",
+              "Del piso, subo el pie delantero al cajon (pie de atras en el piso)",
+              "Del centro a cajones con una pierna",
+              "Del centro con ambas piernas, rotando piernas delantera a cajon"
+            ]
+          },
+          {
+            "dia": 3,
+            "contactos": 250,
+            "series": 4,
+            "saltosPorSerie": 10,
+            "ejercicios": [
+              "Del centro, al costado, al centro, al otro costado, centro, adelante, atras [2]",
+              "Delante dos veces, vuelvo de costado izquierdo y luego derecho [3]",
+              "Lado a lado salto sobre cajon [2]",
+              "1 pie delante al cajón, bajo, izquierda y derecha, subo [1]",
+              "Entre 2 cajones, del centro, izquierda centro derecha [1]",
+              "1 pie salto al cajon, caigo al piso, izquierda centro derecha, atras al cajon, caigo, izquierda centro derecha y repito [1]"
+            ]
+          }
+        ],
+        [
+          {
+            "dia": 1,
+            "contactos": 300,
+            "series": 5,
+            "saltosPorSerie": 10,
+            "ejercicios": [
+              "Con 2 pies, dos saltos delante y uno atras",
+              "2 pies salto de costado",
+              "1 pie, en el lugar, salto adelante y atras",
+              "1 pie, en sentido del reloj, arrancando del centro para adelante, saltar y volver siempre al centro",
+              "1 pie, salto en el lugar a los costados",
+              "Salto con soga"
+            ]
+          },
+          {
+            "dia": 2,
+            "contactos": 250,
+            "series": 4,
+            "saltosPorSerie": 10,
+            "ejercicios": [
+              "1 pie en cada cajon y salto rapido en el lugar",
+              "Pie de adelante en cajon y salto con el de atras",
+              "Pie de atras en cajón, con el de delante salto a los costados sobre obstaculo bajo",
+              "Del piso, subo el pie delantero al cajon (pie de atras en el piso)",
+              "Del centro a cajones con una pierna",
+              "Del centro con ambas piernas, rotando piernas delantera a cajon"
+            ]
+          },
+          {
+            "dia": 3,
+            "contactos": 300,
+            "series": 5,
+            "saltosPorSerie": 10,
+            "ejercicios": [
+              "Del centro, al costado, al centro, al otro costado, centro, adelante, atras [2]",
+              "Delante dos veces, vuelvo de costado izquierdo y luego derecho [3]",
+              "Lado a lado salto sobre cajon [2]",
+              "1 pie delante al cajón, bajo, izquierda y derecha, subo [1]",
+              "Entre 2 cajones, del centro, izquierda centro derecha [1]",
+              "1 pie salto al cajon, caigo al piso, izquierda centro derecha, atras al cajon, caigo, izquierda centro derecha y repito [1]"
+            ]
+          }
+        ],
+        [
+          {
+            "dia": 1,
+            "contactos": 300,
+            "series": 5,
+            "saltosPorSerie": 10,
+            "ejercicios": [
+              "Con 2 pies, dos saltos delante y uno atras",
+              "2 pies salto de costado",
+              "1 pie, en el lugar, salto adelante y atras",
+              "1 pie, en sentido del reloj, arrancando del centro para adelante, saltar y volver siempre al centro",
+              "1 pie, salto en el lugar a los costados",
+              "Salto con soga"
+            ]
+          },
+          {
+            "dia": 2,
+            "contactos": 300,
+            "series": 5,
+            "saltosPorSerie": 10,
+            "ejercicios": [
+              "1 pie en cada cajon y salto rapido en el lugar",
+              "Pie de adelante en cajon y salto con el de atras",
+              "Pie de atras en cajón, con el de delante salto a los costados sobre obstaculo bajo",
+              "Del piso, subo el pie delantero al cajon (pie de atras en el piso)",
+              "Del centro a cajones con una pierna",
+              "Del centro con ambas piernas, rotando piernas delantera a cajon"
+            ]
+          },
+          {
+            "dia": 3,
+            "contactos": 300,
+            "series": 5,
+            "saltosPorSerie": 10,
+            "ejercicios": [
+              "Del centro, al costado, al centro, al otro costado, centro, adelante, atras [2]",
+              "Delante dos veces, vuelvo de costado izquierdo y luego derecho [3]",
+              "Lado a lado salto sobre cajon [2]",
+              "1 pie delante al cajón, bajo, izquierda y derecha, subo [1]",
+              "Entre 2 cajones, del centro, izquierda centro derecha [1]",
+              "1 pie salto al cajon, caigo al piso, izquierda centro derecha, atras al cajon, caigo, izquierda centro derecha y repito [1]"
+            ]
+          }
+        ],
+        [
+          {
+            "dia": 1,
+            "contactos": 350,
+            "series": 6,
+            "saltosPorSerie": 10,
+            "ejercicios": [
+              "Con 2 pies, dos saltos delante y uno atras",
+              "2 pies salto de costado",
+              "1 pie, en el lugar, salto adelante y atras",
+              "1 pie, en sentido del reloj, arrancando del centro para adelante, saltar y volver siempre al centro",
+              "1 pie, salto en el lugar a los costados",
+              "Salto con soga"
+            ]
+          },
+          {
+            "dia": 2,
+            "contactos": 300,
+            "series": 5,
+            "saltosPorSerie": 10,
+            "ejercicios": [
+              "1 pie en cada cajon y salto rapido en el lugar",
+              "Pie de adelante en cajon y salto con el de atras",
+              "Pie de atras en cajón, con el de delante salto a los costados sobre obstaculo bajo",
+              "Del piso, subo el pie delantero al cajon (pie de atras en el piso)",
+              "Del centro a cajones con una pierna",
+              "Del centro con ambas piernas, rotando piernas delantera a cajon"
+            ]
+          },
+          {
+            "dia": 3,
+            "contactos": 350,
+            "series": 6,
+            "saltosPorSerie": 10,
+            "ejercicios": [
+              "Del centro, al costado, al centro, al otro costado, centro, adelante, atras [2]",
+              "Delante dos veces, vuelvo de costado izquierdo y luego derecho [3]",
+              "Lado a lado salto sobre cajon [2]",
+              "1 pie delante al cajón, bajo, izquierda y derecha, subo [1]",
+              "Entre 2 cajones, del centro, izquierda centro derecha [1]",
+              "1 pie salto al cajon, caigo al piso, izquierda centro derecha, atras al cajon, caigo, izquierda centro derecha y repito [1]"
+            ]
+          }
+        ]
+      ]
+    }
+  ]
+}
