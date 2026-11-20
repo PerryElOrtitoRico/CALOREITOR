@@ -40,9 +40,14 @@ public final class Objetivos {
 			Optional<Objetivo> g = repo.objetivoGuardado(fecha.toString());
 			if (g.isPresent()) return g;
 		}
-		var cfg = repo.configuracion();
-		Optional<Objetivo> o = Calculo.objetivo(cfg, Asignacion.para(fecha, cfg.semana(), planes));
+		Optional<Objetivo> o = calcular(fecha);
 		if (pasado) o.ifPresent(x -> repo.guardarObjetivo(fecha.toString(), x));
 		return o;
+	}
+
+	/** Con la configuración y los planes actuales; no lee ni guarda el objetivo fijado. */
+	public Optional<Objetivo> calcular(LocalDate fecha) {
+		var cfg = repo.configuracion();
+		return Calculo.objetivo(cfg, Asignacion.para(fecha, cfg.semana(), planes));
 	}
 }

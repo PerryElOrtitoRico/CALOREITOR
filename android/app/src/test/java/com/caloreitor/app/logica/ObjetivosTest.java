@@ -57,6 +57,16 @@ class ObjetivosTest {
 		assertTrue(repo.objetivoGuardado(hoy.toString()).isEmpty());
 	}
 
+	@Test void calcularNoLeeNiGuardaElObjetivoDeUnDiaPasado() {
+		peso(75);
+		var obj = new Objetivos(repo, List.of(), hoy);
+		var ayer = hoy.minusDays(1);
+		var a = obj.calcular(ayer).get();
+		assertTrue(repo.objetivoGuardado(ayer.toString()).isEmpty());
+		peso(90);
+		assertNotEquals(a, obj.calcular(ayer).get());
+	}
+
 	@Test void planRotoNoRompeElObjetivo() {
 		repo.guardarPlan("no es json");
 		assertTrue(Objetivos.planesDe(repo).isEmpty());
