@@ -79,9 +79,8 @@ public final class Planificador {
 		for (LineaSuper l : lineas) {
 			if (sb.length() > 0) sb.append('\n');
 			// Sin Locale: el separador decimal es siempre la coma.
-			String cant = l.gramos() >= 1000
-					? String.format(java.util.Locale.ROOT, "%.1f kg", l.gramos() / 1000).replace('.', ',')
-					: Math.round(l.gramos()) + " g";
+			long g = Math.round(l.gramos());
+			String cant = g >= 1000 ? String.format(java.util.Locale.ROOT, "%.1f kg", g / 1000.0).replace('.', ',') : g + " g";
 			sb.append(l.nombre()).append(" — ").append(cant);
 		}
 		return sb.toString();

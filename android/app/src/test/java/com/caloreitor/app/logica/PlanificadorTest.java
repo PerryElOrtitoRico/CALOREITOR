@@ -36,7 +36,7 @@ class PlanificadorTest {
 
 	private final AtomicLong reloj = new AtomicLong(1000);
 	private final Repositorio repo = new Repositorio(new ArchivoEventos(new Memoria(), "pc"), reloj::incrementAndGet);
-	private final LocalDate hoy = LocalDate.of(2026, 11, 20);
+	private final LocalDate hoy = LocalDate.of(2026, 12, 5); // después de la semana: del() fijaría los 7 días
 	private final Planificador pl = new Planificador(repo, new Objetivos(repo, List.of(), hoy));
 	private final LocalDate lunes = LocalDate.of(2026, 11, 23);
 
@@ -56,10 +56,10 @@ class PlanificadorTest {
 		var plan = pl.crear(lunes);
 		assertEquals(7, plan.objetivos().size());
 		assertEquals(plan, repo.planSemanal("2026-11-23").get());
-		assertTrue(repo.objetivoGuardado(hoy.minusDays(1).toString()).isEmpty());
 		peso(90);
 		assertEquals(plan.objetivos(), repo.planSemanal("2026-11-23").get().objetivos());
 		assertNotEquals(plan.objetivos(), pl.recalcular(plan).objetivos());
+		for (int d = 0; d < 7; d++) assertTrue(repo.objetivoGuardado(lunes.plusDays(d).toString()).isEmpty());
 	}
 
 	@Test void crearExigeLunesYAgregarExigeFechaDeLaSemana() {
@@ -90,6 +90,14 @@ class PlanificadorTest {
 		assertEquals("Árbol — 350 g\nArroz — 1,3 kg", Planificador.comoTexto(pl.listaSuper(plan, semana)));
 		assertEquals("Arroz — 160 g", Planificador.comoTexto(pl.listaSuper(plan, Set.of("2026-11-23"))));
 		assertEquals("x — 1,0 kg", Planificador.comoTexto(List.of(new Planificador.LineaSuper("x", 1000))));
+	}
+
+	@Test void comoTextoRedondeaAntesDeElegirUnidad() {
+		var f = (java.util.function.DoubleFunction<String>) g -> Planificador.comoTexto(List.of(new Planificador.LineaSuper("x", g)));
+		assertEquals("x — 1,0 kg", f.apply(999.6));
+		assertEquals("x — 1,0 kg", f.apply(1049));
+		assertEquals("x — 1,1 kg", f.apply(1050));
+		assertEquals("x — 350 g", f.apply(350.4));
 	}
 
 	@Test void comiLoPlaneadoCopiaConIdNuevoYNoTocaElPlan() {
