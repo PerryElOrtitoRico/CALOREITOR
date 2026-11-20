@@ -70,8 +70,25 @@ class DepuracionTest {
 		var previo = new TotalDia("2026-11-10", new Macros(1, 0, 0, 0), null);
 		historial.guardar(previo);
 		consumo(repo, "2026-11-10", 1800);
-		correr(LocalDate.of(2026, 12, 20));
+		correr(LocalDate.of(2027, 2, 20)); // más de 62 días: no se toca
 		assertEquals(previo, historial.leer("2026-11-10").orElseThrow());
+	}
+
+	@Test void consumoTardioRefrescaElDiaArchivadoDentroDeLaVentana() {
+		consumo(repo, "2026-11-10", 1800);
+		correr(LocalDate.of(2026, 12, 20));
+		consumo(repo, "2026-11-10", 200); // llegó tarde por sincronización
+		correr(LocalDate.of(2026, 12, 20));
+		assertEquals(2000, historial.leer("2026-11-10").orElseThrow().consumido().kcal());
+	}
+
+	@Test void fechaIlegibleSeSaltea() {
+		// escrito a mano: el repositorio no deja guardar una fecha inválida
+		carpeta.agregarLinea("dia-pc-2026-11.jsonl", "{\"id\":\"e1\",\"ent\":\"consumo\",\"eid\":\"x\",\"op\":\"put\",\"ts\":5,"
+				+ "\"disp\":\"pc\",\"datos\":{\"id\":\"x\",\"fecha\":\"no-es-fecha\",\"comida\":\"Cena\",\"items\":[]}}");
+		consumo(repo, "2026-11-10", 1800);
+		correr(LocalDate.of(2026, 12, 20));
+		assertTrue(historial.existe("2026-11-10"));
 	}
 
 	@Test void borraSoloElArchivoMensualPropioYaArchivado() {

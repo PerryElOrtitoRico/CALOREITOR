@@ -27,12 +27,25 @@ public final class Depuracion {
 
 	public void correr(LocalDate hoy) {
 		Set<String> fechas = repo.fechasConConsumos();
+		Set<String> validas = new java.util.TreeSet<>();
 		for (String f : fechas) {
-			if (!LocalDate.parse(f).isBefore(hoy.minusDays(31)) || historial.existe(f)) continue;
+			LocalDate fecha;
+			try {
+				fecha = LocalDate.parse(f);
+			} catch (DateTimeParseException e) {
+				continue; // fecha ilegible: no frena a las demás
+			}
+			validas.add(f);
+			if (!fecha.isBefore(hoy.minusDays(31))) continue;
+			var previo = historial.leer(f);
+			// Más viejo que 62 días no se toca: un consumo "resucitado" no pisa lo archivado.
+			if (previo.isPresent() && fecha.isBefore(hoy.minusDays(62))) continue;
 			Macros total = Macros.CERO;
 			for (var c : repo.consumos(f)) total = total.mas(c.macros());
-			Macros obj = objetivos.del(LocalDate.parse(f)).map(Objetivo::macros).orElse(null);
-			historial.guardar(new TotalDia(f, total, obj));
+			Macros obj = objetivos.del(fecha).map(Objetivo::macros).orElse(null);
+			// Con el día ya archivado se refresca solo si llegó algo tardío por sincronización.
+			var t = new TotalDia(f, total, obj);
+			if (!t.equals(previo.orElse(null))) historial.guardar(t);
 		}
 		String prefijo = "dia-" + archivo.dispositivo() + "-";
 		for (String nombre : archivo.carpeta().archivos()) {
@@ -44,7 +57,7 @@ public final class Depuracion {
 				continue;
 			}
 			if (!mes.atEndOfMonth().isBefore(hoy.minusDays(62))) continue;
-			boolean archivado = fechas.stream()
+			boolean archivado = validas.stream()
 					.filter(f -> YearMonth.from(LocalDate.parse(f)).equals(mes))
 					.allMatch(historial::existe);
 			if (archivado) archivo.carpeta().borrar(nombre);
