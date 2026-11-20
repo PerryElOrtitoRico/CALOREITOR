@@ -74,4 +74,48 @@ class AsignacionTest {
 		}
 		return sb.append("]}").toString();
 	}
+
+	static String rutineitor(String inicio, int micro, String plioNivelesJson) {
+		return "{\"formato\":\"rutineitor-plan\",\"inicio\":\"" + inicio + "\",\"microciclos\":" + micro
+				+ ",\"sesiones\":[{\"microciclo\":1,\"dia\":1,\"ejercicios\":[]}],\"pliometria\":[" + plioNivelesJson + "]}";
+	}
+
+	static String nivel(String inicio, int[][] semanas) {
+		StringBuilder sb = new StringBuilder("{\"nivel\":1,\"inicio\":\"" + inicio + "\",\"semanas\":[");
+		for (int i = 0; i < semanas.length; i++) {
+			sb.append(i > 0 ? "," : "").append("[");
+			for (int j = 0; j < semanas[i].length; j++) {
+				sb.append(j > 0 ? "," : "").append("{\"dia\":").append(j + 1).append(",\"contactos\":").append(semanas[i][j]).append("}");
+			}
+			sb.append("]");
+		}
+		return sb.append("]}").toString();
+	}
+
+	@Test void pliometriaConDosNivelesNoPisaLaSemanaAnteriorAlNivelB() {
+		var s = sem(Set.of(), Set.of(), Set.of(MONDAY, THURSDAY));
+		// A: 2 semanas desde 11-02; B arranca 11-16 (contiguo) y C con hueco desde 12-07
+		String json = rutineitor("2026-11-02", 1,
+				nivel("2026-11-02", new int[][] { { 100, 110 }, { 120, 130 } }) + ","
+				+ nivel("2026-11-16", new int[][] { { 200, 210 }, { 220, 230 } }) + ","
+				+ nivel("2026-12-07", new int[][] { { 300, 310 } }));
+		var l = List.of(PlanesEntrenamiento.leer(json, 1));
+		// semana 2 de A (jueves = dia 2)
+		assertEquals(130, Asignacion.para(LocalDate.of(2026, 11, 12), s, l).plio().contactos());
+		// semana 2 de B (lunes 11-23)
+		assertEquals(220, Asignacion.para(LocalDate.of(2026, 11, 23), s, l).plio().contactos());
+		// hueco: semana del 11-30 no pertenece a ningun nivel (no debe agarrar la semana 1 de C)
+		assertNull(Asignacion.para(LocalDate.of(2026, 11, 30), s, l).plio());
+		assertNull(Asignacion.para(LocalDate.of(2026, 12, 3), s, l).plio());
+		assertEquals(300, Asignacion.para(LocalDate.of(2026, 12, 7), s, l).plio().contactos());
+	}
+
+	@Test void conDosPlanesQueCubrenLaFechaGanaElMasNuevo() {
+		var s = sem(Set.of(), Set.of(MONDAY), Set.of());
+		Plan a = PlanesEntrenamiento.leer(corto("2026-11-02", 3), 1);
+		Plan b = PlanesEntrenamiento.leer(corto("2026-11-10", 3), 2); // mismas semanas, fechas distintas
+		var f = LocalDate.of(2026, 11, 16);
+		assertEquals("2026-11-17", Asignacion.para(f, s, List.of(a, b)).running().fecha());
+		assertEquals("2026-11-17", Asignacion.para(f, s, List.of(b, a)).running().fecha());
+	}
 }

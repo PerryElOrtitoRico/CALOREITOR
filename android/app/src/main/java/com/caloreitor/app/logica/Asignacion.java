@@ -36,7 +36,7 @@ public final class Asignacion {
 			int kp = orden(semana.pliometria(), fecha.getDayOfWeek());
 			if (kp > 0) {
 				p = pg.plio().stream()
-						.filter(s -> s.dia() == kp && s.semana() == semanaDe(s.lunes(), fecha)).findFirst().orElse(null);
+						.filter(s -> s.dia() == kp && semanaDe(s.lunes(), fecha) == s.semana()).findFirst().orElse(null);
 			}
 		}
 		return new EntrenamientoDia(g, r, p);
@@ -50,7 +50,8 @@ public final class Asignacion {
 	}
 
 	private static int semanaDe(LocalDate lunes, LocalDate f) {
-		return (int) ChronoUnit.WEEKS.between(lunes, f) + 1;
+		// floorDiv: antes del lunes da semana <= 0 (WEEKS.between truncaría a 1)
+		return (int) Math.floorDiv(ChronoUnit.DAYS.between(lunes, f), 7) + 1;
 	}
 
 	/** Posición 1-based del día entre los marcados (lunes→domingo); 0 si no está marcado. */

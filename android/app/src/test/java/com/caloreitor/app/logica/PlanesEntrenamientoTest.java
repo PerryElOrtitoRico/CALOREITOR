@@ -56,4 +56,13 @@ class PlanesEntrenamientoTest {
 			}
 		}
 	}
+
+	@Test void planRotoLanzaFormatoInvalidoEnVezDeRomper() {
+		for (String j : new String[] {
+				"{\"formato\":\"running-plan\",\"sesiones\":[{\"semana\":1,\"fecha\":\"2026-11-03\"}]}",
+				"{\"formato\":\"rutineitor-plan\",\"inicio\":\"mañana\",\"microciclos\":4,\"sesiones\":[{\"microciclo\":1,\"dia\":1,\"ejercicios\":[]}]}" }) {
+			var e = assertThrows(IllegalArgumentException.class, () -> PlanesEntrenamiento.leer(j, 0));
+			assertEquals("El plan tiene un formato inválido", e.getMessage());
+		}
+	}
 }

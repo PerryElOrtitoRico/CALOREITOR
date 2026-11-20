@@ -51,8 +51,15 @@ public final class PlanesEntrenamiento {
 			throw new IllegalArgumentException("El archivo no es un JSON válido");
 		}
 		String formato = o.has("formato") && o.get("formato").isJsonPrimitive() ? o.get("formato").getAsString() : null;
-		if ("running-plan".equals(formato)) return running(o, importadoEn);
-		if ("rutineitor-plan".equals(formato)) return rutineitor(o, importadoEn);
+		try {
+			if ("running-plan".equals(formato)) return running(o, importadoEn);
+			if ("rutineitor-plan".equals(formato)) return rutineitor(o, importadoEn);
+		} catch (IllegalArgumentException e) {
+			throw e;
+		} catch (RuntimeException e) {
+			// campos que faltan o con tipo equivocado: un plan roto avisa, nunca rompe la app
+			throw new IllegalArgumentException("El plan tiene un formato inválido");
+		}
 		throw new IllegalArgumentException("Formato de plan desconocido: " + formato);
 	}
 
