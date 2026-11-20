@@ -1,1 +1,1 @@
-Base de alimentos: valores por 100 g de USDA FoodData Central (SR Legacy, dominio público), con nombres en castellano rioplatense.
+Base de alimentos: valores por 100 g de USDA FoodData Central (SR Legacy, dominio público), con estimaciones para productos locales (chimichurri, facturas, alfajores, locro, etc.) y nombres en castellano rioplatense; unas pocas filas (choclo, limón, cacao amargo) usan carbohidratos sin fibra.
