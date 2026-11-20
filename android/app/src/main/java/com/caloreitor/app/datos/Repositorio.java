@@ -30,6 +30,8 @@ public final class Repositorio {
 	// Fecha de cada consumo (aunque esté borrado) y último cambio por fecha: un borrado también cambia el día.
 	private final Map<String, String> fechaDeConsumo = new HashMap<>();
 	private final Map<String, Long> cambios = new HashMap<>();
+	// ts del primer put de cada consumo: el orden del día no cambia al editar.
+	private final Map<String, Long> primerTs = new HashMap<>();
 
 	public Repositorio(ArchivoEventos archivo, LongSupplier reloj) {
 		this.archivo = archivo;
@@ -43,6 +45,7 @@ public final class Repositorio {
 		vivos.clear();
 		fechaDeConsumo.clear();
 		cambios.clear();
+		primerTs.clear();
 		for (String ent : List.of("consumo", "alimento", "receta", "config", "objetivo", "plansemanal", "plan")) {
 			Map<String, Vivo> m = new HashMap<>();
 			estado.vivos(ent).forEach((id, d) -> m.put(id, new Vivo(d, estado.tsMaximo(ent, id))));
@@ -52,6 +55,7 @@ public final class Repositorio {
 		for (Evento e : eventos) {
 			if ("consumo".equals(e.entidad()) && "put".equals(e.op())) {
 				fechaDeConsumo.put(e.entidadId(), e.datos().get("fecha").getAsString());
+				primerTs.merge(e.entidadId(), e.ts(), Math::min);
 			}
 		}
 		for (Evento e : eventos) {
@@ -63,7 +67,9 @@ public final class Repositorio {
 
 	// --- consumos
 	public List<Consumo> consumos(String fecha) {
-		return ordenados("consumo", Consumo.class, c -> fecha.equals(c.fecha()), Comparator.comparingLong(v -> v.ts()));
+		List<Consumo> r = ordenados("consumo", Consumo.class, c -> fecha.equals(c.fecha()), Comparator.comparingLong(Vivo::ts));
+		r.sort(Comparator.comparingLong(c -> primerTs.get(c.id())));
+		return r;
 	}
 
 	public void guardar(Consumo c) {
@@ -156,6 +162,7 @@ public final class Repositorio {
 		long ts = reloj.getAsLong();
 		archivo.escribir(ent, id, "put", datos, ts, fechaDelDia);
 		vivos.get(ent).put(id, new Vivo(datos, ts));
+		if (ent.equals("consumo")) primerTs.putIfAbsent(id, ts);
 		if (fechaCambio != null) cambios.merge(fechaCambio, ts, Math::max);
 	}
 

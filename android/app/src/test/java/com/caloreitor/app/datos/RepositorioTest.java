@@ -39,6 +39,19 @@ class RepositorioTest {
 	}
 
 	@Test
+	void editarUnConsumoNoCambiaElOrden() {
+		repo.guardar(consumo("c1", "2026-11-20"));
+		repo.guardar(consumo("c2", "2026-11-20"));
+		repo.guardar(new Consumo("c1", "2026-11-20", "Cena", null, null, List.of(item("pollo", 200))));
+		List<String> esperado = List.of("c1", "c2");
+		assertEquals(esperado, repo.consumos("2026-11-20").stream().map(Consumo::id).toList());
+		assertEquals("Cena", repo.consumos("2026-11-20").get(0).comida());
+		repo.recargar();
+		assertEquals(esperado, repo.consumos("2026-11-20").stream().map(Consumo::id).toList());
+		assertEquals("Cena", repo.consumos("2026-11-20").get(0).comida());
+	}
+
+	@Test
 	void borrarConsumoLoSacaYPersiste() {
 		repo.guardar(consumo("c1", "2026-11-20"));
 		repo.borrarConsumo("c1");
