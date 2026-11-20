@@ -72,6 +72,13 @@ public final class Repositorio {
 		return r;
 	}
 
+	/** Fechas con al menos un consumo vivo. */
+	public java.util.Set<String> fechasConConsumos() {
+		java.util.Set<String> r = new java.util.TreeSet<>();
+		for (String id : vivos.get("consumo").keySet()) r.add(fechaDeConsumo.get(id));
+		return r;
+	}
+
 	public void guardar(Consumo c) {
 		fechaDeConsumo.put(c.id(), c.fecha());
 		poner("consumo", c.id(), GSON.toJsonTree(c).getAsJsonObject(), c.fecha(), c.fecha());

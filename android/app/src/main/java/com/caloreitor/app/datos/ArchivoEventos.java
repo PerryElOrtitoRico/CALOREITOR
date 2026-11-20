@@ -22,6 +22,14 @@ public final class ArchivoEventos {
 		this.dispositivo = dispositivo;
 	}
 
+	public CarpetaEventos carpeta() {
+		return carpeta;
+	}
+
+	public String dispositivo() {
+		return dispositivo;
+	}
+
 	public List<Evento> leerTodos() {
 		List<Evento> r = new ArrayList<>();
 		for (String archivo : carpeta.archivos()) {
