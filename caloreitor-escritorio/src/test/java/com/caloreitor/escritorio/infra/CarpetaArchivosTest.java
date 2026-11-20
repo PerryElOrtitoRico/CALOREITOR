@@ -23,4 +23,21 @@ class CarpetaArchivosTest {
 		c.borrar("catalogo-pc.jsonl");
 		assertEquals(List.of("dia-pc-2026-11.jsonl"), c.archivos());
 	}
+
+	@Test
+	void carpetaInexistenteNoTieneArchivos() {
+		assertEquals(List.of(), new CarpetaArchivos(dir.resolve("nueva")).archivos());
+	}
+
+	@Test
+	void caracterMultibyteCortadoNoRompeLaLectura() throws Exception {
+		byte[] ok = "linea ok\n".getBytes(java.nio.charset.StandardCharsets.UTF_8);
+		byte[] cortada = {'{', (byte) 0xC3}; // mitad de "ñ"
+		byte[] todo = java.util.Arrays.copyOf(ok, ok.length + cortada.length);
+		System.arraycopy(cortada, 0, todo, ok.length, cortada.length);
+		Files.write(dir.resolve("dia-x-2026-11.jsonl"), todo);
+		List<String> l = new CarpetaArchivos(dir).leerLineas("dia-x-2026-11.jsonl");
+		assertEquals(2, l.size());
+		assertEquals("linea ok", l.get(0));
+	}
 }

@@ -41,6 +41,15 @@ class ArchivoEventosTest {
 	}
 
 	@Test
+	void delConDatosNullExplicitoSeParsea() {
+		Memoria m = new Memoria();
+		m.agregarLinea("catalogo-pc.jsonl", "{\"id\":\"d\",\"ent\":\"alimento\",\"eid\":\"a1\",\"op\":\"del\",\"ts\":7,\"disp\":\"pc\",\"datos\":null}");
+		List<Evento> r = new ArchivoEventos(m, "pc").leerTodos();
+		assertEquals(1, r.size());
+		assertNull(r.get(0).datos());
+	}
+
+	@Test
 	void escribirSoloAgregaAlArchivoPropio() {
 		Memoria m = new Memoria();
 		m.agregarLinea("dia-celular-2026-11.jsonl", "{}");

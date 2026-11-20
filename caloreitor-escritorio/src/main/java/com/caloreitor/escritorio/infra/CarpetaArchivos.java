@@ -21,6 +21,7 @@ public final class CarpetaArchivos implements CarpetaEventos {
 
 	@Override
 	public List<String> archivos() {
+		if (!Files.isDirectory(carpeta)) return List.of(); // primera ejecución: aún no existe
 		try (Stream<Path> s = Files.list(carpeta)) {
 			List<String> r = new ArrayList<>();
 			s.map(p -> p.getFileName().toString())
@@ -36,7 +37,9 @@ public final class CarpetaArchivos implements CarpetaEventos {
 	public List<String> leerLineas(String archivo) {
 		try {
 			Path p = carpeta.resolve(archivo);
-			return Files.exists(p) ? Files.readAllLines(p, StandardCharsets.UTF_8) : List.of();
+			if (!Files.exists(p)) return List.of();
+			// Un archivo ajeno cortado a mitad de un carácter no debe romper la lectura: los bytes inválidos se reemplazan y esa línea falla al parsear.
+			return new String(Files.readAllBytes(p), StandardCharsets.UTF_8).lines().toList();
 		} catch (IOException e) {
 			throw new UncheckedIOException(e);
 		}
