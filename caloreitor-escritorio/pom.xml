@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>caloreitor</groupId>
+		<artifactId>caloreitor-parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>caloreitor-escritorio</artifactId>
+	<name>CALOREITOR escritorio</name>
+
+	<properties>
+		<!-- el código compartido de la app de Android vive en el mismo repo: una sola copia -->
+		<compartido.main>${project.basedir}/../android/app/src/main/java</compartido.main>
+		<compartido.test>${project.basedir}/../android/app/src/test/java</compartido.test>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>3.6.0</version>
+				<executions>
+					<execution>
+						<id>fuentes-compartidas</id>
+						<phase>generate-sources</phase>
+						<goals><goal>add-source</goal></goals>
+						<configuration><sources><source>${compartido.main}</source></sources></configuration>
+					</execution>
+					<execution>
+						<id>tests-compartidos</id>
+						<phase>generate-test-sources</phase>
+						<goals><goal>add-test-source</goal></goals>
+						<configuration><sources><source>${compartido.test}</source></sources></configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.13.0</version>
+				<configuration>
+					<!-- de la app solo entra lo que no usa Android -->
+					<includes>
+						<include>com/caloreitor/app/logica/**</include>
+						<include>com/caloreitor/app/datos/**</include>
+						<include>com/caloreitor/app/modelo/**</include>
+						<include>com/caloreitor/app/red/**</include>
+						<include>com/caloreitor/escritorio/**</include>
+					</includes>
+					<testIncludes>
+						<testInclude>com/caloreitor/app/logica/**</testInclude>
+						<testInclude>com/caloreitor/app/datos/**</testInclude>
+						<testInclude>com/caloreitor/app/modelo/**</testInclude>
+						<testInclude>com/caloreitor/app/red/**</testInclude>
+						<testInclude>com/caloreitor/escritorio/**</testInclude>
+					</testIncludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<!-- sin pantalla: los tests no abren ventanas y dan lo mismo en cualquier máquina -->
+					<systemPropertyVariables><java.awt.headless>true</java.awt.headless></systemPropertyVariables>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.6.0</version>
+				<configuration>
+					<descriptorRefs><descriptorRef>jar-with-dependencies</descriptorRef></descriptorRefs>
+					<archive><manifest><mainClass>com.caloreitor.escritorio.Main</mainClass></manifest></archive>
+				</configuration>
+				<executions>
+					<execution>
+						<id>jar-con-dependencias</id>
+						<phase>package</phase>
+						<goals><goal>single</goal></goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
