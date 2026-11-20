@@ -1,0 +1,334 @@
+id;nombre;kcal;proteinas;carbohidratos;grasas;porcion_nombre;porcion_gramos
+b0001;Bife de chorizo (crudo);158;21.0;0;7.9;Bife;250
+b0002;Bife de chorizo (cocido);238;27.0;0;14.0;Bife;200
+b0003;Lomo (cocido);218;29.0;0;11.0;Porción;150
+b0004;Bife angosto (cocido);252;26.5;0;16.0;Bife;200
+b0005;Asado de tira (cocido);331;24.0;0;26.0;Porción;150
+b0006;Vacío (cocido);290;26.0;0;20.0;Porción;200
+b0007;Entraña (cocida);282;26.0;0;19.0;Porción;150
+b0008;Matambre (cocido);230;27.0;0;13.0;Porción;150
+b0009;Nalga (cocida);190;30.0;0;7.0;Porción;150
+b0010;Cuadril (cocido);205;29.0;0;9.0;Porción;150
+b0011;Peceto (cocido);180;31.0;0;5.5;Porción;150
+b0012;Bola de lomo (cocida);190;30.0;0;7.0;Porción;150
+b0013;Colita de cuadril (cocida);215;28.0;0;11.0;Porción;150
+b0014;Osobuco (cocido);230;30.0;0;11.5;Porción;150
+b0015;Costilla de vaca (cocida);340;24.0;0;27.0;Porción;150
+b0016;Carne picada común (cruda);254;17.2;0;20.0;Porción;120
+b0017;Carne picada común (cocida);332;25.0;0;25.0;Porción;120
+b0018;Carne picada especial (cruda);176;20.0;0;10.0;Porción;120
+b0019;Carne picada especial (cocida);250;26.0;0;16.0;Porción;120
+b0020;Hamburguesa casera (cocida);290;24.0;0;21.0;Hamburguesa;100
+b0021;Milanesa de carne (frita);260;18.0;16.0;14.0;Milanesa;150
+b0022;Milanesa de carne (al horno);215;21.0;13.0;8.5;Milanesa;150
+b0023;Milanesa de pollo (frita);250;18.0;17.0;12.5;Milanesa;150
+b0024;Milanesa de pollo (al horno);200;21.0;14.0;6.5;Milanesa;150
+b0025;Milanesa de soja (frita);230;12.0;20.0;11.0;Milanesa;120
+b0026;Milanesa napolitana;240;19.0;14.0;12.5;Milanesa;250
+b0027;Chorizo (cocido);346;19.0;2.0;29.0;Chorizo;90
+b0028;Morcilla (cocida);379;14.6;0.9;35.0;Morcilla;100
+b0029;Salchicha tipo Viena;290;10.0;2.0;26.0;Salchicha;50
+b0030;Chinchulines (cocidos);250;18.0;0;19.0;Porción;100
+b0031;Mollejas (cocidas);320;22.0;0;25.0;Porción;100
+b0032;Riñón de vaca (cocido);99;16.0;0.3;3.1;Porción;100
+b0033;Hígado de vaca (cocido);175;27.0;5.0;4.7;Porción;100
+b0034;Lengua de vaca (cocida);283;19.0;0;22.0;Porción;100
+b0035;Cerdo, bondiola (cocida);297;25.0;0;21.0;Porción;150
+b0036;Cerdo, lomo (cocido);242;27.0;0;14.0;Porción;150
+b0037;Cerdo, carré (cocido);230;28.0;0;12.5;Chuleta;150
+b0038;Cerdo, costillas (cocidas);397;25.0;0;32.0;Porción;150
+b0039;Jamón cocido;107;17.0;1.5;3.5;Feta;20
+b0040;Jamón crudo;241;31.0;0.3;12.5;Feta;15
+b0041;Panceta ahumada (cruda);417;12.0;1.3;40.0;Feta;20
+b0042;Panceta ahumada (frita);541;37.0;1.4;42.0;Feta;10
+b0043;Bondiola curada;290;25.0;1.0;21.0;Feta;15
+b0044;Salame;336;22.0;1.6;26.0;Rodaja;8
+b0045;Mortadela;311;16.0;3.5;26.0;Feta;20
+b0046;Paleta cocida;140;17.0;2.0;7.0;Feta;20
+b0047;Pollo, pechuga sin piel (cocida);165;31.0;0;3.6;Pechuga;170
+b0048;Pollo, pechuga sin piel (cruda);120;22.5;0;2.6;Pechuga;200
+b0049;Pollo, muslo sin piel (cocido);209;26.0;0;10.9;Muslo;100
+b0050;Pollo, muslo con piel (cocido);229;24.0;0;14.0;Muslo;120
+b0051;Pollo, pata muslo con piel (asada);230;24.0;0;14.5;Pata muslo;200
+b0052;Pollo, ala (cocida);254;30.0;0;14.0;Ala;50
+b0053;Pollo, suprema (cocida);165;31.0;0;3.6;Suprema;150
+b0054;Pollo, hígado (cocido);167;24.5;0.9;6.5;Porción;100
+b0055;Pavo, pechuga (cocida);135;30.0;0;0.7;Porción;150
+b0056;Pavo, pechuga fiambre;104;17.0;4.2;1.7;Feta;20
+b0057;Cordero, pierna (cocida);258;28.0;0;15.0;Porción;150
+b0058;Cordero, costilla (cocida);294;25.0;0;21.0;Porción;150
+b0059;Conejo (cocido);173;33.0;0;3.5;Porción;150
+b0060;Pescado, merluza (cruda);82;17.8;0;0.7;Filet;150
+b0061;Pescado, merluza (cocida);90;19.0;0;1.0;Filet;150
+b0062;Merluza empanada (frita);230;14.0;16.0;12.0;Filet;120
+b0063;Pescado, salmón (crudo);208;20.4;0;13.4;Filet;150
+b0064;Pescado, salmón (cocido);206;22.0;0;12.0;Filet;150
+b0065;Pescado, atún (crudo);144;23.3;0;4.9;Porción;150
+b0066;Atún en lata al natural;116;25.5;0;0.8;Lata escurrida;120
+b0067;Atún en lata en aceite;198;29.1;0;8.2;Lata escurrida;120
+b0068;Caballa (cocida);262;23.8;0;17.8;Porción;120
+b0069;Sardinas en lata en aceite;208;24.6;0;11.5;Lata escurrida;90
+b0070;Pejerrey (crudo);97;18.0;0;2.0;Porción;150
+b0071;Trucha (cocida);168;23.8;0;7.2;Filet;150
+b0072;Surubí (cocido);130;23.0;0;4.0;Porción;150
+b0073;Bacalao (cocido);105;22.8;0;0.9;Porción;150
+b0074;Corvina (cocida);130;23.0;0;3.5;Filet;150
+b0075;Lenguado (cocido);86;18.0;0;1.3;Filet;150
+b0076;Camarones (cocidos);99;24.0;0.2;0.3;Porción;100
+b0077;Calamares (cocidos);175;17.9;7.8;7.5;Porción;100
+b0078;Mejillones (cocidos);172;23.8;7.4;4.5;Porción;100
+b0079;Huevo entero (crudo);143;12.6;0.7;9.5;Huevo;50
+b0080;Huevo duro;155;12.6;1.1;10.6;Huevo;50
+b0081;Huevo frito;196;13.6;0.8;14.8;Huevo;46
+b0082;Huevo revuelto;149;10.0;1.6;11.0;Huevo;60
+b0083;Clara de huevo;52;10.9;0.7;0.2;Clara;33
+b0084;Yema de huevo;322;15.9;3.6;26.5;Yema;17
+b0085;Leche entera;61;3.2;4.8;3.3;Vaso;200
+b0086;Leche parcialmente descremada;50;3.4;4.9;1.9;Vaso;200
+b0087;Leche descremada;34;3.4;5.0;0.1;Vaso;200
+b0088;Leche en polvo entera;496;26.3;38.4;26.7;Cucharada;10
+b0089;Leche en polvo descremada;362;36.2;52.0;0.8;Cucharada;10
+b0090;Leche chocolatada;83;3.2;10.4;3.4;Vaso;200
+b0091;Yogur entero natural;61;3.5;4.7;3.3;Pote;190
+b0092;Yogur descremado natural;45;4.3;6.0;0.2;Pote;190
+b0093;Yogur bebible saborizado;75;2.8;13.0;1.5;Vaso;200
+b0094;Yogur griego natural;97;9.0;3.9;5.0;Pote;170
+b0095;Yogur con frutas;85;3.5;14.0;1.8;Pote;190
+b0096;Crema de leche;292;2.1;2.8;30.0;Cucharada;15
+b0097;Crema de leche light;180;3.0;4.0;17.0;Cucharada;15
+b0098;Manteca;717;0.9;0.1;81.1;Cucharadita;5
+b0099;Margarina;717;0.2;0.7;80.5;Cucharadita;5
+b0100;Queso cremoso;300;18.0;2.0;24.0;Porción;30
+b0101;Queso cremoso light;180;20.0;3.0;10.0;Porción;30
+b0102;Queso port salut;352;23.8;1.4;28.0;Porción;30
+b0103;Queso mozzarella;280;27.5;3.1;17.1;Porción;30
+b0104;Queso tybo;340;24.0;1.5;26.0;Feta;20
+b0105;Queso sardo;387;28.0;2.0;30.0;Porción;20
+b0106;Queso provolone;351;25.6;2.1;26.6;Porción;30
+b0107;Queso azul;353;21.4;2.3;28.7;Porción;30
+b0108;Queso parmesano rallado;431;38.5;4.1;29.0;Cucharada;10
+b0109;Queso reggianito rallado;400;36.0;3.0;27.0;Cucharada;10
+b0110;Queso de cabra;364;21.6;0.1;29.8;Porción;30
+b0111;Queso fresco;240;17.0;3.0;18.0;Porción;30
+b0112;Ricota;174;11.3;3.0;13.0;Porción;50
+b0113;Ricota descremada;138;11.0;5.0;8.0;Porción;50
+b0114;Queso untable;250;6.0;4.0;23.0;Cucharada;20
+b0115;Queso untable light;135;8.0;6.0;9.0;Cucharada;20
+b0116;Queso rallado;390;30.0;3.0;29.0;Cucharada;10
+b0117;Requesón;98;11.1;3.4;4.3;Porción;50
+b0118;Dulce de leche;315;6.3;55.0;7.0;Cucharada;20
+b0119;Dulce de leche repostero;310;5.5;55.0;7.0;Cucharada;20
+b0120;Dulce de membrillo;250;0.4;65.0;0.2;Porción;30
+b0121;Dulce de batata;265;1.0;68.0;0.2;Porción;30
+b0122;Mermelada;250;0.4;65.0;0.1;Cucharada;20
+b0123;Miel;304;0.3;82.4;0;Cucharada;20
+b0124;Azúcar blanca;387;0;100.0;0;Cucharadita;5
+b0125;Edulcorante en polvo;390;0;97.0;0;Sobre;1
+b0126;Pan francés;289;9.0;56.0;2.0;Miñón;40
+b0127;Pan de miga blanco;266;8.0;50.0;3.3;Rebanada;25
+b0128;Pan lactal blanco;266;8.0;50.0;3.3;Rebanada;25
+b0129;Pan lactal integral;252;12.0;43.0;3.5;Rebanada;28
+b0130;Pan integral;247;13.0;41.0;3.4;Rebanada;30
+b0131;Pan de salvado;240;11.0;43.0;3.0;Rebanada;30
+b0132;Pan de hamburguesa;270;9.0;49.0;4.0;Pan;50
+b0133;Pan de pancho;270;9.0;49.0;4.0;Pan;50
+b0134;Pan árabe;275;9.1;55.7;1.2;Pan;60
+b0135;Tostada de pan blanco;313;10.0;59.0;3.6;Tostada;15
+b0136;Galletitas de agua;426;9.0;72.0;11.0;Galletita;6
+b0137;Galletitas dulces tipo vainilla;450;6.0;72.0;15.0;Galletita;8
+b0138;Galletitas de salvado;400;10.0;65.0;11.0;Galletita;8
+b0139;Galletitas rellenas con chocolate;480;5.0;68.0;21.0;Galletita;12
+b0140;Criollitas;430;9.0;71.0;12.0;Galletita;6
+b0141;Tostadas de arroz;387;8.0;82.0;2.8;Tostada;8
+b0142;Bizcochitos de grasa;470;8.0;60.0;22.0;Bizcochito;8
+b0143;Medialuna de manteca;406;8.0;46.0;21.0;Medialuna;45
+b0144;Medialuna de grasa;380;8.0;50.0;17.0;Medialuna;40
+b0145;Factura con dulce de leche;390;6.0;55.0;16.0;Factura;60
+b0146;Churro relleno;380;5.0;48.0;19.0;Churro;60
+b0147;Tarta de verdura;210;6.0;20.0;11.5;Porción;150
+b0148;Empanada de carne (al horno);270;11.0;27.0;13.0;Empanada;90
+b0149;Empanada de carne (frita);300;10.0;26.0;17.0;Empanada;90
+b0150;Empanada de jamón y queso;290;12.0;25.0;16.0;Empanada;90
+b0151;Empanada de pollo;265;13.0;26.0;12.5;Empanada;90
+b0152;Pizza de muzzarella;270;11.0;33.0;10.0;Porción;110
+b0153;Fugazzeta;290;11.0;34.0;12.0;Porción;120
+b0154;Fainá;200;6.5;24.0;9.0;Porción;60
+b0155;Pasta seca (cruda);371;13.0;74.7;1.5;Porción;80
+b0156;Fideos (cocidos);158;5.8;30.9;0.9;Plato;200
+b0157;Fideos integrales (cocidos);124;5.3;26.5;0.5;Plato;200
+b0158;Ravioles de verdura (cocidos);160;6.0;26.0;3.5;Plato;250
+b0159;Ravioles de carne (cocidos);190;8.0;25.0;6.0;Plato;250
+b0160;Ñoquis de papa (cocidos);130;3.5;27.0;0.7;Plato;250
+b0161;Sorrentinos de jamón y queso (cocidos);200;8.0;25.0;7.0;Plato;250
+b0162;Canelones de verdura y ricota;170;7.0;18.0;8.0;Canelón;120
+b0163;Tallarines al huevo (cocidos);138;4.5;25.0;2.1;Plato;200
+b0164;Fideos de arroz (cocidos);109;0.9;25.0;0.2;Plato;200
+b0165;Arroz blanco (crudo);365;7.1;80.0;0.7;Taza;180
+b0166;Arroz blanco hervido;130;2.7;28.2;0.3;Plato;180
+b0167;Arroz integral hervido;123;2.7;25.6;1.0;Plato;180
+b0168;Arroz con pollo;165;9.0;20.0;5.0;Plato;300
+b0169;Polenta (cocida);70;1.6;15.0;0.4;Plato;250
+b0170;Harina de maíz (polenta cruda);362;8.1;78.0;1.2;Cucharada;10
+b0171;Harina de trigo 000;364;10.3;76.3;1.0;Cucharada;10
+b0172;Harina integral;340;13.7;72.0;2.5;Cucharada;10
+b0173;Harina de garbanzo;387;22.4;57.8;6.7;Cucharada;10
+b0174;Fécula de maíz (maicena);381;0.3;91.3;0.1;Cucharada;10
+b0175;Avena arrollada (cruda);379;13.2;67.7;6.5;Cucharada;10
+b0176;Avena cocida;71;2.5;12.0;1.5;Plato;250
+b0177;Copos de maíz;357;7.5;84.0;0.4;Taza;30
+b0178;Cereales azucarados;380;5.0;85.0;1.5;Taza;30
+b0179;Granola;471;10.0;64.0;20.0;Cucharada;15
+b0180;Muesli;340;10.0;66.0;6.0;Cucharada;15
+b0181;Quinoa (cocida);120;4.4;21.3;1.9;Plato;180
+b0182;Quinoa (cruda);368;14.1;64.2;6.1;Taza;170
+b0183;Cuscús (cocido);112;3.8;23.2;0.2;Plato;180
+b0184;Lentejas cocidas;116;9.0;20.1;0.4;Plato;200
+b0185;Lentejas crudas;352;24.6;63.4;1.1;Taza;190
+b0186;Garbanzos cocidos;164;8.9;27.4;2.6;Taza;160
+b0187;Garbanzos en lata;139;7.0;22.0;2.8;Porción;100
+b0188;Porotos negros cocidos;132;8.9;23.7;0.5;Taza;170
+b0189;Porotos alubia cocidos;139;9.7;25.0;0.4;Taza;170
+b0190;Porotos de soja cocidos;173;16.6;9.9;9.0;Taza;170
+b0191;Arvejas secas cocidas;118;8.3;21.1;0.4;Taza;170
+b0192;Arvejas en lata;70;4.5;12.0;0.4;Porción;100
+b0193;Tofu;76;8.1;1.9;4.8;Porción;100
+b0194;Hamburguesa de lentejas;180;9.0;23.0;5.5;Hamburguesa;100
+b0195;Papa hervida;87;1.9;20.1;0.1;Papa mediana;150
+b0196;Papa cruda;77;2.0;17.5;0.1;Papa mediana;170
+b0197;Papa al horno con piel;93;2.5;21.2;0.1;Papa mediana;170
+b0198;Papas fritas caseras;312;3.4;41.4;14.7;Porción;100
+b0199;Papas fritas de paquete;536;7.0;53.0;34.6;Bolsita;40
+b0200;Puré de papas con leche y manteca;113;2.0;16.8;4.2;Plato;200
+b0201;Batata hervida;76;1.4;17.7;0.1;Batata mediana;150
+b0202;Batata asada;90;2.0;20.7;0.2;Batata mediana;150
+b0203;Mandioca hervida;160;1.4;38.1;0.3;Porción;100
+b0204;Choclo cocido;96;3.4;18.6;1.5;Choclo;140
+b0205;Choclo en lata;81;2.5;18.8;1.0;Porción;100
+b0206;Zanahoria cruda;41;0.9;9.6;0.2;Zanahoria;70
+b0207;Zanahoria hervida;35;0.8;8.2;0.2;Porción;80
+b0208;Zapallo hervido;20;0.7;4.9;0.1;Porción;100
+b0209;Zapallito;17;1.2;3.1;0.3;Zapallito;150
+b0210;Zapallo anco;34;1.1;8.6;0.1;Porción;100
+b0211;Zucchini;17;1.2;3.1;0.3;Unidad;200
+b0212;Calabaza (cocida);20;0.7;4.9;0.1;Porción;100
+b0213;Berenjena (cocida);35;0.8;8.7;0.2;Porción;100
+b0214;Berenjena (cruda);25;1.0;5.9;0.2;Berenjena;200
+b0215;Tomate crudo;18;0.9;3.9;0.2;Tomate;120
+b0216;Tomate perita en lata;24;1.2;5.3;0.2;Lata escurrida;240
+b0217;Salsa de tomate;29;1.4;6.6;0.2;Cucharón;100
+b0218;Puré de tomate;38;1.7;8.2;0.3;Cucharón;100
+b0219;Lechuga;15;1.4;2.9;0.2;Plato;50
+b0220;Lechuga criolla;15;1.4;2.9;0.2;Plato;50
+b0221;Rúcula;25;2.6;3.7;0.7;Puñado;20
+b0222;Espinaca cruda;23;2.9;3.6;0.4;Plato;30
+b0223;Espinaca hervida;23;3.0;3.8;0.3;Porción;100
+b0224;Acelga hervida;20;1.9;4.1;0.1;Porción;100
+b0225;Repollo crudo;25;1.3;5.8;0.1;Plato;70
+b0226;Repollo colorado;31;1.4;7.4;0.2;Plato;70
+b0227;Brócoli hervido;35;2.4;7.2;0.4;Porción;100
+b0228;Coliflor hervida;23;1.8;4.1;0.5;Porción;100
+b0229;Repollitos de Bruselas (hervidos);36;2.6;7.1;0.5;Porción;100
+b0230;Cebolla;40;1.1;9.3;0.1;Cebolla;110
+b0231;Cebolla de verdeo;32;1.8;7.3;0.2;Rama;15
+b0232;Puerro (cocido);31;0.8;7.6;0.2;Porción;100
+b0233;Ajo;149;6.4;33.1;0.5;Diente;3
+b0234;Morrón rojo;31;1.0;6.0;0.3;Morrón;150
+b0235;Morrón verde;20;0.9;4.6;0.2;Morrón;150
+b0236;Pepino;15;0.7;3.6;0.1;Pepino;200
+b0237;Remolacha hervida;44;1.7;10.0;0.2;Remolacha;80
+b0238;Apio;14;0.7;3.0;0.2;Tallo;40
+b0239;Hongos champiñones;22;3.1;3.3;0.3;Porción;100
+b0240;Alcauciles (cocidos);53;2.9;11.9;0.4;Alcaucil;120
+b0241;Espárragos (cocidos);22;2.4;4.1;0.2;Porción;100
+b0242;Arvejas verdes (cocidas);84;5.4;15.6;0.2;Porción;100
+b0243;Chauchas (cocidas);35;1.9;7.9;0.3;Porción;100
+b0244;Palta;160;2.0;8.5;14.7;Palta;150
+b0245;Aceitunas verdes;145;1.0;3.8;15.3;Aceituna;4
+b0246;Aceitunas negras;115;0.8;6.0;10.7;Aceituna;4
+b0247;Banana;89;1.1;22.8;0.3;Banana;120
+b0248;Manzana;52;0.3;13.8;0.2;Manzana;180
+b0249;Pera;57;0.4;15.2;0.1;Pera;180
+b0250;Naranja;47;0.9;11.8;0.1;Naranja;180
+b0251;Mandarina;53;0.8;13.3;0.3;Mandarina;90
+b0252;Pomelo;42;0.8;10.7;0.1;Pomelo;250
+b0253;Limón;29;1.1;6.5;0.3;Limón;60
+b0254;Frutillas;32;0.7;7.7;0.3;Taza;150
+b0255;Durazno;39;0.9;9.5;0.3;Durazno;150
+b0256;Ciruela;46;0.7;11.4;0.3;Ciruela;60
+b0257;Damasco;48;1.4;11.1;0.4;Damasco;40
+b0258;Cereza;63;1.1;16.0;0.2;Cereza;8
+b0259;Uva;69;0.7;18.1;0.2;Racimo chico;100
+b0260;Sandía;30;0.6;7.6;0.2;Rodaja;300
+b0261;Melón;34;0.8;8.2;0.2;Rodaja;200
+b0262;Ananá;50;0.5;13.1;0.1;Rodaja;100
+b0263;Kiwi;61;1.1;14.7;0.5;Kiwi;75
+b0264;Mango;60;0.8;15.0;0.4;Mango;200
+b0265;Higo;74;0.8;19.2;0.3;Higo;50
+b0266;Arándanos;57;0.7;14.5;0.3;Taza;120
+b0267;Frambuesas;52;1.2;11.9;0.7;Taza;120
+b0268;Granada;83;1.7;18.7;1.2;Granada;200
+b0269;Pasas de uva;299;3.1;79.2;0.5;Puñado;30
+b0270;Ciruelas pasas;240;2.2;63.9;0.4;Ciruela;10
+b0271;Orejones de damasco;241;3.4;62.6;0.5;Orejón;8
+b0272;Dátiles;282;2.5;75.0;0.4;Dátil;8
+b0273;Jugo de naranja exprimido;45;0.7;10.4;0.2;Vaso;200
+b0274;Jugo de fruta en polvo (preparado);20;0;5.0;0;Vaso;200
+b0275;Gaseosa cola;42;0;10.6;0;Vaso;250
+b0276;Gaseosa sin azúcar;1;0;0.1;0;Vaso;250
+b0277;Café negro;2;0.1;0;0;Taza;150
+b0278;Café con leche;35;1.8;2.6;1.8;Taza;250
+b0279;Té;1;0;0.3;0;Taza;200
+b0280;Mate cebado sin azúcar;1;0;0.2;0;Mate;200
+b0281;Cacao en polvo azucarado;390;5.0;80.0;3.0;Cucharada;10
+b0282;Cacao amargo;228;19.6;14.0;13.7;Cucharada;5
+b0283;Chocolate con leche;535;7.7;59.4;29.7;Cuadradito;8
+b0284;Chocolate amargo;546;4.9;61.0;31.3;Cuadradito;8
+b0285;Alfajor de dulce de leche;410;4.5;63.0;15.5;Alfajor;50
+b0286;Alfajor de maicena;430;4.5;62.0;18.0;Alfajor;40
+b0287;Helado de crema;207;3.5;23.6;11.0;Bocha;70
+b0288;Helado de agua;100;0;25.0;0;Bocha;70
+b0289;Flan con dulce de leche;140;4.0;20.0;4.8;Porción;150
+b0290;Budín de pan;210;5.5;34.0;6.0;Porción;120
+b0291;Gelatina preparada;62;1.3;14.0;0;Porción;150
+b0292;Pochoclo;387;13.0;78.0;4.5;Taza;10
+b0293;Maní tostado;585;23.7;21.5;49.7;Puñado;30
+b0294;Maní con cáscara (crudo);567;25.8;16.1;49.2;Puñado;30
+b0295;Almendras;579;21.2;21.6;49.9;Puñado;30
+b0296;Nueces;654;15.2;13.7;65.2;Nuez;5
+b0297;Castañas de cajú;553;18.2;30.2;43.9;Puñado;30
+b0298;Avellanas;628;15.0;16.7;60.8;Puñado;30
+b0299;Pistachos;562;20.2;27.2;45.3;Puñado;30
+b0300;Semillas de girasol;584;20.8;20.0;51.5;Cucharada;10
+b0301;Semillas de chía;486;16.5;42.1;30.7;Cucharada;10
+b0302;Semillas de lino;534;18.3;28.9;42.2;Cucharada;10
+b0303;Semillas de sésamo;573;17.7;23.5;49.7;Cucharada;10
+b0304;Pasta de maní;588;25.0;20.0;50.0;Cucharada;15
+b0305;Aceite de girasol;884;0;0;100.0;Cucharada;10
+b0306;Aceite de oliva;884;0;0;100.0;Cucharada;10
+b0307;Aceite de maíz;884;0;0;100.0;Cucharada;10
+b0308;Mayonesa;680;1.0;0.6;75.0;Cucharada;15
+b0309;Mayonesa light;290;0.5;9.0;28.0;Cucharada;15
+b0310;Ketchup;101;1.0;27.0;0.1;Cucharada;15
+b0311;Mostaza;66;4.4;5.8;3.3;Cucharadita;5
+b0312;Chimichurri;120;1.0;5.0;11.0;Cucharada;10
+b0313;Salsa golf;380;0.8;19.0;34.0;Cucharada;15
+b0314;Sopa de verduras (preparada);25;0.8;4.5;0.5;Plato;250
+b0315;Tapa de empanadas;340;8.0;50.0;12.0;Tapa;30
+b0316;Tapa de tarta;340;8.0;50.0;12.0;Tapa;150
+b0317;Pan rallado;395;13.4;72.0;5.3;Cucharada;10
+b0318;Rebozador;370;10.0;75.0;1.5;Cucharada;10
+b0319;Proteína whey en polvo;400;78.0;8.0;6.0;Scoop;30
+b0320;Barra de cereal;390;5.0;70.0;10.0;Barra;25
+b0321;Sándwich de miga de jamón y queso;250;11.0;27.0;10.5;Sándwich;50
+b0322;Tostado de jamón y queso;290;14.0;28.0;13.0;Tostado;130
+b0323;Pancho con pan;260;9.0;23.0;15.0;Pancho;100
+b0324;Hamburguesa con pan y queso;290;15.0;25.0;14.5;Hamburguesa;200
+b0325;Pastel de papa;120;6.0;13.5;4.5;Porción;300
+b0326;Guiso de lentejas;110;7.0;14.0;3.0;Plato;350
+b0327;Locro;140;8.0;14.0;6.0;Plato;350
+b0328;Puchero;90;7.0;8.0;3.5;Plato;400
+b0329;Provoleta (a la parrilla);350;25.0;2.0;27.0;Provoleta;150
+b0330;Pizza de jamón y morrón;260;12.0;30.0;10.0;Porción;120
+b0331;Lasaña de carne;165;9.0;15.0;7.5;Porción;300
+b0332;Tarta de jamón y queso;290;12.0;22.0;17.0;Porción;150
+b0333;Humita;130;3.5;22.0;3.5;Porción;150

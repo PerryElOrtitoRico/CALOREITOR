@@ -13,6 +13,8 @@
 		<!-- el código compartido de la app de Android vive en el mismo repo: una sola copia -->
 		<compartido.main>${project.basedir}/../android/app/src/main/java</compartido.main>
 		<compartido.test>${project.basedir}/../android/app/src/test/java</compartido.test>
+		<compartido.recursos>${project.basedir}/../android/app/src/main/resources</compartido.recursos>
+		<compartido.recursos.test>${project.basedir}/../android/app/src/test/resources</compartido.recursos.test>
 	</properties>
 
 	<dependencies>
@@ -46,6 +48,18 @@
 						<phase>generate-test-sources</phase>
 						<goals><goal>add-test-source</goal></goals>
 						<configuration><sources><source>${compartido.test}</source></sources></configuration>
+					</execution>
+					<execution>
+						<id>recursos-compartidos</id>
+						<phase>generate-resources</phase>
+						<goals><goal>add-resource</goal></goals>
+						<configuration><resources><resource><directory>${compartido.recursos}</directory></resource></resources></configuration>
+					</execution>
+					<execution>
+						<id>recursos-de-test-compartidos</id>
+						<phase>generate-test-resources</phase>
+						<goals><goal>add-test-resource</goal></goals>
+						<configuration><resources><resource><directory>${compartido.recursos.test}</directory></resource></resources></configuration>
 					</execution>
 				</executions>
 			</plugin>
