@@ -1,6 +1,8 @@
 package com.caloreitor.escritorio;
 
 import com.caloreitor.app.modelo.Alimento;
+import com.caloreitor.app.modelo.Consumo;
+import com.caloreitor.app.modelo.Item;
 import com.caloreitor.app.modelo.ItemReceta;
 import com.caloreitor.app.modelo.Macros;
 import java.text.Normalizer;
@@ -66,6 +68,18 @@ public final class Cuentas {
 		} catch (NumberFormatException e) {
 			return OptionalDouble.empty();
 		}
+	}
+
+	/** Cada consumo planeado (receta + alimentos y gramos) ya está en lo registrado: "Comí lo planeado" no se repite. */
+	public static boolean yaComido(List<Consumo> planeados, List<Consumo> reales) {
+		if (planeados.isEmpty()) return false;
+		List<String> firmas = new java.util.ArrayList<>(reales.stream().map(Cuentas::firma).toList());
+		// cada registrado cubre un solo planeado: dos planeados iguales necesitan dos registros
+		return planeados.stream().allMatch(p -> firmas.remove(firma(p)));
+	}
+
+	private static String firma(Consumo c) {
+		return c.recetaId() + "|" + c.items().stream().map((Item i) -> i.alimentoId() + ":" + i.gramos()).sorted().toList();
 	}
 
 	private static String clave(String s) {

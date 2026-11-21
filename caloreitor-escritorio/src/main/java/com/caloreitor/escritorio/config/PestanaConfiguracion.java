@@ -252,8 +252,12 @@ public final class PestanaConfiguracion extends JPanel {
 		p.add(a);
 		p.add(b);
 		dispositivo.setText(ajustes.dispositivo());
-		carpeta.setText(String.valueOf(ajustes.carpetaEventos()));
+		carpeta.setText(textoCarpeta());
 		return p;
+	}
+
+	private String textoCarpeta() {
+		return ajustes.carpetaEventos() == null ? "(sin elegir)" : ajustes.carpetaEventos().toString();
 	}
 
 	private void guardarAjuste(Runnable r) {
@@ -263,7 +267,7 @@ public final class PestanaConfiguracion extends JPanel {
 		} catch (RuntimeException ex) {
 			JOptionPane.showMessageDialog(this, "No se pudo guardar el ajuste: " + ex, Textos.TITULO, JOptionPane.ERROR_MESSAGE);
 		}
-		carpeta.setText(String.valueOf(ajustes.carpetaEventos()));
+		carpeta.setText(textoCarpeta());
 	}
 
 	// --- marcar cambios sin guardar
@@ -341,10 +345,18 @@ public final class PestanaConfiguracion extends JPanel {
 			}
 			Perfil perfil = new Perfil(pesoKg, alturaCm, ed == null ? null : ed.intValue(),
 					sexo.getSelectedIndex() == 1 ? "M" : sexo.getSelectedIndex() == 2 ? "F" : null, ps == null ? null : ps.intValue());
-			double k = numero(kcal, "kcal manuales", true, true);
-			double pp = numero(pProt, "% proteínas", true, false), pc = numero(pCarb, "% carbohidratos", true, false), pg = numero(pGrasa, "% grasas", true, false);
-			if (!Cuentas.sumaCien(pp, pc, pg)) {
-				throw new IllegalArgumentException("Los porcentajes manuales suman " + Math.round((pp + pc + pg) * 10) / 10.0 + ", no 100: no se guardó");
+			// los campos manuales solo se exigen en modo Manual; en Automático se guardan como estén (o los defectos)
+			boolean manual = modo.getSelectedIndex() == Modo.MANUAL.ordinal();
+			Configuracion previa = sesion.repo().configuracion();
+			double k = previa.manualKcal(), pp = previa.manualPctProt(), pc = previa.manualPctCarb(), pg = previa.manualPctGrasa();
+			if (manual) {
+				k = numero(kcal, "kcal manuales", true, true);
+				pp = numero(pProt, "% proteínas", true, false);
+				pc = numero(pCarb, "% carbohidratos", true, false);
+				pg = numero(pGrasa, "% grasas", true, false);
+				if (!Cuentas.sumaCien(pp, pc, pg)) {
+					throw new IllegalArgumentException("Los porcentajes manuales suman " + Math.round((pp + pc + pg) * 10) / 10.0 + ", no 100: no se guardó");
+				}
 			}
 			if (comidas.isEmpty()) throw new IllegalArgumentException("Dejá al menos una comida en el día");
 			Map<String, Double> valores = new TreeMap<>();
@@ -391,8 +403,10 @@ public final class PestanaConfiguracion extends JPanel {
 			JOptionPane.showMessageDialog(this, ex.getMessage(), "Plan inválido", JOptionPane.WARNING_MESSAGE);
 			return;
 		}
-		if (sesion.mutar(this, () -> sesion.repo().guardarPlan(json))) {
+		if (sesion.mutar(this, () -> {
+			sesion.repo().guardarPlan(json);
 			sesion.planesCambiaron();
+		})) {
 			resultado.setText("Importado: " + plan.formato() + " del " + plan.inicio() + " al " + plan.fin());
 			alCambiar.run();
 		}

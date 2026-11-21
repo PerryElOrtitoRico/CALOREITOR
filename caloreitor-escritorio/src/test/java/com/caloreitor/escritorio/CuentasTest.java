@@ -62,4 +62,19 @@ class CuentasTest {
 		assertTrue(Cuentas.numero("-1").isEmpty());
 		assertTrue(Cuentas.numero("NaN").isEmpty());
 	}
+
+	static com.caloreitor.app.modelo.Consumo con(String id, String receta, String alimento, double g) {
+		var a = al(alimento, alimento, 100, true);
+		return new com.caloreitor.app.modelo.Consumo(id, "2026-11-20", "Almuerzo", receta, receta == null ? null : "R",
+				List.of(new com.caloreitor.app.modelo.Item(a.id(), a.nombre(), a.por100(), g)));
+	}
+
+	@Test void yaComidoSinConsumosConLosMismosItemsYConDistintos() {
+		var plan = List.of(con("p1", null, "arroz", 150), con("p2", "r1", "pollo", 200));
+		assertFalse(Cuentas.yaComido(plan, List.of()));
+		// mismos ítems con ids de consumo nuevos (así los copia "Comí lo planeado")
+		assertTrue(Cuentas.yaComido(plan, List.of(con("x1", null, "arroz", 150), con("x2", "r1", "pollo", 200))));
+		assertFalse(Cuentas.yaComido(plan, List.of(con("x1", null, "arroz", 120), con("x2", "r1", "pollo", 200))));
+		assertFalse(Cuentas.yaComido(List.of(), List.of(con("x1", null, "arroz", 150))));
+	}
 }

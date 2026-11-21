@@ -150,9 +150,14 @@ public final class PestanaPlanificador extends JPanel {
 			p.add(new JLabel(comida));
 			p.add(agregar);
 			if (f.equals(sesion.hoy()) && !deEsta.isEmpty()) {
-				JButton comi = new JButton("Comí lo planeado");
+				var reales = sesion.repo().consumos(f.toString()).stream().filter(c -> c.comida().equals(comida)).toList();
+				boolean hecho = Cuentas.yaComido(deEsta, reales);
+				JButton comi = new JButton(hecho ? "Ya registrado" : "Comí lo planeado");
+				comi.setEnabled(!hecho);
 				comi.addActionListener(e -> {
+					comi.setEnabled(false);
 					if (sesion.mutar(this, () -> deEsta.forEach(c -> planificador().comiLoPlaneado(plan(), c.id())))) alCambiar.run();
+					else comi.setEnabled(true);
 				});
 				p.add(comi);
 			}

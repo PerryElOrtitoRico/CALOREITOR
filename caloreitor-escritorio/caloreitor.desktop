@@ -3,5 +3,6 @@ Type=Application
 Name=CALOREITOR
 Comment=Contador de calorías
 Exec=java -jar "/home/franco/Escritorio/Hobbies/programacion/Proyectos/ContadorCalorias/caloreitor-escritorio/target/caloreitor-escritorio-1.0.0-SNAPSHOT-jar-with-dependencies.jar"
+Icon=/home/franco/Escritorio/Hobbies/programacion/Proyectos/ContadorCalorias/caloreitor-escritorio/src/main/resources/caloreitor.png
 Terminal=false
 Categories=Utility;
