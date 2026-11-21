@@ -6,7 +6,7 @@
     <!-- usesCleartextTraffic: el Panel se alcanza por una dirección local en http -->
     <application
         android:allowBackup="false"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@mipmap/ic_launcher"
         android:label="CALOREITOR"
         android:theme="@style/Theme.Caloreitor"
         android:usesCleartextTraffic="true">
