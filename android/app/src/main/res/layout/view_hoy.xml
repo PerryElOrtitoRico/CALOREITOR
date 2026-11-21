@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Aviso de carpeta: sin elegir, sin permiso o vacía -->
+        <LinearLayout
+            android:id="@+id/aviso_carpeta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/fondo_tarjeta"
+            android:orientation="vertical"
+            android:padding="12dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/texto_aviso_carpeta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/texto"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/boton_elegir_carpeta"
+                style="@style/Widget.Caloreitor.Boton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/elegir_carpeta" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/contenido_hoy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.caloreitor.app.ui.MedioCirculoView
+                    android:id="@+id/circulo_kcal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1" />
+
+                <com.caloreitor.app.ui.MedioCirculoView
+                    android:id="@+id/circulo_prot"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <com.caloreitor.app.ui.MedioCirculoView
+                    android:id="@+id/circulo_carb"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="4dp"
+                    android:layout_weight="1" />
+
+                <com.caloreitor.app.ui.MedioCirculoView
+                    android:id="@+id/circulo_gras"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/texto_modo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/texto"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/texto_entrenamiento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/texto"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/texto_aviso_datos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/error"
+                android:textSize="15sp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/boton_agregar"
+                style="@style/Widget.Caloreitor.Boton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:minHeight="52dp" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
