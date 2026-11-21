@@ -55,4 +55,15 @@ class ResumenPanelTest {
 		assertEquals(500, con.getAsJsonObject("consumido").get("kcal").getAsDouble(), 1e-9);
 		assertEquals(20, con.getAsJsonObject("consumido").get("carbohidratos").getAsDouble(), 1e-9);
 	}
+
+	@Test
+	void diaBorradoSaleVacioConElTsDelBorradoYDiaSinEventosNoSale() {
+		repo.guardar(consumo("c1", "2026-11-19", 500));
+		repo.borrarConsumo("c1"); // ts 1002
+		List<ResumenDia> r = ResumenPanel.dias(repo, hoy, 14);
+		assertEquals(1, r.size());
+		assertEquals("2026-11-19", r.get(0).fecha());
+		assertTrue(r.get(0).vacio());
+		assertEquals(1002, r.get(0).actualizadoEn());
+	}
 }

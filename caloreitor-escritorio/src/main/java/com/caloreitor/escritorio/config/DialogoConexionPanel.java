@@ -96,8 +96,9 @@ final class DialogoConexionPanel extends JDialog {
 		return new ConexionPanel(url.getText().trim(), new String(token.getPassword()).trim(), d.isEmpty() ? ajustes.dispositivo() : d, enviar.isSelected());
 	}
 
-	/** Avisa y devuelve false si falta la dirección o el token, o la dirección no es http(s). */
+	/** Avisa y devuelve false si falta la dirección o el token, o la dirección no es http(s). Apagado y vacío se puede guardar. */
 	private boolean validar(ConexionPanel c) {
+		if (!c.enviar() && c.url().isEmpty() && c.token().isEmpty()) return true;
 		String u = c.url().toLowerCase();
 		if (c.token().isEmpty() || !(u.startsWith("http://") || u.startsWith("https://"))) {
 			JOptionPane.showMessageDialog(this, "Escribí la dirección (http://… o https://…) y el token.", "Revisá los datos", JOptionPane.WARNING_MESSAGE);
@@ -107,7 +108,9 @@ final class DialogoConexionPanel extends JDialog {
 	}
 
 	private void probarConexion() {
-		ConexionPanel c = escrita();
+		ConexionPanel e0 = escrita();
+		// probar() no hace nada con enviar apagado: se prueba siempre con enviar prendido
+		ConexionPanel c = new ConexionPanel(e0.url(), e0.token(), e0.dispositivo(), true);
 		if (!validar(c)) return;
 		ocupado(true);
 		new SwingWorker<Boolean, Void>() {

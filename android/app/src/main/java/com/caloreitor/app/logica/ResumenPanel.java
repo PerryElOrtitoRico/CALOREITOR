@@ -16,13 +16,18 @@ public final class ResumenPanel {
 	private ResumenPanel() {
 	}
 
-	/** Días con al menos un consumo entre hoy − cantidad + 1 y hoy, del más viejo al más nuevo. El objetivo es el guardado (no se calcula ni se congela acá). */
+	/** Días con consumos (o con cambios, si quedaron vacíos) entre hoy − cantidad + 1 y hoy, del más viejo al más nuevo. El objetivo es el guardado (no se calcula ni se congela acá). */
 	public static List<ResumenDia> dias(Repositorio repo, LocalDate hoy, int cantidad) {
 		List<ResumenDia> r = new ArrayList<>();
 		for (int i = cantidad - 1; i >= 0; i--) {
 			String fecha = hoy.minusDays(i).toString();
 			List<Consumo> consumos = repo.consumos(fecha);
-			if (consumos.isEmpty()) continue;
+			if (consumos.isEmpty()) {
+				// sin consumos pero con cambios: se borraron, y el Panel tiene que enterarse
+				long cambio = repo.ultimoCambio(fecha);
+				if (cambio > 0) r.add(new ResumenDia(fecha, null, null, cambio));
+				continue;
+			}
 			Macros total = Macros.CERO;
 			for (Consumo c : consumos) total = total.mas(c.macros());
 			r.add(new ResumenDia(fecha, total, repo.objetivoGuardado(fecha).orElse(null), repo.ultimoCambio(fecha)));

@@ -123,9 +123,11 @@ public final class VentanaPrincipal extends JFrame {
 
 			@Override
 			protected void done() {
+				boolean anduvo = false;
 				try {
 					get();
 					estado.setText(" ");
+					anduvo = true;
 				} catch (Exception e) {
 					estado.setText("No se pudo leer la carpeta: " + e.getCause());
 				}
@@ -134,7 +136,7 @@ public final class VentanaPrincipal extends JFrame {
 				vidrio.setVisible(false);
 				sesion.leyendo(false);
 				refrescar();
-				publicar();
+				if (anduvo) publicar();
 			}
 		}.execute();
 	}
@@ -144,7 +146,14 @@ public final class VentanaPrincipal extends JFrame {
 		var conexion = ajustes.conexionPanel();
 		if (!conexion.enviar()) return;
 		var dias = ResumenPanel.dias(sesion.repo(), sesion.hoy(), 14);
-		Thread t = new Thread(() -> new PublicadorPanel(new TransporteHttp(), conexion).publicar(dias), "publicar-panel");
+		Thread t = new Thread(() -> {
+			try {
+				new PublicadorPanel(new TransporteHttp(), conexion).publicar(dias);
+			} catch (RuntimeException e) {
+				// sin token, sin URL y sin stack trace
+				System.err.println("CALOREITOR: falló la publicación al panel (" + e.getClass().getSimpleName() + ")");
+			}
+		}, "publicar-panel");
 		t.setDaemon(true);
 		t.start();
 	}

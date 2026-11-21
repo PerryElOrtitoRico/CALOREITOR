@@ -89,4 +89,13 @@ class PublicadorPanelTest {
 		falso.falla = true;
 		assertFalse(con("http://h", "tok", true).probar());
 	}
+
+	@Test
+	void diaVacioSeMandaBorradoConValorCero() {
+		con("http://h", "tok", true).publicar(List.of(new ResumenDia("2026-11-19", null, null, 33)));
+		JsonObject c = JsonParser.parseString(falso.llamadas.get(0).cuerpo()).getAsJsonObject();
+		assertTrue(c.get("borrado").getAsBoolean());
+		assertEquals(0, c.get("valor").getAsDouble(), 1e-9);
+		assertEquals(33, c.get("actualizadoEn").getAsLong());
+	}
 }

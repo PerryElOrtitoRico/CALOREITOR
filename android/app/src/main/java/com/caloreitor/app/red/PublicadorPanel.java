@@ -28,7 +28,7 @@ public final class PublicadorPanel {
 			try {
 				if (transporte.enviar("POST", base() + "/api/registros", conexion.token(), cuerpo(d)).estado() / 100 == 2) ok++;
 			} catch (IOException e) {
-				System.err.println("CALOREITOR: no se pudo publicar al panel: " + e.getMessage());
+				System.err.println("CALOREITOR: no se pudo publicar al panel (" + e.getClass().getSimpleName() + ")");
 				break;
 			}
 		}
@@ -62,10 +62,10 @@ public final class PublicadorPanel {
 		o.addProperty("area", "nutricion");
 		o.addProperty("fecha", d.fecha());
 		o.addProperty("metrica", "kcal");
-		o.addProperty("valor", d.consumido().kcal());
-		o.addProperty("detalleJson", ResumenPanel.detalleJson(d));
+		o.addProperty("valor", d.vacio() ? 0 : d.consumido().kcal());
+		if (!d.vacio()) o.addProperty("detalleJson", ResumenPanel.detalleJson(d));
 		o.addProperty("actualizadoEn", d.actualizadoEn());
-		o.addProperty("borrado", false);
+		o.addProperty("borrado", d.vacio());
 		return GSON.toJson(o);
 	}
 }
