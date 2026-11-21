@@ -1,8 +1,7 @@
-package com.caloreitor.escritorio;
+package com.caloreitor.app.logica;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import com.caloreitor.app.logica.Busqueda;
 import com.caloreitor.app.modelo.Alimento;
 import com.caloreitor.app.modelo.ItemReceta;
 import com.caloreitor.app.modelo.Macros;
@@ -76,5 +75,15 @@ class CuentasTest {
 		assertTrue(Cuentas.yaComido(plan, List.of(con("x1", null, "arroz", 150), con("x2", "r1", "pollo", 200))));
 		assertFalse(Cuentas.yaComido(plan, List.of(con("x1", null, "arroz", 120), con("x2", "r1", "pollo", 200))));
 		assertFalse(Cuentas.yaComido(List.of(), List.of(con("x1", null, "arroz", 150))));
+	}
+
+	@Test void medioCirculoSeLlenaHastaElObjetivoYMuestraElExceso() {
+		assertEquals(0.42, Cuentas.llenado(42, 100), 1e-9);
+		assertEquals(1, Cuentas.llenado(150, 100), 1e-9);
+		assertEquals(0, Cuentas.llenado(50, 0), 1e-9);
+		assertEquals("42 %", Cuentas.textoPorcentaje(42, 100));
+		assertEquals("+15 %", Cuentas.textoPorcentaje(115, 100));
+		assertEquals("+0 %", Cuentas.textoPorcentaje(100, 100));
+		assertEquals("—", Cuentas.textoPorcentaje(10, 0));
 	}
 }

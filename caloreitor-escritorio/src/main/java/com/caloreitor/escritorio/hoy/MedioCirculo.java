@@ -1,5 +1,6 @@
 package com.caloreitor.escritorio.hoy;
 
+import com.caloreitor.app.logica.Cuentas;
 import com.caloreitor.escritorio.tema.Colores;
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -34,18 +35,6 @@ public final class MedioCirculo extends JComponent {
 		repaint();
 	}
 
-	/** Fracción dibujada, de 0 a 1. */
-	static double llenado(double consumido, double objetivo) {
-		return objetivo <= 0 ? 0 : Math.min(1, consumido / objetivo);
-	}
-
-	/** "42 %" o, desde el 100 %, "+15 %" (el exceso); "—" sin objetivo. */
-	static String textoPorcentaje(double consumido, double objetivo) {
-		if (objetivo <= 0) return "—";
-		long pct = Math.round(consumido / objetivo * 100);
-		return pct >= 100 ? "+" + (pct - 100) + " %" : pct + " %";
-	}
-
 	@Override
 	protected void paintComponent(Graphics g0) {
 		Graphics2D g = (Graphics2D) g0.create();
@@ -58,10 +47,10 @@ public final class MedioCirculo extends JComponent {
 		g.setColor(Colores.de("barra"));
 		g.draw(new Arc2D.Double(x, y, d, d, 180, -180, Arc2D.OPEN));
 		g.setColor(color);
-		g.draw(new Arc2D.Double(x, y, d, d, 180, -180 * llenado(consumido, objetivo), Arc2D.OPEN));
+		g.draw(new Arc2D.Double(x, y, d, d, 180, -180 * Cuentas.llenado(consumido, objetivo), Arc2D.OPEN));
 		g.setColor(Colores.de("texto"));
 		g.setFont(getFont().deriveFont(Font.BOLD, 20f));
-		centrado(g, textoPorcentaje(consumido, objetivo), w / 2, y + d / 2 - 6);
+		centrado(g, Cuentas.textoPorcentaje(consumido, objetivo), w / 2, y + d / 2 - 6);
 		g.setFont(getFont().deriveFont(Font.BOLD, 13f));
 		centrado(g, titulo, w / 2, y + d / 2 + 14);
 		g.setColor(Colores.de("secundario"));

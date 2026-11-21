@@ -1,4 +1,4 @@
-package com.caloreitor.escritorio;
+package com.caloreitor.app.logica;
 
 import com.caloreitor.app.modelo.Alimento;
 import com.caloreitor.app.modelo.Consumo;
@@ -80,6 +80,18 @@ public final class Cuentas {
 
 	private static String firma(Consumo c) {
 		return c.recetaId() + "|" + c.items().stream().map((Item i) -> i.alimentoId() + ":" + i.gramos()).sorted().toList();
+	}
+
+	/** Fracción dibujada del medio círculo, de 0 a 1; sin objetivo (<= 0) queda vacío. */
+	public static double llenado(double consumido, double objetivo) {
+		return objetivo <= 0 ? 0 : Math.min(1, consumido / objetivo);
+	}
+
+	/** "42 %" o, desde el 100 %, "+15 %" (el exceso); "—" sin objetivo. */
+	public static String textoPorcentaje(double consumido, double objetivo) {
+		if (objetivo <= 0) return "—";
+		long pct = Math.round(consumido / objetivo * 100);
+		return pct >= 100 ? "+" + (pct - 100) + " %" : pct + " %";
 	}
 
 	private static String clave(String s) {

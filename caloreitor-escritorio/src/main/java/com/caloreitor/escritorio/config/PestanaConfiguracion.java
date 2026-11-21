@@ -7,7 +7,7 @@ import com.caloreitor.app.modelo.Meta;
 import com.caloreitor.app.modelo.Modo;
 import com.caloreitor.app.modelo.Perfil;
 import com.caloreitor.app.modelo.SemanaEntrenamiento;
-import com.caloreitor.escritorio.Cuentas;
+import com.caloreitor.app.logica.Cuentas;
 import com.caloreitor.escritorio.Sesion;
 import com.caloreitor.escritorio.Textos;
 import com.caloreitor.escritorio.infra.AjustesLocales;

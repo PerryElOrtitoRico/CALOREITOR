@@ -7,7 +7,7 @@ import com.caloreitor.app.modelo.Item;
 import com.caloreitor.app.modelo.Macros;
 import com.caloreitor.app.modelo.Objetivo;
 import com.caloreitor.app.modelo.PlanSemanal;
-import com.caloreitor.escritorio.Cuentas;
+import com.caloreitor.app.logica.Cuentas;
 import com.caloreitor.escritorio.Sesion;
 import com.caloreitor.escritorio.Textos;
 import com.caloreitor.escritorio.comidas.BuscadorRapido;
