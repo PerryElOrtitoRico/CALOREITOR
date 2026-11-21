@@ -1,6 +1,11 @@
 package com.caloreitor.escritorio;
 
+import com.caloreitor.escritorio.alimentos.PestanaAlimentos;
 import com.caloreitor.escritorio.comidas.PestanaComidas;
+import com.caloreitor.escritorio.config.PestanaConfiguracion;
+import com.caloreitor.escritorio.infra.AjustesLocales;
+import com.caloreitor.escritorio.planificador.PestanaPlanificador;
+import com.caloreitor.escritorio.recetas.PestanaRecetas;
 import com.caloreitor.escritorio.hoy.PestanaHoy;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -13,7 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.SwingWorker;
 
-/** Ventana con la barra (Actualizar) y las pestañas Hoy y Comidas. */
+/** Ventana con la barra (Actualizar) y las pestañas. */
 public final class VentanaPrincipal extends JFrame {
 	// al volver el foco no se relee más seguido que esto (cerrar un diálogo también devuelve el foco)
 	private static final long MIN_MS_ENTRE_RELECTURAS = 5000;
@@ -21,6 +26,10 @@ public final class VentanaPrincipal extends JFrame {
 	private final Sesion sesion;
 	private final PestanaHoy hoy;
 	private final PestanaComidas comidas;
+	private final PestanaRecetas recetas;
+	private final PestanaAlimentos alimentos;
+	private final PestanaPlanificador planificador;
+	private final PestanaConfiguracion configuracion;
 	private final JTabbedPane pestanas = new JTabbedPane();
 	private final JButton actualizar = new JButton("Actualizar");
 	private final JLabel estado = new JLabel(" ");
@@ -28,13 +37,21 @@ public final class VentanaPrincipal extends JFrame {
 	private final JPanel vidrio = new JPanel(new java.awt.GridBagLayout());
 	private long ultimaLectura = System.currentTimeMillis();
 
-	public VentanaPrincipal(Sesion sesion) {
+	public VentanaPrincipal(Sesion sesion, AjustesLocales ajustes) {
 		super(Textos.TITULO);
 		this.sesion = sesion;
 		hoy = new PestanaHoy(sesion, this::refrescar);
 		comidas = new PestanaComidas(sesion, this::refrescar);
 		pestanas.addTab("Hoy", hoy);
+		recetas = new PestanaRecetas(sesion, this::refrescar);
+		alimentos = new PestanaAlimentos(sesion, this::refrescar);
+		planificador = new PestanaPlanificador(sesion, this::refrescar);
+		configuracion = new PestanaConfiguracion(sesion, ajustes, this::refrescar);
 		pestanas.addTab("Comidas", comidas);
+		pestanas.addTab("Recetas", recetas);
+		pestanas.addTab("Alimentos", alimentos);
+		pestanas.addTab("Planificador", planificador);
+		pestanas.addTab("Configuración", configuracion);
 		JPanel barra = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		barra.add(actualizar);
 		vidrio.setOpaque(false);
@@ -68,11 +85,17 @@ public final class VentanaPrincipal extends JFrame {
 	public void refrescar() {
 		hoy.refrescar();
 		comidas.refrescar();
+		recetas.refrescar();
+		alimentos.refrescar();
+		planificador.refrescar();
+		configuracion.refrescar();
 	}
 
 	/** Relee los archivos fuera del hilo de la interfaz y después redibuja. */
 	public void releer() {
 		if (!actualizar.isEnabled()) return;
+		// se deshabilita ya, no en empezarLectura (que corre después): dos releer seguidos lanzaban dos lecturas
+		actualizar.setEnabled(false);
 		// Primero se suelta el foco: si un campo de gramos tiene una edición sin guardar, su focusLost la guarda ahora,
 		// con leyendo todavía en false. El resto va por invokeLater para correr después de esos eventos de foco.
 		java.awt.KeyboardFocusManager.getCurrentKeyboardFocusManager().clearFocusOwner();

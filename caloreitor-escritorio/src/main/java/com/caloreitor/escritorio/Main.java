@@ -40,7 +40,7 @@ public final class Main {
 				@Override
 				protected void done() {
 					try {
-						new VentanaPrincipal(get()).setVisible(true);
+						new VentanaPrincipal(get(), ajustes).setVisible(true);
 					} catch (Exception e) {
 						JOptionPane.showMessageDialog(null, "No se pudo abrir " + carpeta + ": " + e.getCause(), Textos.TITULO, JOptionPane.ERROR_MESSAGE);
 						System.exit(1);

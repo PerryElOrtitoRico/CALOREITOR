@@ -55,6 +55,12 @@ public final class Sesion {
 		new Depuracion(repo, objetivos, historial, archivo).correr(hoy);
 	}
 
+	/** Después de importar un plan: los objetivos se calculan con los planes nuevos. */
+	public void planesCambiaron() {
+		planes = Objetivos.planesDe(repo);
+		objetivos = new Objetivos(repo, planes, hoy);
+	}
+
 	/** La ventana lo marca mientras relee: el repositorio no admite cambios en ese rato. */
 	public void leyendo(boolean v) { leyendo = v; }
 

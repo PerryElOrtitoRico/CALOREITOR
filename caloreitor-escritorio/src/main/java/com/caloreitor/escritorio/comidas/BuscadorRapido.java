@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.OptionalDouble;
 import java.util.UUID;
+import java.util.function.Consumer;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JDialog;
@@ -55,6 +56,8 @@ public final class BuscadorRapido {
 	private final LocalDate fecha;
 	private final String comida;
 	private final Runnable alCambiar;
+	// qué se hace con cada alta: el registro real, el plan de la semana o los ingredientes de una receta
+	private final Consumer<Consumo> destino;
 	private final JDialog dialogo;
 	private final JTextField campo = new JTextField();
 	private final DefaultListModel<Opcion> modelo = new DefaultListModel<>();
@@ -63,8 +66,9 @@ public final class BuscadorRapido {
 	private final JLabel estado = new JLabel(" ");
 	private Busqueda busqueda;
 
-	private BuscadorRapido(Window padre, Sesion sesion, LocalDate fecha, String comida, Runnable alCambiar) {
+	private BuscadorRapido(Window padre, Sesion sesion, LocalDate fecha, String comida, Runnable alCambiar, Consumer<Consumo> destino) {
 		this.sesion = sesion;
+		this.destino = destino;
 		this.fecha = fecha;
 		this.comida = comida;
 		this.alCambiar = alCambiar;
@@ -125,7 +129,12 @@ public final class BuscadorRapido {
 
 	/** Abre el buscador (modal) para agregar a esa fecha y comida; alCambiar se llama después de cada alta. */
 	public static void abrir(Window padre, Sesion sesion, LocalDate fecha, String comida, Runnable alCambiar) {
-		new BuscadorRapido(padre, sesion, fecha, comida, alCambiar).dialogo.setVisible(true);
+		abrir(padre, sesion, fecha, comida, alCambiar, c -> sesion.repo().guardar(c));
+	}
+
+	/** Igual, pero cada alta va a {@code destino} (se llama dentro de {@code sesion.mutar}) en vez de al registro. */
+	public static void abrir(Window padre, Sesion sesion, LocalDate fecha, String comida, Runnable alCambiar, Consumer<Consumo> destino) {
+		new BuscadorRapido(padre, sesion, fecha, comida, alCambiar, destino).dialogo.setVisible(true);
 	}
 
 	private void buscar() {
@@ -176,13 +185,13 @@ public final class BuscadorRapido {
 			Consumo cc = c;
 			if (!sesion.mutar(dialogo, () -> {
 				if (nuevo) sesion.repo().guardar(a);
-				sesion.repo().guardar(cc);
+				destino.accept(cc);
 			})) return;
 			alCambiar.run();
 			terminarAlta(c);
 			return;
 		}
-		if (!sesion.mutar(dialogo, () -> sesion.repo().guardar(c))) return;
+		if (!sesion.mutar(dialogo, () -> destino.accept(c))) return;
 		alCambiar.run();
 		terminarAlta(c);
 	}

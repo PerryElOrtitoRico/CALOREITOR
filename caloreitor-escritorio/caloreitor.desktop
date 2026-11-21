@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=CALOREITOR
+Comment=Contador de calorías
+Exec=java -jar "/home/franco/Escritorio/Hobbies/programacion/Proyectos/ContadorCalorias/caloreitor-escritorio/target/caloreitor-escritorio-1.0.0-SNAPSHOT-jar-with-dependencies.jar"
+Terminal=false
+Categories=Utility;
