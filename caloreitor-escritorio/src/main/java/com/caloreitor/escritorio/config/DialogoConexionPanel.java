@@ -1,9 +1,10 @@
 package com.caloreitor.escritorio.config;
 
+import com.caloreitor.app.logica.Cuentas;
 import com.caloreitor.app.red.ConexionPanel;
 import com.caloreitor.app.red.PublicadorPanel;
 import com.caloreitor.app.red.TransporteHttp;
-import com.caloreitor.escritorio.Textos;
+import com.caloreitor.app.logica.Textos;
 import com.caloreitor.escritorio.infra.AjustesLocales;
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -98,9 +99,7 @@ final class DialogoConexionPanel extends JDialog {
 
 	/** Avisa y devuelve false si falta la dirección o el token, o la dirección no es http(s). Apagado y vacío se puede guardar. */
 	private boolean validar(ConexionPanel c) {
-		if (!c.enviar() && c.url().isEmpty() && c.token().isEmpty()) return true;
-		String u = c.url().toLowerCase();
-		if (c.token().isEmpty() || !(u.startsWith("http://") || u.startsWith("https://"))) {
+		if (!Cuentas.conexionValida(c)) {
 			JOptionPane.showMessageDialog(this, "Escribí la dirección (http://… o https://…) y el token.", "Revisá los datos", JOptionPane.WARNING_MESSAGE);
 			return false;
 		}

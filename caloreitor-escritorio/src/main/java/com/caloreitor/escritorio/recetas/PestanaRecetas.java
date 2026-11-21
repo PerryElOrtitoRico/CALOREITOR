@@ -8,7 +8,7 @@ import com.caloreitor.app.modelo.Macros;
 import com.caloreitor.app.modelo.Receta;
 import com.caloreitor.app.logica.Cuentas;
 import com.caloreitor.escritorio.Sesion;
-import com.caloreitor.escritorio.Textos;
+import com.caloreitor.app.logica.Textos;
 import com.caloreitor.escritorio.comidas.BuscadorRapido;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;

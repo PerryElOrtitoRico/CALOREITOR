@@ -9,7 +9,7 @@ import com.caloreitor.app.modelo.Item;
 import com.caloreitor.app.modelo.ItemReceta;
 import com.caloreitor.app.modelo.Receta;
 import com.caloreitor.escritorio.Sesion;
-import com.caloreitor.escritorio.Textos;
+import com.caloreitor.app.logica.Textos;
 import com.caloreitor.escritorio.tema.Colores;
 import java.awt.BorderLayout;
 import java.awt.Dimension;

@@ -86,4 +86,17 @@ class CuentasTest {
 		assertEquals("+0 %", Cuentas.textoPorcentaje(100, 100));
 		assertEquals("—", Cuentas.textoPorcentaje(10, 0));
 	}
+
+	@Test void dispositivoYConexionValidos() {
+		assertTrue(Cuentas.dispositivoValido("celular-2"));
+		assertFalse(Cuentas.dispositivoValido("mi cel"));
+		assertFalse(Cuentas.dispositivoValido("a/b"));
+		assertFalse(Cuentas.dispositivoValido(""));
+		var c = (java.util.function.BiFunction<String, Boolean, com.caloreitor.app.red.ConexionPanel>) (u, e) ->
+				new com.caloreitor.app.red.ConexionPanel(u, u.isEmpty() ? "" : "tok", "x", e);
+		assertTrue(Cuentas.conexionValida(c.apply("", false)));
+		assertTrue(Cuentas.conexionValida(c.apply("http://192.168.0.5:8080", true)));
+		assertFalse(Cuentas.conexionValida(c.apply("192.168.0.5", true)));
+		assertFalse(Cuentas.conexionValida(new com.caloreitor.app.red.ConexionPanel("http://a", "", "x", false)));
+	}
 }

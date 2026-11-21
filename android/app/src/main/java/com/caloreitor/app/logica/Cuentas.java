@@ -94,6 +94,18 @@ public final class Cuentas {
 		return pct >= 100 ? "+" + (pct - 100) + " %" : pct + " %";
 	}
 
+	/** El nombre del dispositivo forma parte del nombre de los archivos de eventos: nada de separadores ni símbolos raros. */
+	public static boolean dispositivoValido(String nombre) {
+		return nombre != null && nombre.matches("[A-Za-z0-9_-]{1,30}");
+	}
+
+	/** Apagado y vacío se puede guardar; si no, hacen falta un token y una dirección http(s). */
+	public static boolean conexionValida(com.caloreitor.app.red.ConexionPanel c) {
+		if (!c.enviar() && c.url().isEmpty() && c.token().isEmpty()) return true;
+		String u = c.url().toLowerCase(Locale.ROOT);
+		return !c.token().isEmpty() && (u.startsWith("http://") || u.startsWith("https://"));
+	}
+
 	private static String clave(String s) {
 		return Normalizer.normalize(s, Normalizer.Form.NFD).replaceAll("\\p{M}", "").toLowerCase(Locale.ROOT);
 	}

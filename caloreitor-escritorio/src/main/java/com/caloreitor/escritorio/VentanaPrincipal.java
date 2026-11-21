@@ -1,5 +1,6 @@
 package com.caloreitor.escritorio;
 
+import com.caloreitor.app.logica.Textos;
 import com.caloreitor.escritorio.alimentos.PestanaAlimentos;
 import com.caloreitor.escritorio.comidas.PestanaComidas;
 import com.caloreitor.escritorio.config.PestanaConfiguracion;

@@ -7,7 +7,7 @@ import com.caloreitor.app.modelo.Macros;
 import com.caloreitor.app.modelo.Modo;
 import com.caloreitor.app.modelo.Objetivo;
 import com.caloreitor.escritorio.Sesion;
-import com.caloreitor.escritorio.Textos;
+import com.caloreitor.app.logica.Textos;
 import com.caloreitor.escritorio.comidas.BuscadorRapido;
 import com.caloreitor.escritorio.tema.Colores;
 import java.awt.BorderLayout;

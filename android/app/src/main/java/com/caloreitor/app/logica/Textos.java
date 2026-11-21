@@ -1,4 +1,4 @@
-package com.caloreitor.escritorio;
+package com.caloreitor.app.logica;
 
 /** Textos de la interfaz que se repiten o son mensajes largos. */
 public final class Textos {

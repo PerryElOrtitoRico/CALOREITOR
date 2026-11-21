@@ -9,7 +9,7 @@ import com.caloreitor.app.modelo.Perfil;
 import com.caloreitor.app.modelo.SemanaEntrenamiento;
 import com.caloreitor.app.logica.Cuentas;
 import com.caloreitor.escritorio.Sesion;
-import com.caloreitor.escritorio.Textos;
+import com.caloreitor.app.logica.Textos;
 import com.caloreitor.escritorio.infra.AjustesLocales;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -234,7 +234,7 @@ public final class PestanaConfiguracion extends JPanel {
 		guardarNombre.addActionListener(e -> {
 			String n = dispositivo.getText().trim();
 			// el nombre forma parte del nombre de los archivos de eventos: nada de separadores ni símbolos raros
-			if (!n.matches("[A-Za-z0-9_-]{1,30}")) {
+			if (!Cuentas.dispositivoValido(n)) {
 				JOptionPane.showMessageDialog(this, "El nombre admite letras, números, guion y guion bajo (hasta 30)");
 				return;
 			}

@@ -1,5 +1,6 @@
 package com.caloreitor.escritorio;
 
+import com.caloreitor.app.logica.Textos;
 import com.caloreitor.escritorio.infra.AjustesLocales;
 import com.caloreitor.escritorio.infra.HistorialSqlite;
 import com.caloreitor.escritorio.tema.Tema;
