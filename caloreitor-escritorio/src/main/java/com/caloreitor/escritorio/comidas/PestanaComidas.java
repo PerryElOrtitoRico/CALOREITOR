@@ -136,7 +136,7 @@ public final class PestanaComidas extends JPanel {
 		if (c.recetaNombre() != null) {
 			JButton quitar = new JButton("✕");
 			quitar.setToolTipText("Borrar la receta entera");
-			quitar.addActionListener(e -> { sesion.repo().borrarConsumo(c.id()); alCambiar.run(); });
+			quitar.addActionListener(e -> { if (sesion.mutar(this, () -> sesion.repo().borrarConsumo(c.id()))) alCambiar.run(); });
 			JPanel p = new JPanel(new BorderLayout(8, 0));
 			p.add(new JLabel("Receta: " + c.recetaNombre()), BorderLayout.CENTER);
 			p.add(quitar, BorderLayout.EAST);
@@ -148,12 +148,15 @@ public final class PestanaComidas extends JPanel {
 
 	private JPanel renglon(Consumo c, int pos) {
 		Item it = c.items().get(pos);
-		JTextField g = new JTextField(String.valueOf(Math.round(it.gramos() * 10) / 10.0).replaceAll("\\.0$", ""), 6);
+		String mostrado = String.valueOf(Math.round(it.gramos() * 10) / 10.0).replaceAll("\\.0$", "");
+		JTextField g = new JTextField(mostrado, 6);
 		JLabel kcal = new JLabel(Math.round(it.macros().kcal()) + " kcal");
 		JButton quitar = new JButton("✕");
 		quitar.setToolTipText("Borrar");
 		// Enter o salir del campo guarda; un valor inválido se avisa y vuelve al anterior.
 		Runnable guardar = () -> {
+			// el campo muestra gramos redondeados: sin tocarlo no se guarda nada (si no, 150,55 pasaría a 150,6)
+			if (g.getText().equals(mostrado)) return;
 			OptionalDouble nuevo = Parseo.gramos(g.getText());
 			if (nuevo.isEmpty()) {
 				JOptionPane.showMessageDialog(this, Textos.GRAMOS_INVALIDOS);
@@ -161,8 +164,7 @@ public final class PestanaComidas extends JPanel {
 			} else if (nuevo.getAsDouble() != it.gramos()) {
 				List<Item> items = new ArrayList<>(c.items());
 				items.set(pos, new Item(it.alimentoId(), it.nombre(), it.por100(), nuevo.getAsDouble()));
-				sesion.repo().guardar(new Consumo(c.id(), c.fecha(), c.comida(), c.recetaId(), c.recetaNombre(), items));
-				alCambiar.run();
+				if (sesion.mutar(this, () -> sesion.repo().guardar(new Consumo(c.id(), c.fecha(), c.comida(), c.recetaId(), c.recetaNombre(), items)))) alCambiar.run();
 			}
 		};
 		g.addActionListener(e -> guardar.run());
@@ -171,13 +173,13 @@ public final class PestanaComidas extends JPanel {
 			public void focusLost(java.awt.event.FocusEvent e) { if (!e.isTemporary()) guardar.run(); }
 		});
 		quitar.addActionListener(e -> {
-			if (c.items().size() == 1) sesion.repo().borrarConsumo(c.id());
-			else {
-				List<Item> items = new ArrayList<>(c.items());
-				items.remove(pos);
-				sesion.repo().guardar(new Consumo(c.id(), c.fecha(), c.comida(), c.recetaId(), c.recetaNombre(), items));
-			}
-			alCambiar.run();
+			List<Item> items = new ArrayList<>(c.items());
+			items.remove(pos);
+			boolean ok = sesion.mutar(this, () -> {
+				if (items.isEmpty()) sesion.repo().borrarConsumo(c.id());
+				else sesion.repo().guardar(new Consumo(c.id(), c.fecha(), c.comida(), c.recetaId(), c.recetaNombre(), items));
+			});
+			if (ok) alCambiar.run();
 		});
 		JPanel p = new JPanel(new FlowLayout(FlowLayout.LEFT, 6, 2));
 		p.setBorder(BorderFactory.createEmptyBorder(0, c.recetaNombre() != null ? 24 : 8, 0, 0));
@@ -212,10 +214,12 @@ public final class PestanaComidas extends JPanel {
 			JOptionPane.showMessageDialog(this, "Ese día no tiene consumos en " + nombre);
 			return;
 		}
-		for (Consumo c : fuente) {
-			sesion.repo().guardar(new Consumo(UUID.randomUUID().toString(), dia.toString(), nombre, c.recetaId(), c.recetaNombre(), c.items()));
-		}
-		alCambiar.run();
+		boolean ok = sesion.mutar(this, () -> {
+			for (Consumo c : fuente) {
+				sesion.repo().guardar(new Consumo(UUID.randomUUID().toString(), dia.toString(), nombre, c.recetaId(), c.recetaNombre(), c.items()));
+			}
+		});
+		if (ok) alCambiar.run();
 	}
 
 	private void fila(java.awt.Component c, int fila) {

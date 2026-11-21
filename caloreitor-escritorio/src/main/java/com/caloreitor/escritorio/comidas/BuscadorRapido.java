@@ -69,6 +69,7 @@ public final class BuscadorRapido {
 		this.comida = comida;
 		this.alCambiar = alCambiar;
 		dialogo = new JDialog(padre, "Agregar a " + comida.toLowerCase(), JDialog.DEFAULT_MODALITY_TYPE);
+		lista.setFocusable(false); // Tab va del campo directo a los gramos; las flechas mueven la selección
 		lista.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		JPanel abajo = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		abajo.add(new JLabel("Gramos:"));
@@ -108,7 +109,9 @@ public final class BuscadorRapido {
 		lista.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if (lista.locationToIndex(e.getPoint()) >= 0) agregar();
+				int i = lista.locationToIndex(e.getPoint());
+				// locationToIndex devuelve el más cercano: un clic en el vacío bajo la lista no agrega
+				if (i >= 0 && lista.getCellBounds(i, i).contains(e.getPoint())) agregar();
 			}
 		});
 		// Al abrir, el foco va al campo de búsqueda (la primera ventana ya tiene otro por defecto).
@@ -166,12 +169,25 @@ public final class BuscadorRapido {
 			}
 			Alimento a = o.resultado() == null ? DialogoAlimentoNuevo.pedir(dialogo, o.crear()) : porId(o.resultado().id());
 			if (a == null) return;
-			if (o.resultado() == null) sesion.repo().guardar(a);
 			c = new Consumo(UUID.randomUUID().toString(), fecha.toString(), comida, null, null,
 					List.of(new Item(a.id(), a.nombre(), a.por100(), g.getAsDouble())));
+			// el alimento nuevo se guarda junto con su consumo: si falla algo se avisa y no queda a medias en silencio
+			boolean nuevo = o.resultado() == null;
+			Consumo cc = c;
+			if (!sesion.mutar(dialogo, () -> {
+				if (nuevo) sesion.repo().guardar(a);
+				sesion.repo().guardar(cc);
+			})) return;
+			alCambiar.run();
+			terminarAlta(c);
+			return;
 		}
-		sesion.repo().guardar(c);
+		if (!sesion.mutar(dialogo, () -> sesion.repo().guardar(c))) return;
 		alCambiar.run();
+		terminarAlta(c);
+	}
+
+	private void terminarAlta(Consumo c) {
 		estado.setForeground(Colores.de("secundario"));
 		estado.setText("Agregado: " + (c.recetaNombre() != null ? c.recetaNombre() : c.items().get(0).nombre()));
 		// el alimento creado ahora también se encuentra

@@ -27,6 +27,7 @@ public final class Sesion {
 	private volatile Objetivos objetivos;
 	private volatile List<Plan> planes;
 	private volatile LocalDate hoy;
+	private volatile boolean leyendo;
 
 	/** Lee los eventos y corre la depuración: llamar fuera del hilo de la interfaz. */
 	public Sesion(Path carpetaEventos, String dispositivo, Path rutaHistorial) {
@@ -52,6 +53,25 @@ public final class Sesion {
 		planes = Objetivos.planesDe(repo);
 		objetivos = new Objetivos(repo, planes, hoy);
 		new Depuracion(repo, objetivos, historial, archivo).correr(hoy);
+	}
+
+	/** La ventana lo marca mientras relee: el repositorio no admite cambios en ese rato. */
+	public void leyendo(boolean v) { leyendo = v; }
+
+	/**
+	 * Corre un cambio al repositorio (hilo de la interfaz). Si se está releyendo lo descarta; si falla muestra el error
+	 * en vez de dejarlo solo en la consola. Devuelve true si se hizo.
+	 */
+	public boolean mutar(java.awt.Component padre, Runnable cambio) {
+		if (leyendo) return false;
+		try {
+			cambio.run();
+			return true;
+		} catch (RuntimeException e) {
+			javax.swing.JOptionPane.showMessageDialog(padre, "No se pudo guardar el cambio: " + e,
+					Textos.TITULO, javax.swing.JOptionPane.ERROR_MESSAGE);
+			return false;
+		}
 	}
 
 	public Repositorio repo() { return repo; }

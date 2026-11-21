@@ -22,7 +22,12 @@ public final class Main {
 				c.setDialogTitle("Elegí la carpeta de Syncthing de CALOREITOR");
 				c.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 				if (c.showOpenDialog(null) != JFileChooser.APPROVE_OPTION) System.exit(0);
-				ajustes.elegirCarpeta(c.getSelectedFile().toPath());
+				try {
+					ajustes.elegirCarpeta(c.getSelectedFile().toPath());
+				} catch (RuntimeException e) {
+					JOptionPane.showMessageDialog(null, "No se pudieron guardar los ajustes: " + e, Textos.TITULO, JOptionPane.ERROR_MESSAGE);
+					System.exit(1);
+				}
 			}
 			Path carpeta = ajustes.carpetaEventos();
 			// la lectura inicial (archivos + depuración) va fuera del hilo de la interfaz

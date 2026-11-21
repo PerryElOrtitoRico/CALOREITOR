@@ -24,6 +24,8 @@ public final class VentanaPrincipal extends JFrame {
 	private final JTabbedPane pestanas = new JTabbedPane();
 	private final JButton actualizar = new JButton("Actualizar");
 	private final JLabel estado = new JLabel(" ");
+	// Cubre toda la ventana mientras se relee: come el mouse y se queda con el teclado.
+	private final JPanel vidrio = new JPanel(new java.awt.GridBagLayout());
 	private long ultimaLectura = System.currentTimeMillis();
 
 	public VentanaPrincipal(Sesion sesion) {
@@ -35,7 +37,13 @@ public final class VentanaPrincipal extends JFrame {
 		pestanas.addTab("Comidas", comidas);
 		JPanel barra = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		barra.add(actualizar);
-		barra.add(estado);
+		vidrio.setOpaque(false);
+		vidrio.add(estado);
+		vidrio.addMouseListener(new java.awt.event.MouseAdapter() { });
+		vidrio.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() { });
+		vidrio.addKeyListener(new java.awt.event.KeyAdapter() { });
+		vidrio.setFocusable(true);
+		setGlassPane(vidrio);
 		actualizar.addActionListener(e -> releer());
 		add(barra, BorderLayout.NORTH);
 		add(pestanas, BorderLayout.CENTER);
@@ -60,9 +68,11 @@ public final class VentanaPrincipal extends JFrame {
 	/** Relee los archivos fuera del hilo de la interfaz y después redibuja. */
 	public void releer() {
 		if (!actualizar.isEnabled()) return;
+		sesion.leyendo(true);
 		actualizar.setEnabled(false);
-		pestanas.setEnabled(false);
 		estado.setText("Leyendo…");
+		vidrio.setVisible(true);
+		vidrio.requestFocusInWindow();
 		new SwingWorker<Void, Void>() {
 			@Override
 			protected Void doInBackground() {
@@ -80,7 +90,8 @@ public final class VentanaPrincipal extends JFrame {
 				}
 				ultimaLectura = System.currentTimeMillis();
 				actualizar.setEnabled(true);
-				pestanas.setEnabled(true);
+				vidrio.setVisible(false);
+				sesion.leyendo(false);
 				refrescar();
 			}
 		}.execute();
