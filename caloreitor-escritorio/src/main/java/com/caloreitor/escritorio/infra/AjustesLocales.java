@@ -1,5 +1,6 @@
 package com.caloreitor.escritorio.infra;
 
+import com.caloreitor.app.red.ConexionPanel;
 import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
@@ -45,6 +46,20 @@ public final class AjustesLocales {
 
 	public String dispositivo() {
 		return datos.getProperty("dispositivo", "pc");
+	}
+
+	/** Conexión con el Panel; sin dispositivo guardado usa el nombre de este equipo. */
+	public ConexionPanel conexionPanel() {
+		return new ConexionPanel(datos.getProperty("panelUrl", ""), datos.getProperty("panelToken", ""),
+				datos.getProperty("panelDispositivo", dispositivo()), Boolean.parseBoolean(datos.getProperty("panelEnviar", "false")));
+	}
+
+	public void guardarConexionPanel(ConexionPanel c) {
+		datos.setProperty("panelUrl", c.url());
+		datos.setProperty("panelToken", c.token());
+		datos.setProperty("panelDispositivo", c.dispositivo());
+		datos.setProperty("panelEnviar", String.valueOf(c.enviar()));
+		guardar();
 	}
 
 	public void elegirCarpeta(Path carpeta) {

@@ -7,6 +7,9 @@ import com.caloreitor.escritorio.infra.AjustesLocales;
 import com.caloreitor.escritorio.planificador.PestanaPlanificador;
 import com.caloreitor.escritorio.recetas.PestanaRecetas;
 import com.caloreitor.escritorio.hoy.PestanaHoy;
+import com.caloreitor.app.logica.ResumenPanel;
+import com.caloreitor.app.red.PublicadorPanel;
+import com.caloreitor.app.red.TransporteHttp;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.WindowAdapter;
@@ -24,6 +27,7 @@ public final class VentanaPrincipal extends JFrame {
 	private static final long MIN_MS_ENTRE_RELECTURAS = 5000;
 
 	private final Sesion sesion;
+	private final AjustesLocales ajustes;
 	private final PestanaHoy hoy;
 	private final PestanaComidas comidas;
 	private final PestanaRecetas recetas;
@@ -40,6 +44,7 @@ public final class VentanaPrincipal extends JFrame {
 	public VentanaPrincipal(Sesion sesion, AjustesLocales ajustes) {
 		super(Textos.TITULO);
 		this.sesion = sesion;
+		this.ajustes = ajustes;
 		hoy = new PestanaHoy(sesion, this::refrescar);
 		comidas = new PestanaComidas(sesion, this::refrescar);
 		pestanas.addTab("Hoy", hoy);
@@ -79,6 +84,7 @@ public final class VentanaPrincipal extends JFrame {
 		setSize(980, 680);
 		setLocationRelativeTo(null);
 		refrescar();
+		publicar();
 	}
 
 	/** Redibuja las pestañas con lo que ya está en memoria. */
@@ -128,7 +134,18 @@ public final class VentanaPrincipal extends JFrame {
 				vidrio.setVisible(false);
 				sesion.leyendo(false);
 				refrescar();
+				publicar();
 			}
 		}.execute();
+	}
+
+	/** Manda al panel los últimos 14 días. El resumen se arma acá (el repositorio es del hilo de la interfaz); el envío va en otro hilo y no avisa si falla. */
+	private void publicar() {
+		var conexion = ajustes.conexionPanel();
+		if (!conexion.enviar()) return;
+		var dias = ResumenPanel.dias(sesion.repo(), sesion.hoy(), 14);
+		Thread t = new Thread(() -> new PublicadorPanel(new TransporteHttp(), conexion).publicar(dias), "publicar-panel");
+		t.setDaemon(true);
+		t.start();
 	}
 }

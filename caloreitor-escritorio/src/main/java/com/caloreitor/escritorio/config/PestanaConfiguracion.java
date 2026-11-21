@@ -240,6 +240,8 @@ public final class PestanaConfiguracion extends JPanel {
 			}
 			guardarAjuste(() -> ajustes.elegirDispositivo(n));
 		});
+		JButton conexionPanel = new JButton("Conexión con el panel…");
+		conexionPanel.addActionListener(e -> DialogoConexionPanel.mostrar(this, ajustes));
 		JPanel p = new JPanel(new GridLayout(0, 1, 0, 4));
 		JPanel a = new JPanel(new FlowLayout(FlowLayout.LEFT, 6, 2));
 		a.add(new JLabel("Carpeta de sincronización:"));
@@ -249,8 +251,11 @@ public final class PestanaConfiguracion extends JPanel {
 		b.add(new JLabel("Nombre del dispositivo:"));
 		b.add(dispositivo);
 		b.add(guardarNombre);
+		JPanel c = new JPanel(new FlowLayout(FlowLayout.LEFT, 6, 2));
+		c.add(conexionPanel);
 		p.add(a);
 		p.add(b);
+		p.add(c);
 		dispositivo.setText(ajustes.dispositivo());
 		carpeta.setText(textoCarpeta());
 		return p;

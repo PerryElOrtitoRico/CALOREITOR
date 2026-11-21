@@ -6,8 +6,8 @@ import com.google.gson.JsonObject;
 import java.util.*;
 import org.junit.jupiter.api.Test;
 
-class ArchivoEventosTest {
-	static class Memoria implements CarpetaEventos {
+public class ArchivoEventosTest {
+	public static class Memoria implements CarpetaEventos {
 		final Map<String, List<String>> f = new TreeMap<>();
 
 		public List<String> archivos() {
