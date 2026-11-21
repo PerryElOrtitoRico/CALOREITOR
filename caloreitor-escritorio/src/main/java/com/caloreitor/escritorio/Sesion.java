@@ -63,7 +63,11 @@ public final class Sesion {
 	 * en vez de dejarlo solo en la consola. Devuelve true si se hizo.
 	 */
 	public boolean mutar(java.awt.Component padre, Runnable cambio) {
-		if (leyendo) return false;
+		if (leyendo) {
+			javax.swing.JOptionPane.showMessageDialog(padre, "Se está actualizando: el cambio no se guardó, repetilo.",
+					Textos.TITULO, javax.swing.JOptionPane.WARNING_MESSAGE);
+			return false;
+		}
 		try {
 			cambio.run();
 			return true;

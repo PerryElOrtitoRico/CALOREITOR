@@ -41,7 +41,12 @@ public final class VentanaPrincipal extends JFrame {
 		vidrio.add(estado);
 		vidrio.addMouseListener(new java.awt.event.MouseAdapter() { });
 		vidrio.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() { });
-		vidrio.addKeyListener(new java.awt.event.KeyAdapter() { });
+		vidrio.setFocusTraversalKeysEnabled(false); // Tab no debe sacar el foco del vidrio
+		vidrio.addKeyListener(new java.awt.event.KeyAdapter() {
+			@Override public void keyPressed(java.awt.event.KeyEvent e) { e.consume(); }
+			@Override public void keyReleased(java.awt.event.KeyEvent e) { e.consume(); }
+			@Override public void keyTyped(java.awt.event.KeyEvent e) { e.consume(); }
+		});
 		vidrio.setFocusable(true);
 		setGlassPane(vidrio);
 		actualizar.addActionListener(e -> releer());
@@ -68,6 +73,13 @@ public final class VentanaPrincipal extends JFrame {
 	/** Relee los archivos fuera del hilo de la interfaz y después redibuja. */
 	public void releer() {
 		if (!actualizar.isEnabled()) return;
+		// Primero se suelta el foco: si un campo de gramos tiene una edición sin guardar, su focusLost la guarda ahora,
+		// con leyendo todavía en false. El resto va por invokeLater para correr después de esos eventos de foco.
+		java.awt.KeyboardFocusManager.getCurrentKeyboardFocusManager().clearFocusOwner();
+		javax.swing.SwingUtilities.invokeLater(this::empezarLectura);
+	}
+
+	private void empezarLectura() {
 		sesion.leyendo(true);
 		actualizar.setEnabled(false);
 		estado.setText("Leyendo…");
