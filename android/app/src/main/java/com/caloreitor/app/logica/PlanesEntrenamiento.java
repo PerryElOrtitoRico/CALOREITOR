@@ -35,6 +35,30 @@ public final class PlanesEntrenamiento {
 	public record SesionPlio(int semana, int dia, int contactos, LocalDate lunes) {
 	}
 
+	public static final String RUNNING = "running-plan", GIMNASIO = "rutineitor-plan";
+
+	/** El último plan importado de ese formato: el que se muestra en Configuración. */
+	public static java.util.Optional<Plan> ultimo(List<Plan> planes, String formato) {
+		return planes.stream().filter(p -> p.formato().equals(formato)).max(Comparator.comparingLong(Plan::importadoEn));
+	}
+
+	/** Una línea para mostrar el plan cargado de ese formato. */
+	public static String resumen(List<Plan> planes, String formato, LocalDate hoy) {
+		return ultimo(planes, formato).map(p -> {
+			java.time.format.DateTimeFormatter f = java.time.format.DateTimeFormatter.ofPattern("dd/MM");
+			int n = p.running().size() + p.gym().size();
+			String r = "Del " + p.inicio().format(f) + " al " + p.fin().format(f) + " · " + n + " sesiones";
+			if (!p.plio().isEmpty()) r += " + pliometría";
+			if (p.fin().isBefore(hoy)) r += " · ya terminó, no cuenta";
+			return r;
+		}).orElse("Sin plan cargado");
+	}
+
+	/** "gimnasio" o "running", para los avisos. */
+	public static String nombre(String formato) {
+		return RUNNING.equals(formato) ? "running" : "gimnasio";
+	}
+
 	public record Plan(String formato, LocalDate inicio, LocalDate fin, long importadoEn, List<SesionRunning> running,
 			List<SesionGym> gym, List<SesionPlio> plio) {
 	}

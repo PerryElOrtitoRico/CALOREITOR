@@ -6,6 +6,7 @@ import com.caloreitor.app.logica.PlanesEntrenamiento.*;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 
 class PlanesEntrenamientoTest {
@@ -42,6 +43,20 @@ class PlanesEntrenamientoTest {
 		assertEquals(4, s.bloques().size());
 		assertEquals(2, s.bloques().get(1).zona());
 		assertEquals(4, p.running().get(11).semana());
+	}
+
+	@Test void cadaMitadMuestraElUltimoPlanDeSuFormato() throws Exception {
+		Plan run = PlanesEntrenamiento.leer(recurso("running-plan-v2.json"), 10L);
+		Plan gym = PlanesEntrenamiento.leer(recurso("Franco_2026-11-09_Potencia_Pliometria_4s3d.json"), 20L);
+		Plan runViejo = PlanesEntrenamiento.leer(recurso("running-plan-c2.json"), 5L);
+		List<Plan> planes = List.of(runViejo, gym, run);
+		assertEquals(run, PlanesEntrenamiento.ultimo(planes, PlanesEntrenamiento.RUNNING).orElseThrow());
+		assertEquals(gym, PlanesEntrenamiento.ultimo(planes, PlanesEntrenamiento.GIMNASIO).orElseThrow());
+		assertEquals("Del 23/11 al 20/12 · 12 sesiones",
+				PlanesEntrenamiento.resumen(planes, PlanesEntrenamiento.RUNNING, LocalDate.of(2026, 11, 25)));
+		assertTrue(PlanesEntrenamiento.resumen(planes, PlanesEntrenamiento.GIMNASIO, LocalDate.of(2026, 11, 25)).endsWith("+ pliometría"));
+		assertTrue(PlanesEntrenamiento.resumen(planes, PlanesEntrenamiento.RUNNING, LocalDate.of(2027, 1, 1)).endsWith("ya terminó, no cuenta"));
+		assertEquals("Sin plan cargado", PlanesEntrenamiento.resumen(List.of(gym), PlanesEntrenamiento.RUNNING, LocalDate.of(2026, 11, 25)));
 	}
 
 	@Test void leeElPlanRealDeGimnasioConPliometria() throws Exception {

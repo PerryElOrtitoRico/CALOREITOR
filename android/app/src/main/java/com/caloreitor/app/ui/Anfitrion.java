@@ -17,7 +17,8 @@ interface Anfitrion {
 
 	void elegirCarpeta();
 
-	void importarPlan();
+	/** formato: PlanesEntrenamiento.GIMNASIO o RUNNING; el archivo elegido tiene que ser de ese tipo. */
+	void importarPlan(String formato);
 
 	/** Cambió el nombre del dispositivo: hay que abrir de nuevo la carpeta para escribir en los archivos con el nombre nuevo. */
 	void reabrir();

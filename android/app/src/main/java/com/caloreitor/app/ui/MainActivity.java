@@ -32,6 +32,8 @@ public final class MainActivity extends AppCompatActivity implements Anfitrion {
 	private Sesion sesion;
 	/** Plan que llegó por "Abrir con" antes de tener la carpeta abierta: se importa apenas haya sesión. */
 	private Uri planPendiente;
+	/** Mitad desde la que se pidió el plan; null si llegó por "Abrir con"/"Compartir" (se acepta cualquiera). */
+	private String formatoEsperado;
 	private Sesion.Estado estado = Sesion.Estado.SIN_ELEGIR;
 	private VistaBase[] vistas;
 	private FrameLayout marco;
@@ -127,8 +129,15 @@ public final class MainActivity extends AppCompatActivity implements Anfitrion {
 				Hilos.enPrincipal(() -> Toast.makeText(this, "No se importó: " + e.getMessage(), Toast.LENGTH_LONG).show());
 				return;
 			}
+			final String esperado = formatoEsperado;
+			formatoEsperado = null;
+			if (esperado != null && !plan.formato().equals(esperado)) {
+				String tipo = PlanesEntrenamiento.nombre(plan.formato());
+				Hilos.enPrincipal(() -> Toast.makeText(this, "Ese archivo es un plan de " + tipo + ": cargalo en la mitad de " + tipo + ".", Toast.LENGTH_LONG).show());
+				return;
+			}
 			Hilos.enPrincipal(() -> s.escribir(() -> { s.nucleo().repo().guardarPlan(json); s.nucleo().planesCambiaron(); },
-					() -> { Toast.makeText(this, "Importado: " + plan.formato() + " del " + plan.inicio() + " al " + plan.fin(), Toast.LENGTH_LONG).show(); cambio(); }));
+					() -> { Toast.makeText(this, "Plan de " + PlanesEntrenamiento.nombre(plan.formato()) + " cargado: del " + plan.inicio() + " al " + plan.fin(), Toast.LENGTH_LONG).show(); cambio(); }));
 		});
 	}
 
@@ -147,7 +156,7 @@ public final class MainActivity extends AppCompatActivity implements Anfitrion {
 	@Override public Ajustes ajustes() { return ajustes; }
 	@Override public void cambio() { for (VistaBase v : vistas) v.refrescar(); }
 	@Override public void elegirCarpeta() { eligeCarpeta.launch(null); }
-	@Override public void importarPlan() { eligePlan.launch(new String[] {"application/json", "application/octet-stream", "text/plain"}); }
+	@Override public void importarPlan(String formato) { formatoEsperado = formato; eligePlan.launch(new String[] {"application/json", "application/octet-stream", "text/plain"}); }
 	@Override public void reabrir() { sesion = null; abrir(); }
 
 	@Override

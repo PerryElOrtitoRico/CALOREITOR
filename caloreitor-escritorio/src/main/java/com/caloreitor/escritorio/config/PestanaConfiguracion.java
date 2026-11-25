@@ -204,14 +204,32 @@ public final class PestanaConfiguracion extends JPanel {
 		return p;
 	}
 
+	private final java.util.Map<String, JLabel> planCargado = new java.util.HashMap<>();
+
+	/** Dos mitades: gimnasio (PESEITOR) y running (ZANCADEITOR), cada una con su plan cargado. */
 	private JPanel planesPanel() {
-		JButton importar = new JButton("Importar plan (.json)…");
-		JLabel resultado = new JLabel(" ");
-		importar.addActionListener(e -> importarPlan(resultado));
-		JPanel p = new JPanel(new FlowLayout(FlowLayout.LEFT, 6, 2));
-		p.add(importar);
-		p.add(resultado);
+		JPanel p = new JPanel(new java.awt.GridLayout(1, 2, 12, 0));
+		p.add(mitadPlan("Gimnasio (PESEITOR)", PlanesEntrenamiento.GIMNASIO));
+		p.add(mitadPlan("Running (ZANCADEITOR)", PlanesEntrenamiento.RUNNING));
 		return p;
+	}
+
+	private JPanel mitadPlan(String titulo, String formato) {
+		JLabel cargado = new JLabel(" ");
+		planCargado.put(formato, cargado);
+		JButton importar = new JButton("Cargar plan de " + PlanesEntrenamiento.nombre(formato) + "…");
+		importar.addActionListener(e -> importarPlan(formato));
+		JPanel m = new JPanel(new java.awt.GridLayout(0, 1, 0, 4));
+		m.setBorder(BorderFactory.createTitledBorder(titulo));
+		m.add(cargado);
+		JPanel b = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
+		b.add(importar);
+		m.add(b);
+		return m;
+	}
+
+	private void refrescarPlanes() {
+		planCargado.forEach((formato, l) -> l.setText(PlanesEntrenamiento.resumen(sesion.planes(), formato, sesion.hoy())));
 	}
 
 	private JPanel calculoPanel() {
@@ -388,7 +406,7 @@ public final class PestanaConfiguracion extends JPanel {
 		return new SemanaEntrenamiento(g, r, p);
 	}
 
-	private void importarPlan(JLabel resultado) {
+	private void importarPlan(String formato) {
 		JFileChooser c = new JFileChooser();
 		c.setDialogTitle("Plan de entrenamiento (.json de PESEITOR o ZANCADEITOR)");
 		c.setFileFilter(new FileNameExtensionFilter("Plan (.json)", "json"));
@@ -404,15 +422,19 @@ public final class PestanaConfiguracion extends JPanel {
 		try {
 			plan = PlanesEntrenamiento.leer(json, System.currentTimeMillis());
 		} catch (IllegalArgumentException ex) {
-			resultado.setText("No se importó: " + ex.getMessage());
 			JOptionPane.showMessageDialog(this, ex.getMessage(), "Plan inválido", JOptionPane.WARNING_MESSAGE);
+			return;
+		}
+		if (!plan.formato().equals(formato)) {
+			JOptionPane.showMessageDialog(this, "Ese archivo es un plan de " + PlanesEntrenamiento.nombre(plan.formato())
+					+ ": cargalo en la mitad de " + PlanesEntrenamiento.nombre(plan.formato()) + ".", "Otro tipo de plan", JOptionPane.WARNING_MESSAGE);
 			return;
 		}
 		if (sesion.mutar(this, () -> {
 			sesion.repo().guardarPlan(json);
 			sesion.planesCambiaron();
 		})) {
-			resultado.setText("Importado: " + plan.formato() + " del " + plan.inicio() + " al " + plan.fin());
+			refrescarPlanes();
 			alCambiar.run();
 		}
 	}
@@ -420,6 +442,7 @@ public final class PestanaConfiguracion extends JPanel {
 	/** Actualiza "Cómo se calculó hoy" y, si no hay nada sin guardar, el formulario con lo que llegó de afuera. */
 	public void refrescar() {
 		if (!sucio) cargar();
+		refrescarPlanes();
 		calculo.setText(sesion.objetivos().calcular(sesion.hoy()).map(o -> o.explicacion()).orElse(Textos.SIN_DATOS_PERSONALES));
 		calculo.setCaretPosition(0);
 	}
