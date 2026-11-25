@@ -57,7 +57,11 @@ public final class PestanaHoy extends JPanel {
 		JPanel centro = new JPanel(new BorderLayout(0, 12));
 		centro.setOpaque(false);
 		centro.add(circulos, BorderLayout.NORTH);
-		centro.add(texto, BorderLayout.CENTER);
+		// en NORTH los renglones quedan juntos en vez de repartirse en todo el alto
+		JPanel arriba = new JPanel(new BorderLayout());
+		arriba.setOpaque(false);
+		arriba.add(texto, BorderLayout.NORTH);
+		centro.add(arriba, BorderLayout.CENTER);
 		add(centro, BorderLayout.CENTER);
 		add(boton, BorderLayout.SOUTH);
 		agregar.addActionListener(e -> {

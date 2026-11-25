@@ -25,7 +25,7 @@ public final class MedioCirculo extends JComponent {
 		this.titulo = titulo;
 		this.unidad = unidad;
 		this.color = color;
-		setPreferredSize(new Dimension(200, 130));
+		setPreferredSize(new Dimension(200, 150));
 	}
 
 	/** objetivo <= 0 significa sin objetivo: el arco queda vacío. */
@@ -41,7 +41,8 @@ public final class MedioCirculo extends JComponent {
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		int w = getWidth(), h = getHeight();
 		int grosor = 14;
-		int d = Math.min(w - 2 * grosor, (h - 40) * 2);
+		// bajo el centro del arco van dos renglones (hasta ~40 px): el diámetro se achica para que entren
+		int d = Math.max(0, Math.min(w - 2 * grosor, 2 * (h - grosor - 40)));
 		int x = (w - d) / 2, y = grosor;
 		g.setStroke(new BasicStroke(grosor, BasicStroke.CAP_BUTT, BasicStroke.JOIN_ROUND));
 		g.setColor(Colores.de("barra"));
