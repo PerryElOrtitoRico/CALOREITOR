@@ -102,4 +102,24 @@ class CalculoTest {
 		assertEquals((o2.macros().kcal() - 320) / 9, o2.macros().grasas(), 1e-9);
 		assertFalse(o2.explicacion().contains("Ojo"));
 	}
+
+	@Test void cunninghamUsaLaMasaMagraYSuFactor() {
+		var p = new com.caloreitor.app.modelo.Perfil(79.0, 180.0, 23, "M", 0, 15.0, com.caloreitor.app.modelo.Perfil.CUNNINGHAM);
+		assertEquals(500 + 22 * 79 * 0.85, Calculo.bmr(p), 1e-9);
+		assertEquals((500 + 22 * 79 * 0.85) * 1.3, Calculo.base(p, java.util.Map.of()), 1e-9);
+	}
+
+	@Test void cunninghamSinGrasaVuelveAMifflin() {
+		var p = new com.caloreitor.app.modelo.Perfil(79.0, 180.0, 23, "M", 0, null, com.caloreitor.app.modelo.Perfil.CUNNINGHAM);
+		assertEquals(1805.0, Calculo.bmr(p), 1e-9);
+		assertEquals(1805.0 * 1.4, Calculo.base(p, java.util.Map.of()), 1e-9);
+	}
+
+	@Test void unPerfilGuardadoAntesDeCunninghamSeLeeConMifflin() {
+		var p = new com.google.gson.Gson().fromJson("{\"pesoKg\":79.0,\"alturaCm\":180.0,\"edad\":23,\"sexo\":\"M\",\"pasosDiarios\":6000}",
+				com.caloreitor.app.modelo.Perfil.class);
+		assertNull(p.grasaPct());
+		assertFalse(p.usaCunningham());
+		assertEquals(1805.0, Calculo.bmr(p), 1e-9);
+	}
 }

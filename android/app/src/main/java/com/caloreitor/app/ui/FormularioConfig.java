@@ -33,8 +33,8 @@ import java.util.TreeMap;
 final class FormularioConfig extends LinearLayout {
 	private static final Locale ES = Locale.forLanguageTag("es");
 
-	private final EditText peso, altura, edad, pasos, kcal, pProt, pCarb, pGrasa;
-	private final Spinner sexo, modo, meta;
+	private final EditText peso, altura, edad, pasos, grasa, kcal, pProt, pCarb, pGrasa;
+	private final Spinner sexo, formula, modo, meta;
 	private final LinearLayout listaComidas;
 	private final List<String> comidas = new ArrayList<>();
 	/** semana[d][k]: d = lunes..domingo, k = gimnasio, running, pliometría. */
@@ -53,6 +53,8 @@ final class FormularioConfig extends LinearLayout {
 		edad = agregar(c, "Edad", true);
 		pasos = agregar(c, "Pasos diarios", true);
 		sexo = desplegable(c, "Sexo", "Sin definir", "Masculino", "Femenino");
+		formula = desplegable(c, "Fórmula", "Mifflin-St Jeor", "Cunningham (% de grasa)");
+		grasa = agregar(c, "% de grasa (para Cunningham)", true);
 		addView(Ui.texto(c, "Comidas del día", false, true));
 		listaComidas = new LinearLayout(c);
 		listaComidas.setOrientation(VERTICAL);
@@ -209,6 +211,8 @@ final class FormularioConfig extends LinearLayout {
 		Perfil p = c.perfil();
 		peso.setText(texto(p.pesoKg())); altura.setText(texto(p.alturaCm())); edad.setText(texto(p.edad())); pasos.setText(texto(p.pasosDiarios()));
 		elegir(sexo, "M".equals(p.sexo()) ? 1 : "F".equals(p.sexo()) ? 2 : 0);
+		elegir(formula, Perfil.CUNNINGHAM.equals(p.formula()) ? 1 : 0);
+		grasa.setText(texto(p.grasaPct()));
 		comidas.clear(); comidas.addAll(c.comidas()); dibujarComidas();
 		elegir(modo, c.modo().ordinal()); elegir(meta, c.meta().ordinal());
 		kcal.setText(texto(c.manualKcal())); pProt.setText(texto(c.manualPctProt())); pCarb.setText(texto(c.manualPctCarb())); pGrasa.setText(texto(c.manualPctGrasa()));
@@ -232,7 +236,12 @@ final class FormularioConfig extends LinearLayout {
 
 		// 4. Construir Perfil
 		int sx = sexo.getSelectedItemPosition();
-		Perfil perfil = new Perfil(pesoKg, alturaCm, ed == null ? null : ed.intValue(), sx == 1 ? "M" : sx == 2 ? "F" : null, ps == null ? null : ps.intValue());
+		Double gr = numero(grasa, "% de grasa", false, true);
+		boolean cunningham = formula.getSelectedItemPosition() == 1;
+		if (cunningham && gr == null) throw new IllegalArgumentException("Para usar Cunningham escribí tu % de grasa");
+		if (gr != null && (gr < 3 || gr > 60)) throw new IllegalArgumentException("El % de grasa tiene que estar entre 3 y 60");
+		Perfil perfil = new Perfil(pesoKg, alturaCm, ed == null ? null : ed.intValue(), sx == 1 ? "M" : sx == 2 ? "F" : null, ps == null ? null : ps.intValue(),
+				gr, cunningham ? Perfil.CUNNINGHAM : Perfil.MIFFLIN);
 
 		// 5. Determinar si estamos en modo manual
 		boolean manual = modo.getSelectedItemPosition() == Modo.MANUAL.ordinal();

@@ -12,7 +12,7 @@ public final class Calculo {
 	}
 
 	/** Coeficientes editables con su valor por defecto. */
-	public static final Map<String, Double> DEFECTOS = Map.ofEntries(Map.entry("factorBase", 1.4),
+	public static final Map<String, Double> DEFECTOS = Map.ofEntries(Map.entry("factorBase", 1.4), Map.entry("factorBaseCunningham", 1.3),
 			Map.entry("kcalPorPasoPorKg", 0.0005), Map.entry("metZ1", 7.0), Map.entry("metZ2", 8.5),
 			Map.entry("metZ3", 10.0), Map.entry("metZ4", 11.5), Map.entry("metZ5", 13.0), Map.entry("minPorSerie", 2.5),
 			Map.entry("metGymBajo", 3.5), Map.entry("metGymMedio", 5.0), Map.entry("metGymAlto", 6.0),
@@ -23,12 +23,22 @@ public final class Calculo {
 		return coef != null && coef.containsKey(k) ? coef.get(k) : DEFECTOS.get(k);
 	}
 
+	/** Mifflin-St Jeor, o Cunningham (500 + 22 × masa magra) si está elegida y hay % de grasa. */
 	public static double bmr(Perfil p) {
+		if (p.usaCunningham()) return 500 + 22 * p.pesoKg() * (1 - p.grasaPct() / 100);
 		return 10 * p.pesoKg() + 6.25 * p.alturaCm() - 5 * p.edad() + ("M".equals(p.sexo()) ? 5 : -161);
 	}
 
+	/** Cunningham da un basal más alto: tiene su propio factor para no inflar el total. */
 	public static double base(Perfil p, Map<String, Double> coef) {
-		return bmr(p) * c(coef, "factorBase") + p.pasosDiarios() * c(coef, "kcalPorPasoPorKg") * p.pesoKg();
+		double factor = c(coef, p.usaCunningham() ? "factorBaseCunningham" : "factorBase");
+		return bmr(p) * factor + p.pasosDiarios() * c(coef, "kcalPorPasoPorKg") * p.pesoKg();
+	}
+
+	static String nombreFormula(Perfil p) {
+		if (p.usaCunningham()) return "Cunningham, " + r(p.grasaPct()) + " % de grasa";
+		if (Perfil.CUNNINGHAM.equals(p.formula())) return "Mifflin-St Jeor: falta el % de grasa para Cunningham";
+		return "Mifflin-St Jeor";
 	}
 
 	private static double met(int zona, Map<String, Double> coef) {
@@ -83,7 +93,7 @@ public final class Calculo {
 		var coef = cfg.coeficientes();
 		double kg = p.pesoKg();
 		StringBuilder e = new StringBuilder();
-		e.append("Metabolismo basal: ").append(r(bmr(p))).append(" kcal\n");
+		e.append("Metabolismo basal (").append(nombreFormula(p)).append("): ").append(r(bmr(p))).append(" kcal\n");
 		double base = base(p, coef);
 		e.append("Base con pasos (").append(p.pasosDiarios()).append("): ").append(r(base)).append(" kcal\n");
 		double total = base;

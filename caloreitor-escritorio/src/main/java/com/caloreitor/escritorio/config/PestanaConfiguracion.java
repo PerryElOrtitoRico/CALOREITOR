@@ -56,6 +56,8 @@ public final class PestanaConfiguracion extends JPanel {
 
 	private final JTextField peso = new JTextField(6), altura = new JTextField(6), edad = new JTextField(6), pasos = new JTextField(6);
 	private final JComboBox<String> sexo = new JComboBox<>(new String[] {"Sin definir", "Masculino", "Femenino"});
+	private final JComboBox<String> formula = new JComboBox<>(new String[] {"Mifflin-St Jeor", "Cunningham (% de grasa)"});
+	private final JTextField grasa = new JTextField(4);
 	private final DefaultListModel<String> comidas = new DefaultListModel<>();
 	private final JList<String> listaComidas = new JList<>(comidas);
 	private final JComboBox<String> modo = new JComboBox<>(new String[] {"Automático", "Manual"});
@@ -119,6 +121,10 @@ public final class PestanaConfiguracion extends JPanel {
 		}
 		p.add(new JLabel("Sexo"));
 		p.add(marcar(sexo));
+		p.add(new JLabel("Fórmula"));
+		p.add(marcar(formula));
+		p.add(new JLabel("% de grasa"));
+		p.add(marcar(grasa));
 		return p;
 	}
 
@@ -325,6 +331,8 @@ public final class PestanaConfiguracion extends JPanel {
 		edad.setText(texto(p.edad()));
 		pasos.setText(texto(p.pasosDiarios()));
 		sexo.setSelectedIndex("M".equals(p.sexo()) ? 1 : "F".equals(p.sexo()) ? 2 : 0);
+		formula.setSelectedIndex(Perfil.CUNNINGHAM.equals(p.formula()) ? 1 : 0);
+		grasa.setText(texto(p.grasaPct()));
 		comidas.clear();
 		c.comidas().forEach(comidas::addElement);
 		modo.setSelectedIndex(c.modo().ordinal());
@@ -367,8 +375,13 @@ public final class PestanaConfiguracion extends JPanel {
 			if (ed != null && ed != Math.rint(ed) || ps != null && ps != Math.rint(ps)) {
 				throw new IllegalArgumentException("Edad y pasos: escribí números enteros");
 			}
+			Double gr = numero(grasa, "% de grasa", false, true);
+			boolean cunningham = formula.getSelectedIndex() == 1;
+			if (cunningham && gr == null) throw new IllegalArgumentException("Para usar Cunningham escribí tu % de grasa");
+			if (gr != null && (gr < 3 || gr > 60)) throw new IllegalArgumentException("El % de grasa tiene que estar entre 3 y 60");
 			Perfil perfil = new Perfil(pesoKg, alturaCm, ed == null ? null : ed.intValue(),
-					sexo.getSelectedIndex() == 1 ? "M" : sexo.getSelectedIndex() == 2 ? "F" : null, ps == null ? null : ps.intValue());
+					sexo.getSelectedIndex() == 1 ? "M" : sexo.getSelectedIndex() == 2 ? "F" : null, ps == null ? null : ps.intValue(),
+					gr, cunningham ? Perfil.CUNNINGHAM : Perfil.MIFFLIN);
 			// los campos manuales solo se exigen en modo Manual; en Automático se guardan como estén (o los defectos)
 			boolean manual = modo.getSelectedIndex() == Modo.MANUAL.ordinal();
 			Configuracion previa = sesion.repo().configuracion();
