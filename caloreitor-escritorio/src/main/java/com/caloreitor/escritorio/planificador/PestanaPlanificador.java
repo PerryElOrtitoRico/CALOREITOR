@@ -1,5 +1,6 @@
 package com.caloreitor.escritorio.planificador;
 
+import com.caloreitor.escritorio.tema.Tema;
 import com.caloreitor.app.logica.Planificador;
 import com.caloreitor.app.modelo.Configuracion;
 import com.caloreitor.app.modelo.Consumo;
@@ -82,7 +83,7 @@ public final class PestanaPlanificador extends JPanel {
 		add(barra, BorderLayout.NORTH);
 		JPanel envoltura = new JPanel(new BorderLayout());
 		envoltura.add(contenido, BorderLayout.NORTH);
-		add(new JScrollPane(envoltura), BorderLayout.CENTER);
+		add(Tema.desplazable(envoltura), BorderLayout.CENTER);
 	}
 
 	private void ir(LocalDate nuevoLunes) {
@@ -216,7 +217,7 @@ public final class PestanaPlanificador extends JPanel {
 		JPanel c = new JPanel(new BorderLayout(0, 8));
 		c.setBorder(BorderFactory.createEmptyBorder(12, 12, 12, 12));
 		c.add(dias, BorderLayout.NORTH);
-		c.add(new JScrollPane(texto), BorderLayout.CENTER);
+		c.add(Tema.desplazable(texto), BorderLayout.CENTER);
 		JPanel abajo = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		abajo.add(copiar);
 		c.add(abajo, BorderLayout.SOUTH);

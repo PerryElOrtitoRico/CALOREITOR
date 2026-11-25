@@ -20,6 +20,14 @@ public final class Tema {
     private Tema() {
     }
 
+    /** JScrollPane con la rueda más rápida: los paneles comunes avanzan 1 px por paso si no se ajusta. */
+    public static javax.swing.JScrollPane desplazable(java.awt.Component vista) {
+        javax.swing.JScrollPane s = new javax.swing.JScrollPane(vista);
+        s.getVerticalScrollBar().setUnitIncrement(32);
+        s.getHorizontalScrollBar().setUnitIncrement(32);
+        return s;
+    }
+
     public static boolean oscuro() {
         return oscuro;
     }

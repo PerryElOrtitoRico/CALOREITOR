@@ -1,5 +1,6 @@
 package com.caloreitor.escritorio.config;
 
+import com.caloreitor.escritorio.tema.Tema;
 import com.caloreitor.app.logica.Calculo;
 import com.caloreitor.app.logica.PlanesEntrenamiento;
 import com.caloreitor.app.modelo.Configuracion;
@@ -97,7 +98,7 @@ public final class PestanaConfiguracion extends JPanel {
 		col.add(seccion("Planes de entrenamiento", planesPanel()));
 		col.add(seccion("Cómo se calculó hoy", calculoPanel()));
 		col.add(seccion("Este equipo", equipoPanel()));
-		add(new JScrollPane(col), BorderLayout.CENTER);
+		add(Tema.desplazable(col), BorderLayout.CENTER);
 		cargar();
 		refrescar();
 	}
@@ -144,7 +145,7 @@ public final class PestanaConfiguracion extends JPanel {
 		JPanel lado = new JPanel(new BorderLayout());
 		lado.add(b, BorderLayout.NORTH);
 		JPanel p = new JPanel(new BorderLayout(8, 0));
-		JScrollPane s = new JScrollPane(listaComidas);
+		JScrollPane s = Tema.desplazable(listaComidas);
 		s.setPreferredSize(new java.awt.Dimension(240, 110));
 		p.add(s, BorderLayout.WEST);
 		p.add(lado, BorderLayout.CENTER);
@@ -235,7 +236,7 @@ public final class PestanaConfiguracion extends JPanel {
 	private JPanel calculoPanel() {
 		calculo.setEditable(false);
 		JPanel p = new JPanel(new BorderLayout());
-		p.add(new JScrollPane(calculo), BorderLayout.CENTER);
+		p.add(Tema.desplazable(calculo), BorderLayout.CENTER);
 		return p;
 	}
 

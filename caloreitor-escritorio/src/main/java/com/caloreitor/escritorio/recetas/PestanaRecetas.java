@@ -1,5 +1,6 @@
 package com.caloreitor.escritorio.recetas;
 
+import com.caloreitor.escritorio.tema.Tema;
 import com.caloreitor.app.logica.Parseo;
 import com.caloreitor.app.modelo.Alimento;
 import com.caloreitor.app.modelo.Item;
@@ -67,7 +68,7 @@ public final class PestanaRecetas extends JPanel {
 		acciones.add(editar);
 		acciones.add(borrar);
 		add(acciones, BorderLayout.NORTH);
-		add(new JScrollPane(lista), BorderLayout.CENTER);
+		add(Tema.desplazable(lista), BorderLayout.CENTER);
 		refrescar();
 	}
 
@@ -134,7 +135,7 @@ public final class PestanaRecetas extends JPanel {
 			abajo.add(cancelar);
 			JPanel envoltura = new JPanel(new BorderLayout());
 			envoltura.add(filas, BorderLayout.NORTH);
-			JScrollPane scroll = new JScrollPane(envoltura);
+			JScrollPane scroll = Tema.desplazable(envoltura);
 			scroll.setPreferredSize(new java.awt.Dimension(560, 300));
 			JPanel contenido = new JPanel(new BorderLayout(0, 8));
 			contenido.setBorder(BorderFactory.createEmptyBorder(12, 12, 12, 12));

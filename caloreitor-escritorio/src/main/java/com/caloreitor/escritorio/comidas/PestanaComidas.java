@@ -1,5 +1,6 @@
 package com.caloreitor.escritorio.comidas;
 
+import com.caloreitor.escritorio.tema.Tema;
 import com.caloreitor.app.modelo.Consumo;
 import com.caloreitor.app.modelo.Item;
 import com.caloreitor.app.modelo.Macros;
@@ -71,7 +72,7 @@ public final class PestanaComidas extends JPanel {
 		add(barra, BorderLayout.NORTH);
 		JPanel envoltura = new JPanel(new BorderLayout());
 		envoltura.add(contenido, BorderLayout.NORTH);
-		add(new JScrollPane(envoltura), BorderLayout.CENTER);
+		add(Tema.desplazable(envoltura), BorderLayout.CENTER);
 	}
 
 	private void ir(LocalDate d) {

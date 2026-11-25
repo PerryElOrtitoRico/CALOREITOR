@@ -1,5 +1,6 @@
 package com.caloreitor.escritorio.alimentos;
 
+import com.caloreitor.escritorio.tema.Tema;
 import com.caloreitor.app.logica.Busqueda;
 import com.caloreitor.app.modelo.Alimento;
 import com.caloreitor.app.modelo.Macros;
@@ -70,7 +71,7 @@ public final class PestanaAlimentos extends JPanel {
 		arriba.add(buscar, BorderLayout.NORTH);
 		arriba.add(acciones, BorderLayout.SOUTH);
 		add(arriba, BorderLayout.NORTH);
-		add(new JScrollPane(lista), BorderLayout.CENTER);
+		add(Tema.desplazable(lista), BorderLayout.CENTER);
 		refrescar();
 	}
 

@@ -1,5 +1,6 @@
 package com.caloreitor.escritorio.comidas;
 
+import com.caloreitor.escritorio.tema.Tema;
 import com.caloreitor.app.logica.Busqueda;
 import com.caloreitor.app.logica.Busqueda.Resultado;
 import com.caloreitor.app.logica.Parseo;
@@ -82,7 +83,7 @@ public final class BuscadorRapido {
 		JPanel contenido = new JPanel(new BorderLayout(0, 8));
 		contenido.setBorder(BorderFactory.createEmptyBorder(12, 12, 12, 12));
 		contenido.add(campo, BorderLayout.NORTH);
-		JScrollPane scroll = new JScrollPane(lista);
+		JScrollPane scroll = Tema.desplazable(lista);
 		scroll.setPreferredSize(new Dimension(460, 280));
 		contenido.add(scroll, BorderLayout.CENTER);
 		contenido.add(abajo, BorderLayout.SOUTH);
