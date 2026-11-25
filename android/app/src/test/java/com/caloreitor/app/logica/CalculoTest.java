@@ -122,4 +122,13 @@ class CalculoTest {
 		assertFalse(p.usaCunningham());
 		assertEquals(1805.0, Calculo.bmr(p), 1e-9);
 	}
+
+	@Test void cadaFormulaMuestraSoloSuFactorBase() {
+		assertTrue(Calculo.coeficienteDe("factorBase", false));
+		assertFalse(Calculo.coeficienteDe("factorBaseCunningham", false));
+		assertTrue(Calculo.coeficienteDe("factorBaseCunningham", true));
+		assertFalse(Calculo.coeficienteDe("factorBase", true));
+		assertTrue(Calculo.coeficienteDe("metZ1", true));
+		assertTrue(Calculo.coeficienteDe("metZ1", false));
+	}
 }

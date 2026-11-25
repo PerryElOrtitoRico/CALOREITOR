@@ -35,6 +35,13 @@ public final class Calculo {
 		return bmr(p) * factor + p.pasosDiarios() * c(coef, "kcalPorPasoPorKg") * p.pesoKg();
 	}
 
+	/** Los coeficientes avanzados que se muestran con esa fórmula: cada una oculta el factor base de la otra. */
+	public static boolean coeficienteDe(String clave, boolean cunningham) {
+		if (clave.equals("factorBase")) return !cunningham;
+		if (clave.equals("factorBaseCunningham")) return cunningham;
+		return true;
+	}
+
 	static String nombreFormula(Perfil p) {
 		if (p.usaCunningham()) return "Cunningham, " + r(p.grasaPct()) + " % de grasa";
 		if (Perfil.CUNNINGHAM.equals(p.formula())) return "Mifflin-St Jeor: falta el % de grasa para Cunningham";

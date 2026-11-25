@@ -40,6 +40,9 @@ final class FormularioConfig extends LinearLayout {
 	/** semana[d][k]: d = lunes..domingo, k = gimnasio, running, pliometría. */
 	private final CheckBox[][] semana = new CheckBox[7][3];
 	private final Map<String, EditText> coef = new TreeMap<>();
+	private final Map<String, LinearLayout> filaCoef = new TreeMap<>();
+	private final LinearLayout avanzado;
+	private final android.widget.Button verAvanzado;
 	// true cuando hay algo escrito sin guardar: al releer no se pisa con lo guardado
 	private boolean sucio;
 	private boolean cargando;
@@ -81,8 +84,35 @@ final class FormularioConfig extends LinearLayout {
 			}
 			addView(fila);
 		}
-		addView(Ui.texto(c, "Avanzado: coeficientes del cálculo automático", false, true));
-		for (String k : new TreeMap<>(Calculo.DEFECTOS).keySet()) coef.put(k, agregar(c, k, true));
+		// Avanzado: oculto hasta tocar el botón; solo los coeficientes de la fórmula elegida
+		addView(Ui.texto(c, "Avanzado", false, true));
+		LinearLayout av = new LinearLayout(c);
+		av.setOrientation(VERTICAL);
+		av.setVisibility(GONE);
+		avanzado = av;
+		verAvanzado = Ui.boton(c, "", v -> {
+			av.setVisibility(av.getVisibility() == VISIBLE ? GONE : VISIBLE);
+			pintarAvanzado();
+		});
+		addView(verAvanzado);
+		addView(av);
+		for (String k : new TreeMap<>(Calculo.DEFECTOS).keySet()) {
+			LinearLayout fila = new LinearLayout(c);
+			fila.setOrientation(VERTICAL);
+			avanzado.addView(fila);
+			filaCoef.put(k, fila);
+			coef.put(k, agregar(c, k, true, fila));
+		}
+		pintarAvanzado();
+	}
+
+	private void pintarAvanzado() {
+		if (verAvanzado == null || formula == null) return;
+		boolean cunningham = formula.getSelectedItemPosition() == 1;
+		grasa.setEnabled(cunningham);
+		String nombre = cunningham ? "Cunningham" : "Mifflin-St Jeor";
+		verAvanzado.setText((avanzado.getVisibility() == VISIBLE ? "Ocultar" : "Mostrar") + " opciones avanzadas de " + nombre);
+		filaCoef.forEach((k, fila) -> fila.setVisibility(Calculo.coeficienteDe(k, cunningham) ? VISIBLE : GONE));
 	}
 
 	boolean sucio() { return sucio; }
@@ -91,14 +121,18 @@ final class FormularioConfig extends LinearLayout {
 
 	/** Etiqueta y campo numérico; cada cambio escrito marca el formulario como sucio. */
 	private EditText agregar(Context c, String etiqueta, boolean numero) {
-		addView(Ui.texto(c, etiqueta, true, false));
+		return agregar(c, etiqueta, numero, this);
+	}
+
+	private EditText agregar(Context c, String etiqueta, boolean numero, android.view.ViewGroup destino) {
+		destino.addView(Ui.texto(c, etiqueta, true, false));
 		EditText e = Ui.campo(c, "", numero);
 		e.addTextChangedListener(new TextWatcher() {
 			@Override public void beforeTextChanged(CharSequence s, int a, int b, int d) { }
 			@Override public void onTextChanged(CharSequence s, int a, int b, int d) { sucio |= !cargando; }
 			@Override public void afterTextChanged(Editable s) { }
 		});
-		addView(e);
+		destino.addView(e);
 		return e;
 	}
 
@@ -110,6 +144,7 @@ final class FormularioConfig extends LinearLayout {
 		s.setTag(0);
 		s.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 			@Override public void onItemSelected(AdapterView<?> p, View v, int pos, long id) {
+				if (s == formula) pintarAvanzado();
 				if (!Integer.valueOf(pos).equals(s.getTag())) {
 					s.setTag(pos);
 					sucio = true;
@@ -212,6 +247,7 @@ final class FormularioConfig extends LinearLayout {
 		peso.setText(texto(p.pesoKg())); altura.setText(texto(p.alturaCm())); edad.setText(texto(p.edad())); pasos.setText(texto(p.pasosDiarios()));
 		elegir(sexo, "M".equals(p.sexo()) ? 1 : "F".equals(p.sexo()) ? 2 : 0);
 		elegir(formula, Perfil.CUNNINGHAM.equals(p.formula()) ? 1 : 0);
+		pintarAvanzado();
 		grasa.setText(texto(p.grasaPct()));
 		comidas.clear(); comidas.addAll(c.comidas()); dibujarComidas();
 		elegir(modo, c.modo().ordinal()); elegir(meta, c.meta().ordinal());

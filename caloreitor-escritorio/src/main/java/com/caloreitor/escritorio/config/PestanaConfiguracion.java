@@ -85,7 +85,7 @@ public final class PestanaConfiguracion extends JPanel {
 		col.add(seccion("Modo de objetivo y meta", modoPanel()));
 		col.add(seccion("Objetivo manual (los % deben sumar 100)", manualPanel()));
 		col.add(seccion("Semana de entrenamiento", semanaPanel()));
-		col.add(seccion("Avanzado: coeficientes del cálculo automático", avanzadoPanel()));
+		col.add(seccion("Avanzado", avanzadoPanel()));
 		JButton guardar = new JButton("Guardar configuración");
 		guardar.addActionListener(e -> guardar());
 		JButton descartar = new JButton("Descartar cambios");
@@ -201,15 +201,40 @@ public final class PestanaConfiguracion extends JPanel {
 		return p;
 	}
 
+	private final JPanel grillaAvanzada = new JPanel(new GridLayout(0, 4, 6, 2));
+	private final JButton verAvanzado = new JButton();
+
+	/** Oculto hasta apretar el botón; muestra solo los coeficientes de la fórmula elegida. */
 	private JPanel avanzadoPanel() {
-		JPanel p = new JPanel(new GridLayout(0, 4, 6, 2));
-		new TreeMap<>(Calculo.DEFECTOS).keySet().forEach(k -> {
-			JTextField f = new JTextField(6);
-			coef.put(k, f);
-			p.add(new JLabel(k));
-			p.add(marcar(f));
+		new TreeMap<>(Calculo.DEFECTOS).keySet().forEach(k -> coef.put(k, marcar(new JTextField(6))));
+		grillaAvanzada.setVisible(false);
+		verAvanzado.addActionListener(e -> {
+			grillaAvanzada.setVisible(!grillaAvanzada.isVisible());
+			pintarAvanzado();
 		});
+		formula.addActionListener(e -> pintarAvanzado());
+		JPanel b = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
+		b.add(verAvanzado);
+		JPanel p = new JPanel(new BorderLayout(0, 6));
+		p.add(b, BorderLayout.NORTH);
+		p.add(grillaAvanzada, BorderLayout.CENTER);
+		pintarAvanzado();
 		return p;
+	}
+
+	private void pintarAvanzado() {
+		boolean cunningham = formula.getSelectedIndex() == 1;
+		grasa.setEnabled(cunningham);
+		String nombre = cunningham ? "Cunningham" : "Mifflin-St Jeor";
+		verAvanzado.setText((grillaAvanzada.isVisible() ? "Ocultar" : "Mostrar") + " opciones avanzadas de " + nombre);
+		grillaAvanzada.removeAll();
+		coef.forEach((k, f) -> {
+			if (!Calculo.coeficienteDe(k, cunningham)) return;
+			grillaAvanzada.add(new JLabel(k));
+			grillaAvanzada.add(f);
+		});
+		grillaAvanzada.revalidate();
+		grillaAvanzada.repaint();
 	}
 
 	private final java.util.Map<String, JLabel> planCargado = new java.util.HashMap<>();
@@ -333,6 +358,7 @@ public final class PestanaConfiguracion extends JPanel {
 		pasos.setText(texto(p.pasosDiarios()));
 		sexo.setSelectedIndex("M".equals(p.sexo()) ? 1 : "F".equals(p.sexo()) ? 2 : 0);
 		formula.setSelectedIndex(Perfil.CUNNINGHAM.equals(p.formula()) ? 1 : 0);
+		pintarAvanzado();
 		grasa.setText(texto(p.grasaPct()));
 		comidas.clear();
 		c.comidas().forEach(comidas::addElement);
