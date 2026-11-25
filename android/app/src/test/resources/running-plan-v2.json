@@ -1,0 +1,501 @@
+{
+  "formato": "running-plan",
+  "version": 2,
+  "cicloId": 3,
+  "titulo": "5K · desde 2026-11-23",
+  "semanas": [
+    {
+      "numero": 1,
+      "lunes": "2026-11-23",
+      "fase": "BASE"
+    },
+    {
+      "numero": 2,
+      "lunes": "2026-11-30",
+      "fase": "BASE"
+    },
+    {
+      "numero": 3,
+      "lunes": "2026-12-07",
+      "fase": "BASE"
+    },
+    {
+      "numero": 4,
+      "lunes": "2026-12-14",
+      "fase": "BASE"
+    }
+  ],
+  "zonasFc": [
+    {
+      "numero": 1,
+      "nombre": "Aeróbica baja",
+      "fcMin": 135,
+      "fcMax": 144
+    },
+    {
+      "numero": 2,
+      "nombre": "Aeróbica moderada",
+      "fcMin": 146,
+      "fcMax": 160
+    },
+    {
+      "numero": 3,
+      "nombre": "Umbral",
+      "fcMin": 173,
+      "fcMax": 180
+    },
+    {
+      "numero": 4,
+      "nombre": "VO₂máx",
+      "fcMin": 184,
+      "fcMax": 189
+    },
+    {
+      "numero": 5,
+      "nombre": "Velocidad",
+      "fcMin": 191
+    }
+  ],
+  "sesiones": [
+    {
+      "id": "c3-s1-d1",
+      "semana": 1,
+      "dia": 1,
+      "rol": "CALIDAD",
+      "tipo": "SERIES_CORTAS",
+      "nivel": 2,
+      "minutos": 39.0,
+      "km": 5.692698673888313,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 438,
+          "ritmoMaxSegKm": 471
+        },
+        {
+          "zona": 2,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 403,
+          "ritmoMaxSegKm": 431
+        },
+        {
+          "zona": 5,
+          "minutos": 1.0,
+          "repeticiones": 8,
+          "zonaPausa": 1,
+          "minutosPausa": 2.0,
+          "ritmoMinSegKm": 302,
+          "ritmoMaxSegKm": 321,
+          "pausaRitmoMinSegKm": 438,
+          "pausaRitmoMaxSegKm": 471
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 438,
+          "ritmoMaxSegKm": 471
+        }
+      ]
+    },
+    {
+      "id": "c3-s1-d2",
+      "semana": 1,
+      "dia": 2,
+      "rol": "RODAJE",
+      "tipo": "FUNDACION",
+      "nivel": 7,
+      "minutos": 50.0,
+      "km": 7.075527696654557,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 438,
+          "ritmoMaxSegKm": 471
+        },
+        {
+          "zona": 2,
+          "minutos": 40.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 403,
+          "ritmoMaxSegKm": 431
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 438,
+          "ritmoMaxSegKm": 471
+        }
+      ]
+    },
+    {
+      "id": "c3-s1-d3",
+      "semana": 1,
+      "dia": 3,
+      "rol": "RODAJE",
+      "tipo": "FUNDACION",
+      "nivel": 7,
+      "minutos": 50.0,
+      "km": 7.075527696654557,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 438,
+          "ritmoMaxSegKm": 471
+        },
+        {
+          "zona": 2,
+          "minutos": 40.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 403,
+          "ritmoMaxSegKm": 431
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 438,
+          "ritmoMaxSegKm": 471
+        }
+      ]
+    },
+    {
+      "id": "c3-s2-d1",
+      "semana": 2,
+      "dia": 1,
+      "rol": "CALIDAD",
+      "tipo": "SERIES_CORTAS",
+      "nivel": 3,
+      "minutos": 39.0,
+      "km": 5.753301844959835,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 438,
+          "ritmoMaxSegKm": 471
+        },
+        {
+          "zona": 2,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 403,
+          "ritmoMaxSegKm": 431
+        },
+        {
+          "zona": 5,
+          "minutos": 1.5,
+          "repeticiones": 6,
+          "zonaPausa": 1,
+          "minutosPausa": 2.5,
+          "ritmoMinSegKm": 302,
+          "ritmoMaxSegKm": 321,
+          "pausaRitmoMinSegKm": 438,
+          "pausaRitmoMaxSegKm": 471
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 438,
+          "ritmoMaxSegKm": 471
+        }
+      ]
+    },
+    {
+      "id": "c3-s2-d2",
+      "semana": 2,
+      "dia": 2,
+      "rol": "RODAJE",
+      "tipo": "FUNDACION",
+      "nivel": 7,
+      "minutos": 50.0,
+      "km": 7.075527696654557,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 438,
+          "ritmoMaxSegKm": 471
+        },
+        {
+          "zona": 2,
+          "minutos": 40.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 403,
+          "ritmoMaxSegKm": 431
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 438,
+          "ritmoMaxSegKm": 471
+        }
+      ]
+    },
+    {
+      "id": "c3-s2-d3",
+      "semana": 2,
+      "dia": 3,
+      "rol": "RODAJE",
+      "tipo": "FUNDACION",
+      "nivel": 7,
+      "minutos": 50.0,
+      "km": 7.075527696654557,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 438,
+          "ritmoMaxSegKm": 471
+        },
+        {
+          "zona": 2,
+          "minutos": 40.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 403,
+          "ritmoMaxSegKm": 431
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 438,
+          "ritmoMaxSegKm": 471
+        }
+      ]
+    },
+    {
+      "id": "c3-s3-d1",
+      "semana": 3,
+      "dia": 1,
+      "rol": "CALIDAD",
+      "tipo": "SERIES_CORTAS",
+      "nivel": 3,
+      "minutos": 39.0,
+      "km": 5.753301844959835,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 438,
+          "ritmoMaxSegKm": 471
+        },
+        {
+          "zona": 2,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 403,
+          "ritmoMaxSegKm": 431
+        },
+        {
+          "zona": 5,
+          "minutos": 1.5,
+          "repeticiones": 6,
+          "zonaPausa": 1,
+          "minutosPausa": 2.5,
+          "ritmoMinSegKm": 302,
+          "ritmoMaxSegKm": 321,
+          "pausaRitmoMinSegKm": 438,
+          "pausaRitmoMaxSegKm": 471
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 438,
+          "ritmoMaxSegKm": 471
+        }
+      ]
+    },
+    {
+      "id": "c3-s3-d2",
+      "semana": 3,
+      "dia": 2,
+      "rol": "RODAJE",
+      "tipo": "FUNDACION",
+      "nivel": 7,
+      "minutos": 50.0,
+      "km": 7.075527696654557,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 438,
+          "ritmoMaxSegKm": 471
+        },
+        {
+          "zona": 2,
+          "minutos": 40.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 403,
+          "ritmoMaxSegKm": 431
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 438,
+          "ritmoMaxSegKm": 471
+        }
+      ]
+    },
+    {
+      "id": "c3-s3-d3",
+      "semana": 3,
+      "dia": 3,
+      "rol": "RODAJE",
+      "tipo": "FUNDACION",
+      "nivel": 7,
+      "minutos": 50.0,
+      "km": 7.075527696654557,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 438,
+          "ritmoMaxSegKm": 471
+        },
+        {
+          "zona": 2,
+          "minutos": 40.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 403,
+          "ritmoMaxSegKm": 431
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 438,
+          "ritmoMaxSegKm": 471
+        }
+      ]
+    },
+    {
+      "id": "c3-s4-d1",
+      "semana": 4,
+      "dia": 1,
+      "rol": "CALIDAD",
+      "tipo": "SERIES_CORTAS",
+      "nivel": 3,
+      "minutos": 39.0,
+      "km": 5.753301844959835,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 438,
+          "ritmoMaxSegKm": 471
+        },
+        {
+          "zona": 2,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 403,
+          "ritmoMaxSegKm": 431
+        },
+        {
+          "zona": 5,
+          "minutos": 1.5,
+          "repeticiones": 6,
+          "zonaPausa": 1,
+          "minutosPausa": 2.5,
+          "ritmoMinSegKm": 302,
+          "ritmoMaxSegKm": 321,
+          "pausaRitmoMinSegKm": 438,
+          "pausaRitmoMaxSegKm": 471
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 438,
+          "ritmoMaxSegKm": 471
+        }
+      ]
+    },
+    {
+      "id": "c3-s4-d2",
+      "semana": 4,
+      "dia": 2,
+      "rol": "RODAJE",
+      "tipo": "FUNDACION",
+      "nivel": 7,
+      "minutos": 50.0,
+      "km": 7.075527696654557,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 438,
+          "ritmoMaxSegKm": 471
+        },
+        {
+          "zona": 2,
+          "minutos": 40.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 403,
+          "ritmoMaxSegKm": 431
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 438,
+          "ritmoMaxSegKm": 471
+        }
+      ]
+    },
+    {
+      "id": "c3-s4-d3",
+      "semana": 4,
+      "dia": 3,
+      "rol": "RODAJE",
+      "tipo": "FUNDACION",
+      "nivel": 7,
+      "minutos": 50.0,
+      "km": 7.075527696654557,
+      "bloques": [
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 438,
+          "ritmoMaxSegKm": 471
+        },
+        {
+          "zona": 2,
+          "minutos": 40.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 403,
+          "ritmoMaxSegKm": 431
+        },
+        {
+          "zona": 1,
+          "minutos": 5.0,
+          "repeticiones": 1,
+          "ritmoMinSegKm": 438,
+          "ritmoMaxSegKm": 471
+        }
+      ]
+    }
+  ]
+}

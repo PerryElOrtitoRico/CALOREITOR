@@ -31,6 +31,19 @@ class PlanesEntrenamientoTest {
 		assertEquals(3, s.bloques().get(2).zona());
 	}
 
+	@Test void leeElPlanDeRunningVersion2SinFechaPorSesion() throws Exception {
+		// version 2: las sesiones traen semana + día numerado y cada semana trae su lunes
+		Plan p = PlanesEntrenamiento.leer(recurso("running-plan-v2.json"), 7L);
+		assertEquals(12, p.running().size());
+		assertEquals(LocalDate.of(2026, 11, 23), p.inicio());
+		assertEquals(LocalDate.of(2026, 12, 20), p.fin());
+		SesionRunning s = p.running().get(0);
+		assertEquals(1, s.semana());
+		assertEquals(4, s.bloques().size());
+		assertEquals(2, s.bloques().get(1).zona());
+		assertEquals(4, p.running().get(11).semana());
+	}
+
 	@Test void leeElPlanRealDeGimnasioConPliometria() throws Exception {
 		Plan p = PlanesEntrenamiento.leer(recurso("Franco_2026-11-09_Potencia_Pliometria_4s3d.json"), 1L);
 		assertEquals("rutineitor-plan", p.formato());

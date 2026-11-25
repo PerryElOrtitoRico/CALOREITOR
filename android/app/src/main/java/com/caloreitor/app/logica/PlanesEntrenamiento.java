@@ -68,6 +68,13 @@ public final class PlanesEntrenamiento {
 	}
 
 	private static Plan running(JsonObject o, long importadoEn) {
+		// version 2 de ZANCADEITOR: sin fecha por sesión; cada semana trae su lunes
+		java.util.Map<Integer, LocalDate> lunesDe = new java.util.HashMap<>();
+		for (JsonElement e : lista(o, "semanas")) {
+			JsonObject w = e.getAsJsonObject();
+			if (w.has("numero") && w.has("lunes"))
+				lunesDe.put(w.get("numero").getAsInt(), LocalDate.parse(w.get("lunes").getAsString()));
+		}
 		List<SesionRunning> ses = new ArrayList<>();
 		for (JsonElement e : lista(o, "sesiones")) {
 			JsonObject s = e.getAsJsonObject();
@@ -79,7 +86,14 @@ public final class PlanesEntrenamiento {
 						x.has("zonaPausa") ? x.get("zonaPausa").getAsInt() : null,
 						x.has("minutosPausa") ? x.get("minutosPausa").getAsDouble() : null));
 			}
-			ses.add(new SesionRunning(s.get("semana").getAsInt(), s.get("fecha").getAsString(), bl));
+			int semana = s.get("semana").getAsInt();
+			String fecha;
+			if (s.has("fecha")) fecha = s.get("fecha").getAsString();
+			// el día numerado solo ordena: CALOREITOR asigna los días que marca Franco
+			else if (lunesDe.containsKey(semana))
+				fecha = lunesDe.get(semana).plusDays(s.has("dia") ? s.get("dia").getAsInt() - 1 : 0).toString();
+			else throw new IllegalArgumentException("La sesión no tiene fecha ni semana con lunes");
+			ses.add(new SesionRunning(semana, fecha, bl));
 		}
 		if (ses.isEmpty()) throw new IllegalArgumentException("El plan no tiene sesiones");
 		ses.sort(Comparator.comparing(SesionRunning::fecha));
