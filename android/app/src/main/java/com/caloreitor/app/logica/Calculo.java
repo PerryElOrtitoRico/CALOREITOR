@@ -12,7 +12,7 @@ public final class Calculo {
 	}
 
 	/** Coeficientes editables con su valor por defecto. */
-	public static final Map<String, Double> DEFECTOS = Map.ofEntries(Map.entry("factorBase", 1.1),
+	public static final Map<String, Double> DEFECTOS = Map.ofEntries(Map.entry("factorBase", 1.4),
 			Map.entry("kcalPorPasoPorKg", 0.0005), Map.entry("metZ1", 7.0), Map.entry("metZ2", 8.5),
 			Map.entry("metZ3", 10.0), Map.entry("metZ4", 11.5), Map.entry("metZ5", 13.0), Map.entry("minPorSerie", 2.5),
 			Map.entry("metGymBajo", 3.5), Map.entry("metGymMedio", 5.0), Map.entry("metGymAlto", 6.0),

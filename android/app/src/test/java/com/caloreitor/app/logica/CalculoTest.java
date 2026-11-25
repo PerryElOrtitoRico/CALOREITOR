@@ -35,7 +35,7 @@ class CalculoTest {
 
 	@Test void bmrYBase() {
 		assertEquals(1742.5, Calculo.bmr(perfil), 1e-9);
-		assertEquals(2141.75, Calculo.base(perfil, coef), 1e-9);
+		assertEquals(2664.5, Calculo.base(perfil, coef), 1e-9);
 	}
 
 	@Test void runningPorMinutosEnZona() {
@@ -60,17 +60,17 @@ class CalculoTest {
 
 	@Test void diaDeRunningParaBajar() {
 		var o = Calculo.objetivo(cfg(perfil, Modo.AUTOMATICO, Meta.BAJAR, coef), new EntrenamientoDia(null, correr(), null)).get();
-		assertEquals(2091.425, o.macros().kcal(), 1e-6);
+		assertEquals(2535.7625, o.macros().kcal(), 1e-6);
 		assertEquals(150, o.macros().proteinas(), 1e-6);
 		assertEquals(60, o.macros().grasas(), 1e-6);
-		assertEquals(237.85625, o.macros().carbohidratos(), 1e-6);
+		assertEquals(348.940625, o.macros().carbohidratos(), 1e-6);
 		assertTrue(o.explicacion().contains("Running"));
 	}
 
 	@Test void diaCombinadoSumaTodo() {
 		var dia = new EntrenamientoDia(gimnasio(), correr(), new SesionPlio(1, 1, 250, null));
 		var o = Calculo.objetivo(cfg(perfil, Modo.AUTOMATICO, Meta.MANTENER, coef), dia).get();
-		assertEquals(2612.285714, o.macros().kcal(), 1e-5);
+		assertEquals(3135.035714, o.macros().kcal(), 1e-5);
 		assertTrue(o.explicacion().contains("Gimnasio") && o.explicacion().contains("2688"));
 	}
 
