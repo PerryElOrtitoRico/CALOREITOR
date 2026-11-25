@@ -77,7 +77,7 @@ public final class PestanaConfiguracion extends JPanel {
 		this.sesion = sesion;
 		this.ajustes = ajustes;
 		this.alCambiar = alCambiar;
-		JPanel col = new JPanel();
+		JPanel col = new Columna();
 		col.setLayout(new BoxLayout(col, BoxLayout.Y_AXIS));
 		col.setBorder(BorderFactory.createEmptyBorder(12, 12, 12, 12));
 		col.add(seccion("Datos personales", perfilPanel()));
@@ -114,7 +114,8 @@ public final class PestanaConfiguracion extends JPanel {
 	}
 
 	private JPanel perfilPanel() {
-		JPanel p = new JPanel(new FlowLayout(FlowLayout.LEFT, 6, 2));
+		// grilla de 4 columnas (etiqueta, campo, etiqueta, campo): en un solo renglón ensanchaba toda la pestaña
+		JPanel p = new JPanel(new GridLayout(0, 4, 8, 4));
 		for (var par : List.of(Map.entry("Peso (kg)", peso), Map.entry("Altura (cm)", altura), Map.entry("Edad", edad), Map.entry("Pasos diarios", pasos))) {
 			p.add(new JLabel(par.getKey()));
 			p.add(marcar(par.getValue()));
@@ -177,7 +178,7 @@ public final class PestanaConfiguracion extends JPanel {
 	}
 
 	private JPanel manualPanel() {
-		JPanel p = new JPanel(new FlowLayout(FlowLayout.LEFT, 6, 2));
+		JPanel p = new JPanel(new GridLayout(0, 4, 8, 4));
 		for (var par : List.of(Map.entry("kcal", kcal), Map.entry("% proteínas", pProt), Map.entry("% carbohidratos", pCarb), Map.entry("% grasas", pGrasa))) {
 			p.add(new JLabel(par.getKey()));
 			p.add(marcar(par.getValue()));
@@ -459,5 +460,14 @@ public final class PestanaConfiguracion extends JPanel {
 		refrescarPlanes();
 		calculo.setText(sesion.objetivos().calcular(sesion.hoy()).map(o -> o.explicacion()).orElse(Textos.SIN_DATOS_PERSONALES));
 		calculo.setCaretPosition(0);
+	}
+
+	/** Se ajusta al ancho de la ventana: nada queda escondido a un costado; solo hay desplazamiento vertical. */
+	private static final class Columna extends JPanel implements javax.swing.Scrollable {
+		@Override public java.awt.Dimension getPreferredScrollableViewportSize() { return getPreferredSize(); }
+		@Override public int getScrollableUnitIncrement(java.awt.Rectangle r, int o, int d) { return 32; }
+		@Override public int getScrollableBlockIncrement(java.awt.Rectangle r, int o, int d) { return r.height - 32; }
+		@Override public boolean getScrollableTracksViewportWidth() { return true; }
+		@Override public boolean getScrollableTracksViewportHeight() { return false; }
 	}
 }
